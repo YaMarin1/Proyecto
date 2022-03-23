@@ -9,9 +9,11 @@
 		private $dbuser="root";
 		private $dbpass="root";
 		private $dbname="mundoanimal";
+
 		function __construct(){
 			$this->connect_db();
 		}
+
 		public function connect_db(){
 			$this->con = mysqli_connect($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);
 			if(mysqli_connect_error()){
@@ -21,53 +23,50 @@
 
         public function sanitize($var){
             $return = mysqli_real_escape_string($this->con, $var);
-            return $return;
-          }
+            	return $return;
+        }
 
         public function create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id){
             $sql = "INSERT INTO `usuarios` (documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('$documento','$nombre','$apellido','$telefono','$direccion','$username','$password','$rol_id')";
             $res = mysqli_query($this->con, $sql);
-            if($res){
-              return true;
-            }else{
-            return false;
+            	if($res){
+              		return true;
+            	}else{
+            		return false;
          }
         }
 
         public function read(){
             $sql = "SELECT * FROM usuarios";
             $res = mysqli_query($this->con, $sql);
-            return $res;
-            }
+            	return $res;
+        }
 
-            public function single_record($id_usuarios){
+        public function single_record($id_usuarios){
 			$sql = "SELECT * FROM usuarios where id_usuarios='$id_usuarios'";
 			$res = mysqli_query($this->con, $sql);
-			$return = mysqli_fetch_object($res );
-			return $return ;
+				$return = mysqli_fetch_object($res );
+					return $return ;
 		}
-		public function update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id){
+
+		public function update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_usuarios){
 			$sql = "UPDATE usuarios SET documento='$documento',nombre='$nombre', apellido='$apellido', telefono='$telefono', direccion='$direccion', username='$username', password='$password', rol_id='$rol_id' WHERE id_usuarios=$id_usuarios";
 			$res = mysqli_query($this->con, $sql);
-			if($res){
-				return true;
-			}else{
-				return false;
+				if($res){
+					return true;
+				}else{
+					return false;
 			}
 		}
 
         public function delete($id_usuarios){
             $sql = "DELETE FROM usuarios WHERE id_usuarios=$id_usuarios";
             $res = mysqli_query($this->con, $sql);
-            if($res){
-            return true;
-            }else{
-            return false;
+            	if($res){
+            		return true;
+            	}else{
+            		return false;
             }
-            }
-            
-            
-        
-          
+        }       
 }
 ?>

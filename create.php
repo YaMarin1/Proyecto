@@ -1,18 +1,17 @@
 <?php
 				include ("db/database.php");
-				$usuarios= new Database();
+				$clientes= new Database();
 				if(isset($_POST) && !empty($_POST)){
-					$documento = $usuarios->sanitize($_POST['documento']);
-					$nombre = $usuarios->sanitize($_POST['nombre']);
-					$apellido = $usuarios->sanitize($_POST['apellido']);
-					$telefono = $usuarios->sanitize($_POST['telefono']);
-					$direccion = $usuarios->sanitize($_POST['direccion']);
-					$username = $usuarios->sanitize($_POST['username']);
-					$password = $usuarios->sanitize($_POST['password']);
-					$rol_id = $usuarios->sanitize($_POST['rol_id']);
+					$documento = $clientes->sanitize($_POST['documento']);
+					$nombre = $clientes->sanitize($_POST['nombre']);
+					$apellido = $clientes->sanitize($_POST['apellido']);
+					$telefono = $clientes->sanitize($_POST['telefono']);
+					$direccion = $clientes->sanitize($_POST['direccion']);
+					$username = $clientes->sanitize($_POST['username']);
+					$password = $clientes->sanitize($_POST['password']);
+					$rol_id = $clientes->sanitize($_POST['rol_id']);
 					
-					
-					$res = $usuarios->create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id);
+					$res = $clientes->create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id);
 					if($res){
 						$message= "Datos insertados con éxito";
 						$class="alert alert-success";

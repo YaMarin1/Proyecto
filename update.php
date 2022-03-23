@@ -1,6 +1,6 @@
 <?php
 	if (isset($_GET['id_usuarios'])){
-		$id=intval($_GET['id_usuarios']);
+		$id_usuarios=intval($_GET['id_usuarios']);
 	} else {
 		header("location:index2.php");
 	}
@@ -26,7 +26,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Editar <b>Cliente</b></h2></div>
+                    <div class="col-sm-8"><h2>Editar <b>Usuarios</b></h2></div>
                     <div class="col-sm-4">
                         <a href="index2.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
                     </div>
@@ -35,20 +35,20 @@
             <?php
 				
 				include ("db/database.php");
-				$usuarios= new Database();
+				$clientes= new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
-					$documento = $usuarios->sanitize($_POST['documento']);
-					$nombre = $usuarios->sanitize($_POST['nombre']);
-					$apellido = $usuarios->sanitize($_POST['apellido']);
-					$telefono = $usuarios->sanitize($_POST['telefono']);
-					$direccion = $usuarios->sanitize($_POST['direccion']);
-					$username = $usuarios->sanitize($_POST['username']);
-					$password = $usuarios->sanitize($_POST['password']);
-					$rol_id = $usuarios->sanitize($_POST['rol_id']);
-					$id_usuarios=intval($_POST['id_usuarios']);
+					$documento = $clientes->sanitize($_POST['documento']);
+					$nombre = $clientes->sanitize($_POST['nombre']);
+					$apellido = $clientes->sanitize($_POST['apellido']);
+					$telefono = $clientes->sanitize($_POST['telefono']);
+					$direccion = $clientes->sanitize($_POST['direccion']);
+					$username = $clientes->sanitize($_POST['username']);
+					$password = $clientes->sanitize($_POST['password']);
+					$rol_id = $clientes->sanitize($_POST['rol_id']);
+					$id_cliente=intval($_POST['id_cliente']);
 
-					$res = $usuarios->update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_usuarios);
+					$res = $clientes->update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_cliente);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -60,25 +60,26 @@
 					
 					?>
 					
-				<div class="<?php echo $class?>"
+				<div class="<?php echo $class?>">
 				  <?php echo $message;?>
 				</div>	
 					<?php
-				}
-					$datos_cliente=$usuarios->single_record($id_usuarios);
-				
-				
-			?>
+					}
+					$datos_cliente=$clientes->single_record($id_usuarios);
+					
+					?>
+
 			<div class="row">
 				<form method="post">
 				<div class="col-md-6">
 					<label>Documento:</label>
 					<input type="number" name="documento" id="documento" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->documento;?>">
+					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->id_usuarios;?>">
 				</div>
 				<div class="col-md-6">
 					<label>Nombre:</label>
 					<input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->nombre;?>">
-					<input type="hidden" name="id_usuarios" id="id_usuarios" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->id_usuarios;?>">
+					
 				</div>
 				<div class="col-md-6">
 					<label>Apellido:</label>

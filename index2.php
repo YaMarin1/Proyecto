@@ -31,6 +31,7 @@ $usuarios = new Database();
                     </div>
                     <div class="col-sm-4">
                         <a href="create.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar cliente</a>
+                        <a href="admin.php" class="btn btn-info add-new">Volver</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +40,6 @@ $usuarios = new Database();
                     <tr>
                         <th>Documento</th>
                         <<th>Nombre</th>
-                        <th>Apellido</th>
                         <th>Telefono</th>
                         <th>Dirección</th>
                         <th>Username</th>
@@ -59,8 +59,7 @@ $listado=$usuarios->read();
 while ($row=mysqli_fetch_object($listado)){
 $id_usuarios=$row->id_usuarios;
 $documento=$row->documento;
-$nombre=$row->nombre;
-$apellido=$row->apellido;
+$nombre=$row->nombre. " " .$row->apellido;
 $telefono=$row->telefono;
 $direccion=$row->direccion;
 $username=$row->username;
@@ -70,7 +69,6 @@ $rol_id=$row->rol_id;
                     <tr>
                         <td><?php echo $documento;?></td>
                         <td><?php echo $nombre;?></td>
-                        <td><?php echo $apellido;?></td>
                         <td><?php echo $telefono;?></td>
                         <td><?php echo $direccion;?></td>
                         <td><?php echo $username;?></td>
