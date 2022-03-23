@@ -35,7 +35,7 @@
             <?php
 				
 				include ("db/database.php");
-				$clientes= new Database();
+				$usuarios= new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
 					$documento = $usuarios->sanitize($_POST['documento']);
@@ -60,12 +60,13 @@
 					
 					?>
 					
-				<div class="<?php echo $class?>">
+				<div class="<?php echo $class?>"
 				  <?php echo $message;?>
 				</div>	
 					<?php
-					$datos_cliente=$usuarios->single_record($id_usuarios);
 				}
+					$datos_cliente=$usuarios->single_record($id_usuarios);
+				
 				
 			?>
 			<div class="row">
