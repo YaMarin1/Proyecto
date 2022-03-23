@@ -19,10 +19,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Admin</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body>
     <h1>Administrador</h1>
-    <small style="float:right"><a href="logout.php">Cerrar la sesión</a></small>
-    <small style="float:right"><a href="create.php">Crear usuario</a></small>
+    <a href="logout.php" class="btn btn-info add-new" style="float:center">Cerrar sesion</a>
+    <a href="create.php" class="btn btn-info add-new" style="float:center">Crear usuario</a>
 </body>
 </html>

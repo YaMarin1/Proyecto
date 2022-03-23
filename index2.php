@@ -1,4 +1,6 @@
 <?php 
+    
+
 include ('db/database.php');
 $usuarios = new Database();
 ?>
@@ -30,9 +32,9 @@ $usuarios = new Database();
                         <h2>Listado de <b>Usuarios</b></h2>
                     </div>
                     <div class="col-sm-4">
-                        <a href="create.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar cliente</a>
-                        <a href="admin.php" class="btn btn-info add-new">Volver</a>
-                    </div>
+                        <a href="admin.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Volver</a>
+                        <a href="create.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar usuario</a>
+                        </div>
                 </div>
             </div>
             <table class="table table-bordered">

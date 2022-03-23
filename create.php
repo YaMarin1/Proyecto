@@ -51,7 +51,7 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Agregar <b>Cliente</b></h2></div>
+                    <div class="col-sm-8"><h2>Agregar <b>Usuario</b></h2></div>
                     <div class="col-sm-4">
                         <a href="index2.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
                     </div>
