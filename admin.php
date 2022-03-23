@@ -23,5 +23,6 @@
 <body>
     <h1>Administrador</h1>
     <small style="float:right"><a href="logout.php">Cerrar la sesión</a></small>
+    <small style="float:right"><a href="create.php">Crear usuario</a></small>
 </body>
 </html>
