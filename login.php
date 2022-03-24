@@ -2,8 +2,6 @@
     include_once 'database.php';
     
     session_start();
-
-    
     
     if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
@@ -12,7 +10,7 @@
             break;
 
             case 2:
-            header('location: colab.php');
+            header('location: ofertas.php');
             break;
 
             default:
@@ -24,7 +22,7 @@
         $password = $_POST['password'];
 
         $db = new Database();
-        $query = $db->connect()->prepare('SELECT *FROM usuarios WHERE username = :username AND password = :password');
+        $query = $db->connect()->prepare('SELECT * FROM usuarios WHERE username = :username AND password = :password');
         $query->execute(['username' => $username, 'password' => $password]);
 
         $row = $query->fetch(PDO::FETCH_NUM);
@@ -39,7 +37,7 @@
                 break;
 
                 case 2:
-                header('location: colab.php');
+                header('location: ofertas.php');
                 break;
 
                 default:
@@ -63,7 +61,7 @@
     <title>Iniciar sesión</title>
     <link rel="stylesheet" href="css/nicepage.css" media="screen">
 <link rel="stylesheet" href="css/iniciosesion.css" media="screen">
-    <script class="u-script" type="text/javascript" src="js/jquery.js" defer=""></script>
+<script class="u-script" type="text/javascript" src="js/jquery2.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
@@ -129,8 +127,7 @@
                       <label for="password" class="u-label">Clave *</label>
                       <input type="password" id="password" placeholder="Introduzca su contraseña" name="password" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="required">
                     </div>
-                    
-                    <input type="submit" value="Iniciar sesión" onclick="location.reload()"> 
+                    <input type="submit" class="btn btn-dark" value="Iniciar sesión"> 
                     </form>
                 </div>
               </div>
