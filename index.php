@@ -20,8 +20,7 @@
 		"@type": "Organization",
 		"name": "",
 		"logo": "images/MundoAnimal.png",
-		"sameAs": []
-}
+		"sameAs": []}
 </script>
     <meta name="theme-color" content="#478ac9">
     <meta property="og:title" content="index">
