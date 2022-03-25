@@ -15,7 +15,8 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('71740075','Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
 
 select * from usuarios;
-select * from roles;
+
+
 
 -- -----------------------------------------------------
 -- Table Categoria
@@ -80,7 +81,7 @@ CREATE TABLE usuarios (
   telefono VARCHAR(45) NOT NULL,
   direccion VARCHAR(45) NOT NULL,
   username VARCHAR(45) NOT NULL,
-  Password VARCHAR(10) NOT NULL,
+  password VARCHAR(10) NOT NULL,
   rol_id INT NOT NULL);
   
   ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
@@ -465,6 +466,4 @@ BEGIN
  VALUES(g_fecha,g_total,g_usuario_id,g_empleado_id);
 END ##
 DELIMITER ;
-call sp_InsertarProducto('',,,);
-call sp_MostrarEmpleado;
-call sp_MostrarUsuario;
+call sp_InsertarFactura('15-03-2022',16500,7,2);

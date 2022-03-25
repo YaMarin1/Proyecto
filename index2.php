@@ -41,7 +41,7 @@ $usuarios = new Database();
                 <thead>
                     <tr>
                         <th>Documento</th>
-                        <<th>Nombre</th>
+                        <th>Nombre</th>
                         <th>Telefono</th>
                         <th>Dirección</th>
                         <th>Username</th>
