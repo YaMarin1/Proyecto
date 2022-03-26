@@ -1,7 +1,7 @@
 <?php 
     
 
-include ('db/database.php');
+include ('../db/database.php');
 $usuarios = new Database();
 ?>
 
@@ -31,8 +31,8 @@ $usuarios = new Database();
                         <h2>Listado de <b>Usuarios</b></h2>
                     </div>
                     <div class="col-sm-4">
-                        <a href="view/admin.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Volver</a>
-                        <a href="create.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar usuario</a>
+                        <a href="../view/admin.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Volver</a>
+                        <a href="createUser.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar usuario</a>
                         </div>
                 </div>
             </div>
@@ -73,9 +73,9 @@ $usuarios = new Database();
                         <td><?php echo $password;?></td>
                         <td><?php echo $rol_id;?></td>
                         <td>
-                            <a href="update.php?id_usuarios=<?php echo $id_usuarios;?>" class="edit" title="Editar"
+                            <a href="updateUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="edit" title="Editar"
                                 data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                            <a href="delete.php?id_usuarios=<?php echo $id_usuarios;?>" class="delete" title="Eliminar"
+                            <a href="deleteUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="delete" title="Eliminar"
                                 data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                         </td>
                     </tr>

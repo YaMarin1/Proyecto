@@ -1,5 +1,5 @@
 <?php
-				include ("db/database.php");
+				include ("../db/database.php");
 				$clientes= new Database();
 				if(isset($_POST) && !empty($_POST)){
 					$documento = $clientes->sanitize($_POST['documento']);
@@ -53,7 +53,7 @@
                 <div class="row">
                     <div class="col-sm-8"><h2>Agregar <b>Usuario</b></h2></div>
                     <div class="col-sm-4">
-                        <a href="index2.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
+                        <a href="mostrarUser.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Regresar</a>
                     </div>
                 </div>
             </div>
