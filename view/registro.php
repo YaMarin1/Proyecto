@@ -1,7 +1,7 @@
 <?php 
-    include 'database.php';
-    include 'model/RegistroModel.php';
-    include 'controller/RegistroController.php';
+    include '../database.php';
+    include '../model/RegistroModel.php';
+    include '../controller/RegistroController.php';
 ?>
 
 <!doctype html>
@@ -22,8 +22,8 @@
    </script> 
 
   <!-- Custom styles for this template -->
-  <link href="css/loginregistro.css" rel="stylesheet">
-  <link href="css/footer.css" rel="stylesheet">
+  <link href="../css/loginregistro.css" rel="stylesheet">
+  <link href="../css/footer.css" rel="stylesheet">
 </head>
 
 <body class="text-center">
@@ -40,7 +40,7 @@
           <ul class="navbar-nav">
             
             <li class="nav-item">
-              <a class="nav-link" href="index.php">INICIO</a>
+              <a class="nav-link" href="../index.php">INICIO</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
@@ -56,7 +56,7 @@
   <section>
     <main class="form-signin">
       <form action="#" method="POST">
-        <img class="mb-4" src="images/MundoAnimal.png" alt="" width="100" height="100">
+        <img class="mb-4" src="../images/MundoAnimal.png" alt="" width="100" height="100">
 
         <div class="form-floating">
           <input type="text" name="documento" id="documento" class="form-control" required="">

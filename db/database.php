@@ -53,7 +53,6 @@
 			$sql = "UPDATE usuarios SET documento='$documento',nombre='$nombre', apellido='$apellido', telefono='$telefono', direccion='$direccion', username='$username', password='$password', rol_id='$rol_id' WHERE id_usuarios=$id_usuarios";
 			$res = mysqli_query($this->con, $sql);
 				if($res){
-					MostrarAlerta();
 					return true;
 				}else{
 					return false;

@@ -31,7 +31,7 @@ $usuarios = new Database();
                         <h2>Listado de <b>Usuarios</b></h2>
                     </div>
                     <div class="col-sm-4">
-                        <a href="admin.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Volver</a>
+                        <a href="view/admin.php" class="btn btn-info add-new"><i class="fa fa-arrow-left"></i> Volver</a>
                         <a href="create.php" class="btn btn-info add-new"><i class="fa fa-plus"></i> Agregar usuario</a>
                         </div>
                 </div>

@@ -25,6 +25,6 @@
 <body>
     <h1>Administrador</h1>
     <a href="logout.php" class="btn btn-info add-new" style="float:center">Cerrar sesion</a>
-    <a href="create.php" class="btn btn-info add-new" style="float:center">Crear usuario</a>
+    <a href="../create.php" class="btn btn-info add-new" style="float:center">Crear usuario</a>
 </body>
 </html>

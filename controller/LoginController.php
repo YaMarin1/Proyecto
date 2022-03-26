@@ -1,16 +1,16 @@
 <?php
-    include_once 'database.php';
+    include_once '../database.php';
     
     session_start();
     
     if(isset($_SESSION['rol'])){
         switch($_SESSION['rol']){
             case 1:
-                header('location: admin.php');
+                header('location: ../view/admin.php');
             break;
 
             case 2:
-            header('location: ofertas.php');
+            header('location: ../view/ofertas.php');
             break;
 
             default:
@@ -33,11 +33,11 @@
             $_SESSION['rol'] = $rol;
             switch($rol){
                 case 1:
-                    header('location: admin.php');
+                    header('location: ../view/admin.php');
                 break;
 
                 case 2:
-                header('location: ofertas.php');
+                header('location: ../view/ofertas.php');
                 break;
 
                 default:
