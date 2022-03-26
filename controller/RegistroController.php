@@ -1,16 +1,16 @@
-<?php 
-    echo '$_POST['documento'];';
-if(isset($_POST['documento'])){
+<?php
+
+    if(isset($_POST['documento'])){
     /**Se guarda la informacion del POST en variables */
     
-    $documento=$_POST['documento'];
-	$nombre=$_POST['nombre'];
-    $apellido=$_POST['apellido'];
-	$telefono=$_POST['telefono'];
-	$direccion=$_POST['direccion'];
-    $username=$_POST['username'];
-    $password=$_POST['password'];
-    $rol_id = 2;
+        $documento=$_POST['documento'];
+        $nombre=$_POST['nombre'];
+        $apellido=$_POST['apellido'];
+        $telefono=$_POST['telefono'];
+        $direccion=$_POST['direccion'];
+        $username=$_POST['username'];
+        $password=$_POST['password'];
+        $rol_id = 2;
     
     /**Se valia que ninguno dato del POST llego vacio*/
     if(empty($documento) || empty($nombre) || empty($apellido) || empty($telefono) || empty($direccion) || empty($username) || empty($password)){
@@ -21,9 +21,12 @@ if(isset($_POST['documento'])){
 
         /**Se llama el metodo insertRegistro*/
         if($registro->insertRegistro($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id)){
-            header('Location: login.php');
+            header('Location: registro.php');
         }else{
-         echo '<div class="alert alert-danger">Usuario registrado correctamente</div>';
+         echo '<div class="alert alert-danger" role="alert">
+                    Usuario registrado correctamente
+            </div>';
+            
         }
     }
 

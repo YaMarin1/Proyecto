@@ -43,10 +43,13 @@
                 default:
             }
         }else{
-            // no existe el usuario
-            echo "Nombre de usuario o contraseña incorrecto";
+            // No existe el usuario
+            echo '<div class="alert alert-danger" role="alert">
+                Nombre de usuario o contraseña incorrecto
+            </div>';
+            
         }
-        
+            
     }
 
 ?>

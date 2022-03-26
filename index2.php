@@ -17,7 +17,6 @@ $usuarios = new Database();
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -39,7 +38,7 @@ $usuarios = new Database();
             </div>
             <table class="table table-bordered">
                 <thead>
-                    <tr>
+                    <tr class="table-primary">
                         <th>Documento</th>
                         <th>Nombre</th>
                         <th>Telefono</th>
@@ -53,21 +52,18 @@ $usuarios = new Database();
                 </thead>
 
                 <tbody>
+                    <?php $listado=$usuarios->read(); ?>
                     <?php 
-
-$listado=$usuarios->read();
-?>
-                    <?php 
-while ($row=mysqli_fetch_object($listado)){
-$id_usuarios=$row->id_usuarios;
-$documento=$row->documento;
-$nombre=$row->nombre. " " .$row->apellido;
-$telefono=$row->telefono;
-$direccion=$row->direccion;
-$username=$row->username;
-$password=$row->password;
-$rol_id=$row->rol_id;
-?>
+                        while ($row=mysqli_fetch_object($listado)){
+                            $id_usuarios=$row->id_usuarios;
+                            $documento=$row->documento;
+                            $nombre=$row->nombre. " " .$row->apellido;
+                            $telefono=$row->telefono;
+                            $direccion=$row->direccion;
+                            $username=$row->username;
+                            $password=$row->password;
+                            $rol_id=$row->rol_id;
+                            ?>
                     <tr>
                         <td><?php echo $documento;?></td>
                         <td><?php echo $nombre;?></td>
@@ -92,5 +88,4 @@ $rol_id=$row->rol_id;
         </div>
     </div>
 </body>
-
 </html>

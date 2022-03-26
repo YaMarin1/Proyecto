@@ -62,7 +62,7 @@
           </div>
         </div>
         <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1000" data-image-height="1500"></div>
-        <h5 class="u-align-justify u-text u-text-body-color u-text-2">Are you ready to start training your dog or puppy? Proper training and socialization are among your dog's basic needs. It's important to start training your dog as soon as possible.</h5>
+        <h5 class="u-align-justify u-text u-text-body-color u-text-2">¿Estás listo para comenzar a entrenar a tu perro o cachorro? El entrenamiento adecuado y la socialización se encuentran entre las necesidades básicas de su perro. Es importante comenzar a entrenar a su perro lo antes posible.</h5>
       </div>
     </section>
     <section class="u-align-center u-clearfix u-palette-5-light-1 u-section-2" id="carousel_1f8d">
@@ -73,8 +73,7 @@
               <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
                 <div class="u-container-layout u-valign-middle u-container-layout-1">
                   <h2 class="u-text u-text-body-alt-color u-text-1">About Us</h2>
-                  <p class="u-text u-text-body-alt-color u-text-2">Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Tempus urna et pharetra pharetra massa massa ultricies mi quis. Ut faucibus pulvinar elementum <a href="https://nicepage.com" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-white u-btn-1">integer</a> enim neque volutpat. Augue mauris augue neque gravida in. Venenatis cras sed felis eget velit aliquet sagittis. Morbi leo urna molestie at.<br>
-                    <br>Image from <a href="https://www.freepik.com/photos/woman" class="u-active-none u-border-1 u-border-white u-btn u-button-link u-button-style u-hover-none u-none u-text-body-alt-color u-btn-2">Freepik</a>
+                  <p class="u-text u-text-body-alt-color u-text-2">Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Tempus urna et pharetra pharetra massa massa ultricies mi quis. Ut faucibus pulvinar elementum enim neque volutpat. Augue mauris augue neque gravida in. Venenatis cras sed felis eget velit aliquet sagittis. Morbi leo urna molestie at.<br>
                   </p>
                 </div>
               </div>

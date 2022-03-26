@@ -62,11 +62,11 @@
 				<form method="post">
 				<div class="col-md-6">
 					<label>Documento:</label>
-					<input type="number" name="documento" id="documento" class='form-control' maxlength="12" required >
+					<input type="number" name="documento" id="documento" class='form-control' maxlength="12" required>
 				</div>
 				<div class="col-md-6">
 					<label>Nombre:</label>
-					<input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required >
+					<input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required>
 				</div>
 				<div class="col-md-6">
 					<label>Apellido:</label>
@@ -78,7 +78,7 @@
 				</div>
 				<div class="col-md-6">
 					<label>Teléfono:</label>
-					<input type="text" name="telefono" id="telefono" class='form-control' maxlength="15" required >
+					<input type="text" name="telefono" id="telefono" class='form-control' maxlength="15" required>
 				</div>
 				<div class="col-md-6">
 					<label>Username:</label>

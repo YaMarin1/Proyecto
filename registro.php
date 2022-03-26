@@ -59,38 +59,38 @@
         <img class="mb-4" src="images/MundoAnimal.png" alt="" width="100" height="100">
 
         <div class="form-floating">
-          <input type="text" id="documento" class="form-control" required="">
-          <label for="documento" name="documento">Documento *</label>
+          <input type="text" name="documento" id="documento" class="form-control" required="">
+          <label for="documento">Documento *</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" id="nombre" class="form-control" required="">
-          <label name="nombre" for="nombre">Nombre *</label>
+          <input type="text" name="nombre" id="nombre" class="form-control" required="">
+          <label for="nombre">Nombre *</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" id="apellido" class="form-control"  required="">
-          <label name="apellido" for="apellido">Apellido *</label>
+          <input type="text" name="apellido" id="apellido" class="form-control"  required="">
+          <label  for="apellido">Apellido *</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" id="telefono" class="form-control"  required="">
-          <label name="telefono" for="telefono">Telefono *</label>
+          <input type="text" name="telefono" id="telefono" class="form-control"  required="">
+          <label  for="telefono">Telefono *</label>
         </div>
 
         <div class="form-floating">
-          <input type="text" id="direccion" class="form-control" required="">
-          <label name="direccion" for="direccion">Direccion *</label>
+          <input type="text" name="direccion" id="direccion" class="form-control" required="">
+          <label  for="direccion">Direccion *</label>
         </div>
 
         <div class="form-floating">
-          <input type="email" id="username" class="form-control" required="">
-          <label name="username" for="username">Correo *</label>
+          <input type="email" name="username" id="username" class="form-control" required="">
+          <label  for="username">Correo *</label>
         </div>
 
         <div class="form-floating">
-          <input type="password" id="password" class="form-control" required="">
-          <label name="password" for="password">Clave *</label>
+          <input type="password" name="password" id="password" class="form-control" required="">
+          <label  for="password">Clave *</label>
         </div>
         <input type="submit" value="Registrarme" class="w-100 btn btn-lg btn-dark">
       </form>
