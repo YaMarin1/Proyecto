@@ -13,18 +13,7 @@
     <script class="u-script" type="text/javascript" src="js/nicepage.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
-    
 
-    <script type="application/ld+json">{
-		"@context": "http://schema.org",
-		"@type": "Organization",
-		"name": "",
-		"logo": "../images/MundoAnimal.png",
-		"sameAs": []}
-</script>
-    <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="index">
-    <meta property="og:type" content="website">
   </head>
   <body class="u-body u-xl-mode"><header class="u-clearfix u-custom-color-1 u-header u-sticky u-sticky-1a32 u-header" id="sec-090a"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="index.php" class="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
