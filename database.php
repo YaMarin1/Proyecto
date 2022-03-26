@@ -12,7 +12,7 @@ Class Database{
         $this->host = 'localhost';
         $this->db = 'mundoanimal';
         $this->user = 'root';
-        $this->password = '';
+        $this->password = 'root';
         $this->charset = 'utf8mb4';
     }
 
