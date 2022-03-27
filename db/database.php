@@ -68,5 +68,53 @@
             		return false;
             }
         }
+
+
+
+
+		public function createCat($nombreca){
+            $sql = "INSERT INTO `categoria` (nombreca) VALUES ('$nombreca')";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+              		return true;
+            	}else{
+            		return false;
+         }
+        }
+
+        public function readCat(){
+            $sql = "SELECT * FROM categoria";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
+
+        public function single_recordCat($idcategoria){
+			$sql = "SELECT * FROM categoria where idcategoria='$idcategoria'";
+			$res = mysqli_query($this->con, $sql);
+				$return = mysqli_fetch_object($res );
+					return $return ;
+		}
+
+		public function updateCat($nombre,$idcategoria){
+			$sql = "UPDATE categoria SET nombre='$nombre' WHERE idcategoria=$nombre";
+			$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+			}
+		}
+
+        public function deleteCat($idcategoria){
+            $sql = "DELETE FROM categoria WHERE idcategoria=$idcategoria";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+            		return true;
+            	}else{
+            		return false;
+            }
+        }
+
+		
 }
 ?>

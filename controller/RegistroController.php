@@ -21,7 +21,7 @@
 
         /**Se llama el metodo insertRegistro*/
         if($registro->insertRegistro($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id)){
-            header('Location: ../view/registro.php');
+            header('Location: ../view/login.php');
         }else{
          echo '<div class="alert alert-danger" role="alert">
                     Usuario registrado correctamente

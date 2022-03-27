@@ -1,18 +1,9 @@
 <?php
-
-    session_start();
-
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
-?>
-<?php 
-include ('../db/database.php');
-$usuarios = new Database();
+	if (isset($_GET['idcategoria'])){
+		$idcategoria=intval($_GET['idcategoria']);
+	} else {
+		header("location:categoria.php");
+	}
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,7 +18,7 @@ $usuarios = new Database();
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+    
     
     <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
@@ -52,7 +43,7 @@ $usuarios = new Database();
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="admin.php">
+            <a class="nav-link" href="../view/admin.php">
               <span data-feather="home"></span>
               Panel admin
             </a>
@@ -70,7 +61,7 @@ $usuarios = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="user.php">
+            <a class="nav-link active" href="user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
@@ -102,14 +93,67 @@ $usuarios = new Database();
         </div>
       </div>
 
+	  <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Editar <b>Categoria</b></h2></div>
+					<div class="col-sm-4">
+            			<a href="../view/categoria.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Volver</a>
+          			</div>
+                </div>
+            </div>
+            <?php
+				
+				include ("../db/database.php");
+				$categoria= new Database();
+				
+				if(isset($_POST) && !empty($_POST)){
+					$nombreca = $categoria->sanitize($_POST['nombreca']);
+					$id_clientes2=intval($_POST['id_clientes2']);
+
+					$res = $categoria->updateCat($nombreca,$idcategoria);
+					if($res){
+						$message= "Datos actualizados con éxito";
+						$class="alert alert-success";
+						
+					}else{
+						$message="No se pudieron actualizar los datos";
+						$class="alert alert-danger";
+					}
+					
+					?>
+					
+				<div class="<?php echo $class?>">
+				  <?php echo $message;?>
+				</div>	
+					<?php
+					}
+					$datos_categoria=$categoria->single_record($idcategoria);
+					
+					?>
+
+			<div class="row">
+				<form method="post">
+				<div class="col-md-6">
+					<label>Nombre:</label>
+					<input type="text" name="nombreca" id="nombreca" class='form-control' maxlength="45" required value="<?php echo $datos_categoria->nombreca;?>">
+					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_categoria->idcategoria;?>">
+				</div>
+				
+				<div>
+				<hr>
+					<button type="submit" class="btn btn-success">Actualizar datos</button>
+				</div>
+				</form>
+			</div>
+        </div>
+    </div> 
       
       
     </main>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-    <script src="../js/dashboard.js"></script>
-    </body>
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
+  </body>
 </html>

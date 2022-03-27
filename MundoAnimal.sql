@@ -15,54 +15,55 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('71740075','Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
 
 select * from usuarios;
-
+select * from categoria;
+INSERT INTO categoria(nombreca) VALUES ('Alimento');
 
 
 
 -- -----------------------------------------------------
 -- Table Categoria
 -- -----------------------------------------------------
-CREATE TABLE Categoria (
-  idCategoria INT AUTO_INCREMENT PRIMARY KEY,
-  Nombre VARCHAR(45) NOT NULL);
+CREATE TABLE categoria (
+  idcategoria INT AUTO_INCREMENT PRIMARY KEY,
+  nombreca VARCHAR(45) NOT NULL);
 
 -- -----------------------------------------------------
 -- Table Proveedor
 -- -----------------------------------------------------
-CREATE TABLE  Proveedor (
-  idProveedor INT AUTO_INCREMENT PRIMARY KEY,
-  Documento VARCHAR(45) NOT NULL,
-  Nombre VARCHAR(45) NOT NULL);
+CREATE TABLE  proveedor (
+  idproveedor INT AUTO_INCREMENT PRIMARY KEY,
+  documento VARCHAR(45) NOT NULL,
+  nombre VARCHAR(45) NOT NULL);
 
 -- -----------------------------------------------------
 -- Table Productos
 -- -----------------------------------------------------
-CREATE TABLE Productos (
-  idProductos INT AUTO_INCREMENT PRIMARY KEY,
-  Descripcion VARCHAR(45) NOT NULL,
-  Precio DOUBLE NOT NULL,
-  Iva DOUBLE NOT NULL,
-  Existencias INT NOT NULL,
-  Categoria_id INT NOT NULL,
-  Proveedor_id INT NOT NULL);
+CREATE TABLE productos (
+  idproductos INT AUTO_INCREMENT PRIMARY KEY,
+  descripcion VARCHAR(45) NOT NULL,
+  precio DOUBLE NOT NULL,
+  iva DOUBLE NOT NULL,
+  existencias INT NOT NULL,
+  categoria_id INT NOT NULL,
+  proveedor_id INT NOT NULL);
 
-ALTER TABLE Productos ADD FOREIGN KEY (Proveedor_id) REFERENCES Proveedor(idProveedor);
-ALTER TABLE Productos ADD FOREIGN KEY (Categoria_id) REFERENCES Categoria(idCategoria);
+ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
+ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria);
 
 -- -----------------------------------------------------
 -- Table KardexProducto
 -- -----------------------------------------------------
-CREATE TABLE KardexProducto (
-  idKardexProducto INT AUTO_INCREMENT PRIMARY KEY,
-  FechaK DATE NOT NULL,
-  DetalleK VARCHAR(45) NOT NULL,
-  CantidadEntradaK INT NOT NULL,
-  CostoEntradaK DOUBLE NOT NULL,
-  CantidadSalidaK INT NOT NULL,
-  CostoSalidaK DOUBLE NOT NULL,
-  Productos_id INT NOT NULL);
+CREATE TABLE kardexproducto (
+  idkardexproducto INT AUTO_INCREMENT PRIMARY KEY,
+  fechaK DATE NOT NULL,
+  detalleK VARCHAR(45) NOT NULL,
+  cantidadEntradak INT NOT NULL,
+  costoEntradak DOUBLE NOT NULL,
+  cantidadSalidak INT NOT NULL,
+  costoSalidak DOUBLE NOT NULL,
+  productos_id INT NOT NULL);
 
-ALTER TABLE KardexProducto ADD FOREIGN KEY (Productos_id) REFERENCES Productos(idProductos);
+ALTER TABLE kardexproducto ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 
 -- -----------------------------------------------------
 -- Table Roles
@@ -90,44 +91,44 @@ CREATE TABLE usuarios (
 -- -----------------------------------------------------
 -- Table Empleado
 -- -----------------------------------------------------
-CREATE TABLE Empleado (
-  idEmpleado INT AUTO_INCREMENT PRIMARY KEY,
-  Nombre VARCHAR(45) NOT NULL,
+CREATE TABLE empleado (
+  idempleado INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(45) NOT NULL,
   username VARCHAR(45) NOT NULL,
   Password VARCHAR(10) NOT NULL,
   rol_id INT NOT NULL);
   
-  ALTER TABLE Empleado ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
+  ALTER TABLE empleado ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
 
 -- -----------------------------------------------------
 -- Table Factura
 -- -----------------------------------------------------
-CREATE TABLE Factura (
-  idFactura INT AUTO_INCREMENT PRIMARY KEY,
-  Fecha DATE NOT NULL,
-  Total DOUBLE NOT NULL,
-  Usuario_id INT NOT NULL,
-  Empleado_id INT NOT NULL);
+CREATE TABLE factura (
+  idfactura INT AUTO_INCREMENT PRIMARY KEY,
+  fecha DATE NOT NULL,
+  total DOUBLE NOT NULL,
+  usuario_id INT NOT NULL,
+  empleado_id INT NOT NULL);
   
-  ALTER TABLE Factura ADD FOREIGN KEY (Usuario_id) REFERENCES usuarios(id_usuarios);
-  ALTER TABLE Factura ADD FOREIGN KEY (Empleado_id) REFERENCES Empleado(idEmpleado);
+  ALTER TABLE factura ADD FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuarios);
+  ALTER TABLE factura ADD FOREIGN KEY (empleado_id) REFERENCES empleado(idempleado);
 
 -- -----------------------------------------------------
 -- Table Detalle_factura
 -- -----------------------------------------------------
-CREATE TABLE Detalle_factura(
-  idDetalle_factura INT AUTO_INCREMENT PRIMARY KEY,
-  Descripcion VARCHAR(45) NOT NULL,
-  Precio DOUBLE NOT NULL,
-  Iva DOUBLE NOT NULL,
-  Cantidad INT NOT NULL,
-  Devolucion VARCHAR(45) NOT NULL,
-  Subtotal DOUBLE NOT NULL,
-  Productos_id INT NOT NULL,
-  Factura_id INT NOT NULL);
+CREATE TABLE detalle_factura(
+  iddetalle_factura INT AUTO_INCREMENT PRIMARY KEY,
+  descripcion VARCHAR(45) NOT NULL,
+  precio DOUBLE NOT NULL,
+  iva DOUBLE NOT NULL,
+  cantidad INT NOT NULL,
+  devolucion VARCHAR(45) NOT NULL,
+  subtotal DOUBLE NOT NULL,
+  productos_id INT NOT NULL,
+  factura_id INT NOT NULL);
   
-  ALTER TABLE Detalle_factura ADD FOREIGN KEY (Productos_id) REFERENCES Productos(idProductos);
-  ALTER TABLE Detalle_factura ADD FOREIGN KEY (Factura_id) REFERENCES Empleado(idEmpleado);
+  ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
+  ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES empleado(idempleado);
 
 -- ---------------------------------------------------------- --
 -- --------------------- PROCEDIMIENTOS --------------------- --
