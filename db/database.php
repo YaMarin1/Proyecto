@@ -72,8 +72,8 @@
 
 
 
-		public function createCat($nombreca){
-            $sql = "INSERT INTO `categoria` (nombreca) VALUES ('$nombreca')";
+		public function createCat($nombrec){
+            $sql = "INSERT INTO categoria (nombrec) VALUES ('$nombrec')";
             $res = mysqli_query($this->con, $sql);
             	if($res){
               		return true;
@@ -95,8 +95,8 @@
 					return $return ;
 		}
 
-		public function updateCat($nombre,$idcategoria){
-			$sql = "UPDATE categoria SET nombre='$nombre' WHERE idcategoria=$nombre";
+		public function updateCat($nombrec,$idcategoria){
+			$sql = "UPDATE categoria SET nombrec='$nombrec' WHERE idcategoria=$idcategoria";
 			$res = mysqli_query($this->con, $sql);
 				if($res){
 					return true;

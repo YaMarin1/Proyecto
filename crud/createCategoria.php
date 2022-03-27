@@ -2,9 +2,9 @@
 				include ("../db/database.php");
 				$categoria = new Database();
 				if(isset($_POST) && !empty($_POST)){
-					$nombreca = $categoria->sanitize($_POST['nombreca']);
+					$nombrec = $categoria->sanitize($_POST['nombrec']);
 					
-					$res = $categoria->createCat($nombreca);
+					$res = $categoria->createCat($nombrec);
 					if($res){
 						$message= "Datos insertados con éxito";
 						$class="alert alert-success";
@@ -124,7 +124,7 @@
 				<form method="post">
 				<div class="col-md-6">
 					<label>Nombre:</label>
-					<input type="text" name="nombreca" id="nombreca" class='form-control' maxlength="100" required>
+					<input type="text" name="nombrec" id="nombrec" class='form-control' maxlength="100" required>
 				</div>
 				
 				<div class="col-md-12 pull-right">

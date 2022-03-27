@@ -49,31 +49,31 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../view/factura.php">
               <span data-feather="file"></span>
               Facturas
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../view/productos.php">
               <span data-feather="shopping-cart"></span>
               Productos
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="user.php">
+            <a class="nav-link active" href="../view/user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../view/empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categoria.php">
+            <a class="nav-link" href="../view/categoria.php">
               <span data-feather="layers"></span>
               Categorias
             </a>
@@ -106,13 +106,13 @@
             <?php
 				
 				include ("../db/database.php");
-				$categoria= new Database();
+				$categoria = new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
-					$nombreca = $categoria->sanitize($_POST['nombreca']);
-					$id_clientes2=intval($_POST['id_clientes2']);
+					$nombrec = $categoria->sanitize($_POST['nombrec']);
+					$id_cliente=intval($_POST['id_cliente']);
 
-					$res = $categoria->updateCat($nombreca,$idcategoria);
+					$res = $categoria->updateCat($nombrec,$id_cliente);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -137,7 +137,7 @@
 				<form method="post">
 				<div class="col-md-6">
 					<label>Nombre:</label>
-					<input type="text" name="nombreca" id="nombreca" class='form-control' maxlength="45" required value="<?php echo $datos_categoria->nombreca;?>">
+					<input type="text" name="nombrec" id="nombrec" class='form-control' maxlength="45" required value="<?php echo $datos_categoria->nombrec;?>">
 					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_categoria->idcategoria;?>">
 				</div>
 				

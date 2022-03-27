@@ -16,7 +16,7 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 
 select * from usuarios;
 select * from categoria;
-INSERT INTO categoria(nombreca) VALUES ('Alimento');
+INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 
 
 
@@ -25,7 +25,7 @@ INSERT INTO categoria(nombreca) VALUES ('Alimento');
 -- -----------------------------------------------------
 CREATE TABLE categoria (
   idcategoria INT AUTO_INCREMENT PRIMARY KEY,
-  nombreca VARCHAR(45) NOT NULL);
+  nombrec VARCHAR(45) NOT NULL);
 
 -- -----------------------------------------------------
 -- Table Proveedor

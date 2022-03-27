@@ -12,7 +12,7 @@
 ?>
 <?php 
 include ('../db/database.php');
-$categoria = new Database();
+$categorias = new Database();
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,7 +43,7 @@ $categoria = new Database();
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -114,15 +114,15 @@ $categoria = new Database();
             </tr>
           </thead>
           <tbody>
-            <?php $listado=$categoria->readCat(); ?>
+            <?php $listado=$categorias->readCat(); ?>
               <?php 
                 while ($row=mysqli_fetch_object($listado)){
                     $idcategoria=$row->idcategoria;
-                    $nombreca=$row->nombreca;
+                    $nombrec=$row->nombrec;
                     
               ?>
             <tr>
-              <td><?php echo $nombreca;?></td>
+              <td><?php echo $nombrec;?></td>
               <td>
                 <a href="../crud/updateCategoria.php?idcategoria=<?php echo $idcategoria;?>" class="edit" title="Editar"
                   data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
