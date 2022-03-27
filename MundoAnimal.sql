@@ -16,8 +16,9 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 
 select * from usuarios;
 select * from roles;
+select * from productos;
 select * from categoria;
-INSERT INTO categoria(nombrec) VALUES ('Accesorios');
+INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 
 
 
@@ -41,6 +42,8 @@ CREATE TABLE  proveedor (
 -- -----------------------------------------------------
 CREATE TABLE productos (
   idproductos INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(45) NOT NULL,
+  imagen VARCHAR(255),
   descripcion VARCHAR(45) NOT NULL,
   precio DOUBLE NOT NULL,
   iva DOUBLE NOT NULL,
@@ -139,10 +142,10 @@ CREATE TABLE detalle_factura(
 DROP PROCEDURE sp_InsertarCategoria;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarCategoria
-(g_nombre varchar (45))
+(g_nombrec varchar (45))
 BEGIN
  INSERT INTO Categoria
- (nombre) VALUES(g_nombre);
+ (nombrec) VALUES(g_nombrec);
 END ##
 DELIMITER ;
 call sp_InsertarCategoria('Alimentos');
@@ -162,9 +165,9 @@ DROP PROCEDURE sp_ActualizarCategoria;
 DELIMITER ##
 CREATE PROCEDURE sp_ActualizarCategoria
 (up_idCategoria int,
-up_nombre varchar (45))
+up_nombrec varchar (45))
 BEGIN
-UPDATE Categoria SET nombre = up_nombre WHERE idCategoria = up_idCategoria;
+UPDATE Categoria SET nombrec = up_nombrec WHERE idCategoria = up_idCategoria;
 END ##
 DELIMITER ;
 call sp_ActualizarCategoria(1,'Alimentos');
@@ -402,18 +405,21 @@ DROP PROCEDURE sp_InsertarProducto;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarProducto
 (g_descripcion varchar (45),
+g_nombre VARCHAR(45),
 g_precio double,
 g_iva double,
 g_existencias int,
 g_categoria_id int,
 g_proveedor_id int)
 BEGIN
- INSERT INTO Productos(descripcion,precio,iva,existencias,categoria_id,proveedor_id)
- VALUES(g_descripcion,g_precio,g_iva,g_existencias,g_categoria_id,g_proveedor_id);
+ INSERT INTO Productos(nombre,descripcion,precio,iva,existencias,categoria_id,proveedor_id)
+ VALUES(g_nombre,g_descripcion,g_precio,g_iva,g_existencias,g_categoria_id,g_proveedor_id);
 END ##
 DELIMITER ;
-call sp_InsertarProducto('Delicioso alimento',15000,1500,3,2,1);
-
+call sp_InsertarProducto('Rondel: Antiparasitante interno','Suspensión oral con jeringa dosificadora',11400,1500,3,3,1);
+select * from categoria;
+select * from productos;
+select * from proveedor;
 /*Procedimiento Mostrar Producto */
 DROP PROCEDURE sp_MostrarProducto;
 DELIMITER ##
@@ -441,7 +447,7 @@ SET descripcion=up_descripcion,precio=up_precio,iva=up_iva,existencias=up_existe
 WHERE idProductos = up_idProductos;
 END ##
 DELIMITER ;
-call sp_ActualizarProducto(1,'Medicina nutritiva con aloe vera',15000,1500,3,2,1);
+call sp_ActualizarProducto(1,'Medicina nutritiva con aloe vera',15000,1500,3,3,1);
 
 /* Procedimiento Eliminar Producto */
 DROP PROCEDURE sp_EliminarProducto;
