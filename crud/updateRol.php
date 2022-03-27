@@ -1,8 +1,8 @@
 <?php
-	if (isset($_GET['id_usuarios'])){
-		$id_usuarios=intval($_GET['id_usuarios']);
+	if (isset($_GET['id_rol'])){
+		$id_rol=intval($_GET['id_rol']);
 	} else {
-		header("location:user.php");
+		header("location:roles.php");
 	}
 ?>
 <!doctype html>
@@ -15,8 +15,11 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Dashboard Admin</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+    
     <!-- Custom styles for this template -->
     <link href="../css/dashboard.css" rel="stylesheet">
   </head>
@@ -58,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../view/user.php">
+            <a class="nav-link" href="../view/user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
@@ -76,7 +79,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/roles.php">
+            <a class="nav-link  active" href="../view/roles.php">
               <span data-feather="tool"></span>
               Roles
             </a>
@@ -100,29 +103,22 @@
         <div class="table-wrapper">
             <div class="table-title">
                 <div class="row">
-                    <div class="col-sm-8"><h2>Editar <b>Usuarios</b></h2></div>
+                    <div class="col-sm-8"><h2>Editar <b>Roles</b></h2></div>
 					<div class="col-sm-4">
-            			<a href="../view/user.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Volver</a>
+            			<a href="../view/roles.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Volver</a>
           			</div>
                 </div>
             </div>
             <?php
 				
 				include ("../db/database.php");
-				$clientes= new Database();
+				$rol = new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
-					$documento = $clientes->sanitize($_POST['documento']);
-					$nombre = $clientes->sanitize($_POST['nombre']);
-					$apellido = $clientes->sanitize($_POST['apellido']);
-					$telefono = $clientes->sanitize($_POST['telefono']);
-					$direccion = $clientes->sanitize($_POST['direccion']);
-					$username = $clientes->sanitize($_POST['username']);
-					$password = $clientes->sanitize($_POST['password']);
-					$rol_id = $clientes->sanitize($_POST['rol_id']);
-					$id_cliente=intval($_POST['id_cliente']);
+					$descripcion = $rol->sanitize($_POST['descripcion']);
+					$id_cliente3=intval($_POST['id_cliente3']);
 
-					$res = $clientes->update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_cliente);
+					$res = $rol->updateRol($descripcion,$id_cliente3);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -139,45 +135,16 @@
 				</div>	
 					<?php
 					}
-					$datos_cliente=$clientes->single_record($id_usuarios);
+					$datos_roles=$rol->single_recordRol($id_rol);
 					
 					?>
 
 			<div class="row">
 				<form method="post">
 				<div class="col-md-6">
-					<label>Documento:</label>
-					<input type="number" name="documento" id="documento" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->documento;?>">
-					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->id_usuarios;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Nombre:</label>
-					<input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->nombre;?>">
-					
-				</div>
-				<div class="col-md-6">
-					<label>Apellido:</label>
-					<input type="text" name="apellido" id="apellido" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->apellido;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Dirección:</label>
-					<input type="text" name="direccion" id="direccion" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->direccion;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Teléfono:</label>
-					<input type="text" name="telefono" id="telefono" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->telefono;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Username:</label>
-					<input type="email" name="username" id="username" class='form-control' maxlength="64" required value="<?php echo $datos_cliente->username;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Password:</label>
-					<input type="text" name="password" id="password" class='form-control' maxlength="64" required value="<?php echo $datos_cliente->password;?>">
-				</div>
-				<div class="col-md-6">
-					<label>Rol:</label>
-					<input type="number" name="rol_id" id="rol_id" class='form-control' maxlength="64" required value="<?php echo $datos_cliente->rol_id;?>">
+					<label>Descripcion:</label>
+					<input type="text" name="descripcion" id="descripcion" class='form-control' maxlength="45" required value="<?php echo $datos_roles->descripcion;?>">
+					<input type="hidden" name="id_cliente3" id="id_cliente3" class='form-control' maxlength="100"   value="<?php echo $datos_roles->id_rol;?>">
 				</div>
 				
 				<div>

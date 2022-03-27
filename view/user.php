@@ -89,6 +89,12 @@ $usuarios = new Database();
               Categorias
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="roles.php">
+              <span data-feather="tool"></span>
+              Roles
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

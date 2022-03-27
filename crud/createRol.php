@@ -1,18 +1,25 @@
 <?php
-
-    session_start();
-
-    if(!isset($_SESSION['rol'])){
-        header('location: login.php');
-    }else{
-        if($_SESSION['rol'] != 1){
-            header('location: login.php');
-        }
-    }
-?>
-<?php 
-include ('../db/database.php');
-$usuarios = new Database();
+				include ("../db/database.php");
+				$rol = new Database();
+				if(isset($_POST) && !empty($_POST)){
+					$descripcion = $rol->sanitize($_POST['descripcion']);
+					
+					$res = $rol->createRol($descripcion);
+					if($res){
+						$message= "Datos insertados con éxito";
+						$class="alert alert-success";
+					}else{
+						$message="No se pudieron insertar los datos";
+						$class="alert alert-danger";
+					}
+					
+					?>
+				<div class="<?php echo $class?>">
+				  <?php echo $message;?>
+				</div>	
+					<?php
+				}
+	
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,7 +48,7 @@ $usuarios = new Database();
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -52,7 +59,7 @@ $usuarios = new Database();
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="admin.php">
+            <a class="nav-link" href="../view/admin.php">
               <span data-feather="home"></span>
               Panel admin
             </a>
@@ -64,31 +71,31 @@ $usuarios = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../view/productos.php">
               <span data-feather="shopping-cart"></span>
               Productos
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="user.php">
+            <a class="nav-link  active" href="../view/user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="../view/empleado.php">
               <span data-feather="users"></span>
               Empleados
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="categoria.php">
+            <a class="nav-link" href="../view/categoria.php">
               <span data-feather="layers"></span>
               Categorias
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="roles.php">
+            <a class="nav-link" href="../view/roles.php">
               <span data-feather="tool"></span>
               Roles
             </a>
@@ -108,7 +115,32 @@ $usuarios = new Database();
         </div>
       </div>
 
-      
+	  <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-8"><h2>Agregar <b>Roles</b></h2></div>
+                    <div class="col-sm-4">
+                        <a href="../view/roles.php" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Volver</a>
+                    </div>
+                </div>
+            </div>
+
+			<div class="row">
+				<form method="post">
+				<div class="col-md-6">
+					<label>Descripcion:</label>
+					<input type="text" name="descripcion" id="descripcion" class='form-control' maxlength="100" required>
+				</div>
+				
+				<div class="col-md-12 pull-right">
+				<hr>
+					<button type="submit" class="btn btn-success">Guardar datos</button>
+				</div>
+				</form>
+			</div>
+        </div>
+    </div>  
       
     </main>
   </div>

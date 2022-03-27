@@ -115,6 +115,53 @@
             }
         }
 
+
+
+
+
+		public function createRol($descripcion){
+            $sql = "INSERT INTO roles (descripcion) VALUES ('$descripcion')";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+              		return true;
+            	}else{
+            		return false;
+         }
+        }
+
+        public function readRol(){
+            $sql = "SELECT * FROM roles";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
+
+        public function single_recordRol($id_rol){
+			$sql = "SELECT * FROM roles where id_rol='$id_rol'";
+			$res = mysqli_query($this->con, $sql);
+				$return = mysqli_fetch_object($res );
+					return $return ;
+		}
+
+		public function updateRol($descripcion,$id_rol){
+			$sql = "UPDATE roles SET descripcion='$descripcion' WHERE id_rol=$id_rol";
+			$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+			}
+		}
+
+        public function deleteRol($id_rol){
+            $sql = "DELETE FROM roles WHERE id_rol=$id_rol";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+            		return true;
+            	}else{
+            		return false;
+            }
+        }
+
 		
 }
 ?>

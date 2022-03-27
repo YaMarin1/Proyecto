@@ -15,6 +15,7 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('71740075','Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
 
 select * from usuarios;
+select * from roles;
 select * from categoria;
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 

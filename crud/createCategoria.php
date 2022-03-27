@@ -48,7 +48,7 @@
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -92,6 +92,12 @@
             <a class="nav-link" href="../view/categoria.php">
               <span data-feather="layers"></span>
               Categorias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../view/roles.php">
+              <span data-feather="tool"></span>
+              Roles
             </a>
           </li>
         </ul>

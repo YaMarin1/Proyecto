@@ -22,10 +22,10 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>index</title>
-    <link rel="stylesheet" href="css/nicepage2.css" media="screen">
-<link rel="stylesheet" href="css/productos.css" media="screen">
-    <script class="u-script" type="text/javascript" src="js/jquery2.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="js/nicepage2.js" defer=""></script>
+    <link rel="stylesheet" href="../css/nicepage2.css" media="screen">
+<link rel="stylesheet" href="../css/productos.css" media="screen">
+    <script class="u-script" type="text/javascript" src="../js/jquery2.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="../js/nicepage2.js" defer=""></script>
     <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
@@ -46,14 +46,14 @@
   </head>
   <body class="u-body u-xl-mode"><header class="u-clearfix u-custom-color-1 u-header u-sticky u-sticky-1a32 u-header" id="sec-090a"><div class="u-clearfix u-sheet u-sheet-1">
         <a href="ofertas.php" class="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
-          <img src="images/MundoAnimal.png" class="u-logo-image u-logo-image-1">
+          <img src="../images/MundoAnimal.png" class="u-logo-image u-logo-image-1">
         </a>
-        <a href="logout.php" class="u-border-1 u-border-palette-1-light-1 u-btn u-btn-round u-button-style u-palette-1-light-3 u-radius-3 u-text-palette-1-dark-2 u-btn-1"><span class="u-file-icon u-icon u-icon-1"><img src="images/149408.png" alt=""></span>
+        <a href="logout.php" class="u-border-1 u-border-palette-1-light-1 u-btn u-btn-round u-button-style u-palette-1-light-3 u-radius-3 u-text-palette-1-dark-2 u-btn-1"><span class="u-file-icon u-icon u-icon-1"><img src="../images/149408.png" alt=""></span>
         </a>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1" data-responsive-from="MD">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
             <a class="u-button-style u-custom-active-color u-custom-color u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-file-icon u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base u-text-white u-file-icon-2" href="#">
-              <img src="images/3.png" alt="">
+              <img src="../images/3.png" alt="">
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
@@ -94,7 +94,7 @@
           <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <img alt="" class="u-image u-image-default u-image-1" src="images/3981417.jpg">
+                <img alt="" class="u-image u-image-default u-image-1" src="../images/3981417.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-1">
                   <div class="u-container-layout u-valign-middle u-container-layout-2">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-2">Original</h3>
@@ -107,7 +107,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                <img alt="" class="u-image u-image-default u-image-2" src="images/ground-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg">
+                <img alt="" class="u-image u-image-default u-image-2" src="../images/ground-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-2">
                   <div class="u-container-layout u-valign-middle u-container-layout-4">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-5">Salami</h3>
@@ -120,7 +120,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                <img alt="" class="u-image u-image-default u-image-3" src="images/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg">
+                <img alt="" class="u-image u-image-default u-image-3" src="../images/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-3">
                   <div class="u-container-layout u-valign-middle u-container-layout-6">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-8">Chicken</h3>
@@ -133,7 +133,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-4">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-7">
-                <img alt="" class="u-image u-image-default u-image-4" src="images/sdw.jpg">
+                <img alt="" class="u-image u-image-default u-image-4" src="../images/sdw.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-4">
                   <div class="u-container-layout u-valign-middle u-container-layout-8">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-11">Hawaiian</h3>

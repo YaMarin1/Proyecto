@@ -32,7 +32,7 @@
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -61,7 +61,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="../view/user.php">
+            <a class="nav-link" href="../view/user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
@@ -73,9 +73,15 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/categoria.php">
+            <a class="nav-link  active" href="../view/categoria.php">
               <span data-feather="layers"></span>
               Categorias
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../view/roles.php">
+              <span data-feather="tool"></span>
+              Roles
             </a>
           </li>
         </ul>
@@ -110,9 +116,9 @@
 				
 				if(isset($_POST) && !empty($_POST)){
 					$nombrec = $categoria->sanitize($_POST['nombrec']);
-					$id_cliente=intval($_POST['id_cliente']);
+					$id_cliente2=intval($_POST['id_cliente2']);
 
-					$res = $categoria->updateCat($nombrec,$id_cliente);
+					$res = $categoria->updateCat($nombrec,$id_cliente2);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -129,7 +135,7 @@
 				</div>	
 					<?php
 					}
-					$datos_categoria=$categoria->single_record($idcategoria);
+					$datos_categoria=$categoria->single_recordCat($idcategoria);
 					
 					?>
 
@@ -138,7 +144,7 @@
 				<div class="col-md-6">
 					<label>Nombre:</label>
 					<input type="text" name="nombrec" id="nombrec" class='form-control' maxlength="45" required value="<?php echo $datos_categoria->nombrec;?>">
-					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_categoria->idcategoria;?>">
+					<input type="hidden" name="id_cliente2" id="id_cliente2" class='form-control' maxlength="100"   value="<?php echo $datos_categoria->idcategoria;?>">
 				</div>
 				
 				<div>
