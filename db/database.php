@@ -160,8 +160,13 @@
             	}else{
             		return false;
             }
-        }
-
+        }	
 		
+		
+		public function readEmpleado(){
+            $sql = "SELECT * FROM usuarios where rol_id=3";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
 }
 ?>

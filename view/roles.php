@@ -60,13 +60,13 @@ $rol = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="factura.php">
               <span data-feather="file"></span>
               Facturas
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="productos.php">
               <span data-feather="shopping-cart"></span>
               Productos
             </a>
@@ -78,7 +78,7 @@ $rol = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>

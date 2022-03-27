@@ -12,7 +12,7 @@
 ?>
 <?php 
 include ('../db/database.php');
-$usuarios = new Database();
+$empleados = new Database();
 ?>
 <!doctype html>
 <html lang="en">
@@ -43,7 +43,7 @@ $usuarios = new Database();
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -72,13 +72,13 @@ $usuarios = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="user.php">
+            <a class="nav-link" href="user.php">
               <span data-feather="users"></span>
               Usuarios
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="empleados.php">
+            <a class="nav-link active" href="empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -105,12 +105,13 @@ $usuarios = new Database();
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
             <a href="../crud/createUser.php" class="btn btn-primary">Crear usuario</a>
+            <a href="user.php" class="btn btn-primary">Modificar</a>
           </div>
         </div>
       </div>
 
       
-      <h2>Listado de <b>Usuarios</b></h2>
+      <h2>Listado de <b>Empleados</b></h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
@@ -122,11 +123,10 @@ $usuarios = new Database();
               <th scope="col">Username</th>
               <th scope="col">Password</th>
               <th scope="col">Rol</th>
-              <th scope="col">Acciones</th>
             </tr>
           </thead>
           <tbody>
-            <?php $listado=$usuarios->read(); ?>
+            <?php $listado=$empleados->readEmpleado(); ?>
               <?php 
                 while ($row=mysqli_fetch_object($listado)){
                     $id_usuarios=$row->id_usuarios;
@@ -146,12 +146,6 @@ $usuarios = new Database();
               <td><?php echo $username;?></td>
               <td><?php echo $password;?></td>
               <td><?php echo $rol_id;?></td>
-              <td>
-                <a href="../crud/updateUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="edit" title="Editar"
-                  data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a href="../crud/deleteUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="delete" title="Eliminar"
-                  data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-              </td>
             </tr>
             <?php
           }

@@ -18,7 +18,7 @@ select * from usuarios;
 select * from roles;
 select * from productos;
 select * from categoria;
-INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
+INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 
 
 
@@ -33,9 +33,10 @@ CREATE TABLE categoria (
 -- Table Proveedor
 -- -----------------------------------------------------
 CREATE TABLE  proveedor (
-  idproveedor INT AUTO_INCREMENT PRIMARY KEY,
-  documento VARCHAR(45) NOT NULL,
-  nombre VARCHAR(45) NOT NULL);
+  idproveedor INT PRIMARY KEY,
+  nombre VARCHAR(45) NOT NULL,
+  apellido VARCHAR(45) NOT NULL,
+  telefono varchar(11));
 
 -- -----------------------------------------------------
 -- Table Productos
@@ -50,6 +51,8 @@ CREATE TABLE productos (
   existencias INT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
+  
+  select * from usuarios where rol_id=3;
 
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria);
@@ -96,10 +99,12 @@ CREATE TABLE usuarios (
 -- Table Empleado
 -- -----------------------------------------------------
 CREATE TABLE empleado (
-  idempleado INT AUTO_INCREMENT PRIMARY KEY,
+  idempleado INT PRIMARY KEY,
   nombre VARCHAR(45) NOT NULL,
+  apellido VARCHAR(45) NOT NULL,
   username VARCHAR(45) NOT NULL,
-  Password VARCHAR(10) NOT NULL,
+  password VARCHAR(10) NOT NULL,
+  salario double NOT NULL,
   rol_id INT NOT NULL);
   
   ALTER TABLE empleado ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
