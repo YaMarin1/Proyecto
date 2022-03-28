@@ -12,7 +12,7 @@
 ?>
 <?php 
 include ('../db/database.php');
-$productos = new Database();
+$proveedores = new Database();
 ?>
 <!doctype html>
 <html lang="en">
@@ -66,7 +66,7 @@ $productos = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link  active" href="productos.php">
+            <a class="nav-link" href="productos.php">
               <span data-feather="shopping-cart"></span>
               Productos
             </a>
@@ -78,7 +78,7 @@ $productos = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="empleados.php">
+            <a class="nav-link active" href="empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -110,57 +110,48 @@ $productos = new Database();
         <h1 class="h2">Administrador</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <a href="../crud/createProducto.php" class="btn btn-primary">Crear producto</a>
+            <a href="../crud/createUser.php" class="btn btn-primary">Crear proveedor</a>
+            <a href="user.php" class="btn btn-primary">Modificar</a>
           </div>
         </div>
       </div>
 
       
-      <h2>Listado de <b>Productos</b></h2>
+      <h2>Listado de <b>Proveedores</b></h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
+              <th scope="col">Documento</th>
               <th scope="col">Nombre</th>
-              <th scope="col">Imagen</th>
-              <th scope="col">Descripcion</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Iva</th>
-              <th scope="col">Existencias</th>
-              <th scope="col">Categoria</th>
-              <th scope="col">Proveedor</th>
-              <th scope="col">Acciones</th>
+              <th scope="col">Telefono</th>
+              <th scope="col">Dirección</th>
+              <th scope="col">Username</th>
+              <th scope="col">Password</th>
+              <th scope="col">Rol</th>
             </tr>
           </thead>
           <tbody>
-            <?php $listado=$productos->readProductos(); ?>
+            <?php $listado=$proveedores->readProveedor(); ?>
               <?php 
                 while ($row=mysqli_fetch_object($listado)){
-                    $idproductos=$row->idproductos;
-                    $nombre=$row->nombre;
-                    $imagen=$row->imagen;
-                    $descripcion=$row->descripcion;
-                    $precio=$row->precio;
-                    $iva=$row->iva;
-                    $existencias=$row->existencias;
-                    $categoria_id=$row->categoria_id;
-                    $proveedor_id=$row->proveedor_id;
+                    $id_usuarios=$row->id_usuarios;
+                    $documento=$row->documento;
+                    $nombre=$row->nombre. " " .$row->apellido;
+                    $telefono=$row->telefono;
+                    $direccion=$row->direccion;
+                    $username=$row->username;
+                    $password=$row->password;
+                    $rol_id=$row->rol_id;
               ?>
             <tr>
+              <td><?php echo $documento;?></td>
               <td><?php echo $nombre;?></td>
-              <td><?php echo $imagen;?></td>
-              <td><?php echo $descripcion;?></td>
-              <td><?php echo $precio;?></td>
-              <td><?php echo $iva;?></td>
-              <td><?php echo $existencias;?></td>
-              <td><?php echo $categoria_id;?></td>
-              <td><?php echo $proveedor_id;?></td>
-              <td>
-                <a href="../crud/updateProducto.php?idproductos=<?php echo $idproductos;?>" class="edit" title="Editar"
-                  data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a href="../crud/deleteProducto.php?idproductos=<?php echo $idproductos;?>" class="delete" title="Eliminar"
-                  data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-              </td>
+              <td><?php echo $telefono;?></td>
+              <td><?php echo $direccion;?></td>
+              <td><?php echo $username;?></td>
+              <td><?php echo $password;?></td>
+              <td><?php echo $rol_id;?></td>
             </tr>
             <?php
           }

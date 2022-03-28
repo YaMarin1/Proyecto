@@ -217,6 +217,11 @@
         }
 
 
+		public function readProveedor(){
+            $sql = "SELECT * FROM usuarios where rol_id=4";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
 
 }
 ?>

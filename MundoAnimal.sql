@@ -6,6 +6,7 @@ DROP DATABASE MUNDOANIMAL;
 INSERT INTO roles(descripcion) VALUES ("Administrador");
 INSERT INTO roles(descripcion) VALUES ("Cliente");
 INSERT INTO roles(descripcion) VALUES ("Empleado");
+INSERT INTO roles(descripcion) VALUES ("Proveedor");
   
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1000088550','Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1015066245','Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
@@ -35,6 +36,7 @@ CREATE TABLE categoria (
 CREATE TABLE  proveedor (
   idproveedor INT PRIMARY KEY,
   nombre VARCHAR(45) NOT NULL,
+  nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
   telefono varchar(11));
 
@@ -53,6 +55,7 @@ CREATE TABLE productos (
   proveedor_id INT NOT NULL);
   
 insert into productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1000088550); 
+
   select * from productos;
    select * from categoria;
     select * from proveedor;

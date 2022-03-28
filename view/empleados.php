@@ -43,7 +43,7 @@ $empleados = new Database();
   </button>
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
-    <a class="nav-link px-3" href="../view/logout.php">Cerrar sesion</a>
+    <a class="nav-link px-3" href="logout.php">Cerrar sesion</a>
     </div>
   </div>
 </header>
@@ -93,6 +93,12 @@ $empleados = new Database();
             <a class="nav-link" href="roles.php">
               <span data-feather="tool"></span>
               Roles
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="proveedores.php">
+              <span data-feather="briefcase"></span>
+              Proveedores
             </a>
           </li>
         </ul>

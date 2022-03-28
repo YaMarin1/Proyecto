@@ -93,6 +93,12 @@ $usuarios = new Database();
               Roles
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="proveedores.php">
+              <span data-feather="briefcase"></span>
+              Proveedores
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
