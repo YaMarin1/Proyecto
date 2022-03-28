@@ -168,5 +168,55 @@
             $res = mysqli_query($this->con, $sql);
             	return $res;
         }
+
+
+
+
+
+		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
+            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','$imagen','$descripcion','$precio','$iva','$existencias','$categoria_id','$proveedor_id')";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+              		return true;
+            	}else{
+            		return false;
+         }
+        }
+
+        public function readProductos(){
+            $sql = "SELECT * FROM productos";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
+
+        public function single_recordProductos($idproductos){
+			$sql = "SELECT * FROM productos where idproductos='$idproductos'";
+			$res = mysqli_query($this->con, $sql);
+				$return = mysqli_fetch_object($res );
+					return $return ;
+		}
+
+		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
+			$sql = "UPDATE productos SET nombre='$nombre',imagen='$imagen', descripcion='$descripcion', precio='$precio', iva='$iva', existencias='$existencias', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
+			$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+			}
+		}
+
+        public function deleteProductos($idproductos){
+            $sql = "DELETE FROM productos WHERE idproductos=$idproductos";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+            		return true;
+            	}else{
+            		return false;
+            }
+        }
+
+
+
 }
 ?>

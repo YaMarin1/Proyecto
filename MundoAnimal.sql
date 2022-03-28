@@ -52,6 +52,10 @@ CREATE TABLE productos (
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
   
+insert into productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1000088550); 
+  select * from productos;
+   select * from categoria;
+    select * from proveedor;
   select * from usuarios where rol_id=3;
 
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
@@ -194,14 +198,16 @@ call sp_EliminarCategoria (2);
 DROP PROCEDURE sp_InsertarProveedor;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarProveedor
-(g_documento varchar (45),
-g_nombre varchar (45))
+(g_idproveedor int,
+g_nombre varchar (45),
+g_apellido varchar (45),
+g_telefono varchar(11))
 BEGIN
  INSERT INTO Proveedor
- (documento,nombre) VALUES(g_documento,g_nombre);
+ (idproveedor,nombre,apellido,telefono) VALUES(g_idproveedor,g_nombre,g_apellido,g_telefono);
 END ##
 DELIMITER ;
-call sp_InsertarProveedor('1000088550','Juan Camilo Rodiguez');
+call sp_InsertarProveedor(1000088550,'Juan Camilo','Rodiguez',2338369);
 
 /*Procedimiento Mostrar Proveedor */
 DROP PROCEDURE sp_MostrarProveedor;

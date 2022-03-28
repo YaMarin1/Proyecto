@@ -12,7 +12,7 @@
 ?>
 <?php 
 include ('../db/database.php');
-$usuarios = new Database();
+$productos = new Database();
 ?>
 <!doctype html>
 <html lang="en">
@@ -33,7 +33,9 @@ $usuarios = new Database();
     <link href="../css/dashboard.css" rel="stylesheet">
   </head>
   <body>
-    
+  
+  
+
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Mundo Animal</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +54,7 @@ $usuarios = new Database();
       <div class="position-sticky pt-3">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link active" href="admin.php">
+            <a class="nav-link" aria-current="page" href="admin.php">
               <span data-feather="home"></span>
               Panel admin
             </a>
@@ -64,7 +66,7 @@ $usuarios = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="productos.php">
+            <a class="nav-link  active" href="productos.php">
               <span data-feather="shopping-cart"></span>
               Productos
             </a>
@@ -102,14 +104,64 @@ $usuarios = new Database();
         <h1 class="h2">Administrador</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <a href="../crud/createProducto.php" class="btn btn-primary">Crear producto</a>
           </div>
         </div>
       </div>
 
       
-      
+      <h2>Listado de <b>Productos</b></h2>
+      <div class="table-responsive">
+        <table class="table table-striped table-sm">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Iva</th>
+              <th scope="col">Existencias</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Proveedor</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php $listado=$productos->readProductos(); ?>
+              <?php 
+                while ($row=mysqli_fetch_object($listado)){
+                    $idproductos=$row->idproductos;
+                    $nombre=$row->nombre;
+                    $imagen=$row->imagen;
+                    $descripcion=$row->descripcion;
+                    $precio=$row->precio;
+                    $iva=$row->iva;
+                    $existencias=$row->existencias;
+                    $categoria_id=$row->categoria_id;
+                    $proveedor_id=$row->proveedor_id;
+              ?>
+            <tr>
+              <td><?php echo $nombre;?></td>
+              <td><?php echo $imagen;?></td>
+              <td><?php echo $descripcion;?></td>
+              <td><?php echo $precio;?></td>
+              <td><?php echo $iva;?></td>
+              <td><?php echo $existencias;?></td>
+              <td><?php echo $categoria_id;?></td>
+              <td><?php echo $proveedor_id;?></td>
+              <td>
+                <a href="../crud/updateProducto.php?idproductos=<?php echo $idproductos;?>" class="edit" title="Editar"
+                  data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                <a href="../crud/deleteProducto.php?idproductos=<?php echo $idproductos;?>" class="delete" title="Eliminar"
+                  data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+              </td>
+            </tr>
+            <?php
+          }
+          ?>
+          </tbody>
+        </table>
+      </div>
     </main>
   </div>
 </div>
@@ -117,5 +169,5 @@ $usuarios = new Database();
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
     <script src="../js/dashboard.js"></script>
-    </body>
+  </body>
 </html>
