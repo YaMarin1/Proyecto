@@ -94,7 +94,7 @@
           <div class="u-repeater u-repeater-1">
             <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <img alt="" class="u-image u-image-default u-image-1" src="../images/3981417.jpg">
+                <img alt="" class="u-image u-image-default u-image-1" src="../image/3981417.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-1">
                   <div class="u-container-layout u-valign-middle u-container-layout-2">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-2">Original</h3>
@@ -107,7 +107,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                <img alt="" class="u-image u-image-default u-image-2" src="../images/ground-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg">
+                <img alt="" class="u-image u-image-default u-image-2" src="../image/ground-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-2">
                   <div class="u-container-layout u-valign-middle u-container-layout-4">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-5">Salami</h3>
@@ -120,7 +120,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                <img alt="" class="u-image u-image-default u-image-3" src="../images/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg">
+                <img alt="" class="u-image u-image-default u-image-3" src="../image/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-3">
                   <div class="u-container-layout u-valign-middle u-container-layout-6">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-8">Chicken</h3>
@@ -133,7 +133,7 @@
             </div>
             <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-4">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-7">
-                <img alt="" class="u-image u-image-default u-image-4" src="../images/sdw.jpg">
+                <img alt="" class="u-image u-image-default u-image-4" src="../image/sdw.jpg">
                 <div class="u-container-style u-group u-video-cover u-group-4">
                   <div class="u-container-layout u-valign-middle u-container-layout-8">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-11">Hawaiian</h3>

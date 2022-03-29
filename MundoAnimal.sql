@@ -7,7 +7,7 @@ INSERT INTO roles(descripcion) VALUES ("Administrador");
 INSERT INTO roles(descripcion) VALUES ("Cliente");
 INSERT INTO roles(descripcion) VALUES ("Empleado");
 INSERT INTO roles(descripcion) VALUES ("Proveedor");
-  
+
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1000088550','Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1015066245','Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('32481891','Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
@@ -20,7 +20,8 @@ select * from roles;
 select * from productos;
 select * from categoria;
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
-
+INSERT INTO categoria(nombrec) VALUES ('Alimentos');
+INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 
 
 -- -----------------------------------------------------
@@ -35,7 +36,6 @@ CREATE TABLE categoria (
 -- -----------------------------------------------------
 CREATE TABLE  proveedor (
   idproveedor INT PRIMARY KEY,
-  nombre VARCHAR(45) NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
   telefono varchar(11));
