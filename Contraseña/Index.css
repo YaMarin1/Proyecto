@@ -1,0 +1,97 @@
+body {
+	background-color: #193a77;
+}
+.my-login-page .card-wrapper {
+	width: 500px;
+}
+.my-login-page .form-group label {
+	width: 100%;
+}
+.my-login-page .footer {
+	margin: 40px 0;
+	color: rgb(255, 255, 255);
+	text-align: center;
+}
+
+/*Inicio sesion end*/
+#mainMenu li > a {
+	font-size: 15px;
+	letter-spacing: 1px;
+	color: rgb(255, 255, 255);
+}
+
+#mainMenu li > ul > a {
+	font-size: 15px;
+	letter-spacing: 1px;
+	color: rgb(255, 255, 255);
+}
+
+#mainMenu li:not(:last-of-type) {
+	margin-right: 30px;
+}
+
+.main-header .navbar-brand img {
+	max-width: 150px;
+}
+	/*header ends*/
+
+	.btn {
+		display: inline-block;
+		font-size: 18px;
+		color: #fff;
+		background: #333;
+	  }
+	  .btn:hover {
+		background: #193a77;
+		color: rgb(255, 255, 255);
+	  }
+
+
+	  .footer .social > a {
+		font-size:30px;
+		width:80px;
+		line-height:80px;
+		display:inline-block;
+		border-radius:60%;
+		border:1px solid rgb(255, 251, 251);
+		color: #ffffff;
+	  }
+
+	  header, .alert{
+		z-index: 100;
+	  }
+	  .description{
+		height: 25px;
+		overflow: hidden;
+		transition: height .3s ease-in .3s;
+	  }
+	  .description:hover{
+		height: 80px;
+	  }
+	  .carrito{
+		min-height: 80vh;
+		max-width: 1000px;
+		margin: 0 auto;
+		width: 100%;
+	  }
+	  .table__productos{
+		display: flex;
+	  }
+	  .table__productos > img{
+		width: 9rem;
+		object-fit: contain;
+		border-radius: 6px;
+		margin-right: 20px;
+	  }
+	  .table__cantidad > input{
+		width: 40px;
+		border: none;
+		outline: 0;
+		font-size: 16px;
+		font-weight: 700;
+		margin-right: 30px;
+		margin-bottom: 20px;
+	  }
+	  .hide, .remove{
+		display: none;
+	  }
