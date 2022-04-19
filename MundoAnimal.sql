@@ -14,11 +14,13 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('43635764','Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1000085835','Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('71740075','Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1152468384','Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',4);
 
 select * from usuarios;
 select * from roles;
 select * from productos;
-select * from categoria;
+select * from proveedor;
+
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 INSERT INTO categoria(nombrec) VALUES ('Alimentos');
 INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
@@ -40,6 +42,8 @@ CREATE TABLE  proveedor (
   apellido VARCHAR(45) NOT NULL,
   telefono varchar(11));
 
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1152468987','Daniel','Salazar','2996067');
+
 -- -----------------------------------------------------
 -- Table Productos
 -- -----------------------------------------------------
@@ -54,15 +58,17 @@ CREATE TABLE productos (
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
   
-insert into productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1000088550); 
+ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
+ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 
+
+insert into productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1152468987); 
 
   select * from productos;
    select * from categoria;
     select * from proveedor;
   select * from usuarios where rol_id=3;
 
-ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
-ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria);
+
 
 -- -----------------------------------------------------
 -- Table KardexProducto
