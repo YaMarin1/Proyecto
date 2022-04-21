@@ -13,38 +13,6 @@
 
 ?>
 
-<?php
-  $ofertas = array();
-
-  $ofertas[001] = array(
-    "nombre" => "Drontal / Perro",
-    "descripcion" => "Antiparasitante: limpia el sistema digestivo de tu mascota",
-    "imagen" => "..\images\ImagesProductos\DRONTAL.PNG",
-    "precio" => 15000,
-    "precioOferta" => 12000);
-
-  $ofertas[002] = array(
-    "nombre" => "Jueguete",
-    "descripcion" => "Divertido",
-    "imagen" => "url",
-    "precio" => 5000,
-    "precioOferta" => 4000);
-
-  $ofertas[003] = array(
-    "nombre" => "Collar",
-    "descripcion" => "Asegura tu mascota",
-    "imagen" => "url",
-    "precio" => 16000,
-    "precioOferta" => 14000);
-
-  $ofertas[004] = array(
-    "nombre" => "Galletas",
-    "descripcion" => "Alimenta tu mascota",
-    "imagen" => "url",
-    "precio" => 13000,
-    "precioOferta" => 10000);
-?>
-
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -125,20 +93,22 @@
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
 
+          <?php foreach ($ofertas as $oferta_id => $oferta) {?>
+          
             <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <img alt="" class="u-image u-image-default u-image-1" src="..\images\ImagesProductos\DRONTAL.PNG">
+                <img alt="" class="u-image u-image-default u-image-1" src="<?php echo $oferta["imagen"];?>">
                 <div class="u-container-style u-group u-video-cover u-group-1">
                   <div class="u-container-layout u-valign-middle u-container-layout-2">
-                    <h3 class="u-custom-font u-font-oswald u-text u-text-2">Original</h3>
-                    <p class="u-text u-text-3">Tomato sauce, mozzarella &amp; oregano</p>
+                    <h3 class="u-custom-font u-font-oswald u-text u-text-2"><?php echo $oferta["nombre"];?></h3>
+                    <p class="u-text u-text-3"><?php echo $oferta["descripcion"];?></p>
                     <h6 class="u-text u-text-custom-color-1 u-text-4">$18.00</h6>
                     <a href="" class="u-btn u-button-style u-grey-10 u-btn-1">agregar al carrito</a>
                   </div>
                 </div>
               </div>
             </div>
-
+            <?php } ?>
         </div>
       </div>
     </section>
