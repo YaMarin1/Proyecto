@@ -13,6 +13,38 @@
 
 ?>
 
+<?php
+  $ofertas = array();
+
+  $ofertas[001] = array(
+    "nombre" => "Drontal / Perro",
+    "descripcion" => "Antiparasitante: limpia el sistema digestivo de tu mascota",
+    "imagen" => "..\images\ImagesProductos\DRONTAL.PNG",
+    "precio" => 15000,
+    "precioOferta" => 12000);
+
+  $ofertas[002] = array(
+    "nombre" => "Jueguete",
+    "descripcion" => "Divertido",
+    "imagen" => "url",
+    "precio" => 5000,
+    "precioOferta" => 4000);
+
+  $ofertas[003] = array(
+    "nombre" => "Collar",
+    "descripcion" => "Asegura tu mascota",
+    "imagen" => "url",
+    "precio" => 16000,
+    "precioOferta" => 14000);
+
+  $ofertas[004] = array(
+    "nombre" => "Galletas",
+    "descripcion" => "Alimenta tu mascota",
+    "imagen" => "url",
+    "precio" => 13000,
+    "precioOferta" => 10000);
+?>
+
 <!DOCTYPE html>
 <html style="font-size: 16px;">
   <head>
@@ -21,7 +53,7 @@
     <meta name="keywords" content="Dog Sch​ool, About Us, #02, #01, #04, #03, Full Service,Low CostVet Clinic, Dog Sch​ool, True Friend, ​Sign up for your first consultation">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>index</title>
+    <title>Ofertas</title>
     <link rel="stylesheet" href="../css/nicepage2.css" media="screen">
 <link rel="stylesheet" href="../css/productos.css" media="screen">
     <script class="u-script" type="text/javascript" src="../js/jquery2.js" defer=""></script>
@@ -92,59 +124,21 @@
         </h1>
         <div class="u-expanded-width u-list u-list-1">
           <div class="u-repeater u-repeater-1">
+
             <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
               <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
-                <img alt="" class="u-image u-image-default u-image-1" src="../image/3981417.jpg">
+                <img alt="" class="u-image u-image-default u-image-1" src="..\images\ImagesProductos\DRONTAL.PNG">
                 <div class="u-container-style u-group u-video-cover u-group-1">
                   <div class="u-container-layout u-valign-middle u-container-layout-2">
                     <h3 class="u-custom-font u-font-oswald u-text u-text-2">Original</h3>
                     <p class="u-text u-text-3">Tomato sauce, mozzarella &amp; oregano</p>
                     <h6 class="u-text u-text-custom-color-1 u-text-4">$18.00</h6>
-                    <a href="hola.html" class="u-btn u-button-style u-grey-10 u-btn-1">agregar al carrito</a>
+                    <a href="" class="u-btn u-button-style u-grey-10 u-btn-1">agregar al carrito</a>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-2">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-3">
-                <img alt="" class="u-image u-image-default u-image-2" src="../image/ground-classic-italian-pizza-with-tomatoes-pepper-vegetables-sauce-mozarella-cheese-dark-kitchen-table-copy-space_90380-947.jpg">
-                <div class="u-container-style u-group u-video-cover u-group-2">
-                  <div class="u-container-layout u-valign-middle u-container-layout-4">
-                    <h3 class="u-custom-font u-font-oswald u-text u-text-5">Salami</h3>
-                    <p class="u-text u-text-default u-text-6">Tomato sauce, mozzarella &amp; mild salami</p>
-                    <h6 class="u-text u-text-custom-color-1 u-text-7">$15.00</h6>
-                    <a href="hola.html" class="u-btn u-button-style u-grey-10 u-btn-2">Agregar al carrito</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-3">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-5">
-                <img alt="" class="u-image u-image-default u-image-3" src="../image/mixed-pizza-with-olive-bell-pepper-tomato_140725-183.jpg">
-                <div class="u-container-style u-group u-video-cover u-group-3">
-                  <div class="u-container-layout u-valign-middle u-container-layout-6">
-                    <h3 class="u-custom-font u-font-oswald u-text u-text-8">Chicken</h3>
-                    <p class="u-text u-text-default u-text-9">Tomato sauce, mozzarella, chicken, pineapple* &amp; bbq sauce</p>
-                    <h6 class="u-text u-text-custom-color-1 u-text-10">$25.00</h6>
-                    <a href="https://nicepage.me" class="u-btn u-button-style u-grey-10 u-btn-3">agregar al carrito</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="u-container-style u-list-item u-repeater-item u-video-cover u-white u-list-item-4">
-              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-7">
-                <img alt="" class="u-image u-image-default u-image-4" src="../image/sdw.jpg">
-                <div class="u-container-style u-group u-video-cover u-group-4">
-                  <div class="u-container-layout u-valign-middle u-container-layout-8">
-                    <h3 class="u-custom-font u-font-oswald u-text u-text-11">Hawaiian</h3>
-                    <p class="u-text u-text-default u-text-12">Tomato sauce, mozzarella, ham &amp; pineapple</p>
-                    <h6 class="u-text u-text-custom-color-1 u-text-13">$16.00</h6>
-                    <a href="hola.html" class="u-btn u-button-style u-grey-10 u-btn-4">agregar al carrito</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>
