@@ -19,7 +19,7 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 select * from usuarios;
 select * from roles;
 select * from productos;
-select * from proveedor;
+select * from categoria;
 
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 INSERT INTO categoria(nombrec) VALUES ('Alimentos');
@@ -136,6 +136,7 @@ CREATE TABLE factura (
   ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
   ALTER TABLE factura ADD FOREIGN KEY (empleado_id) REFERENCES empleado(idempleado);
 
+select * from categoria;
 -- -----------------------------------------------------
 -- Table Detalle_factura
 -- -----------------------------------------------------
@@ -555,13 +556,6 @@ ON usuarios.rol_id = roles.id_rol;
 --- Cruzadas ---
 ----------------
 
-
-
-
-
-
-
-
-
-
-
+SELECT *
+FROM productos
+CROSS JOIN categoria;
