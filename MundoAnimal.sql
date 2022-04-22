@@ -8,13 +8,13 @@ INSERT INTO roles(descripcion) VALUES ("Cliente");
 INSERT INTO roles(descripcion) VALUES ("Empleado");
 INSERT INTO roles(descripcion) VALUES ("Proveedor");
 
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1000088550','Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1015066245','Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('32481891','Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('43635764','Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1000085835','Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('71740075','Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('1152468384','Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',4);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000085835,'Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1152468384,'Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',4);
 
 select * from usuarios;
 select * from roles;
@@ -58,6 +58,7 @@ CREATE TABLE productos (
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
   
+  
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 
 
@@ -96,8 +97,7 @@ CREATE TABLE roles (
 -- Table Usuario
 -- -----------------------------------------------------
 CREATE TABLE usuarios (
-  id_usuarios INT AUTO_INCREMENT PRIMARY KEY,
-  documento VARCHAR(45) NOT NULL,
+  documento int PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
   telefono VARCHAR(45) NOT NULL,
@@ -122,6 +122,7 @@ CREATE TABLE empleado (
   
   ALTER TABLE empleado ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
 
+INSERT INTO empleado(idempleado,nombre,apellido,username,password,salario,rol_id) VALUES (43635764,'Cecilia','Piedrahita','Cecilia@gmail.com','43635764',1100.000,3);
 -- -----------------------------------------------------
 -- Table Factura
 -- -----------------------------------------------------
@@ -129,10 +130,10 @@ CREATE TABLE factura (
   idfactura INT AUTO_INCREMENT PRIMARY KEY,
   fecha DATE NOT NULL,
   total DOUBLE NOT NULL,
-  usuario_id INT NOT NULL,
+  documento_id INT NOT NULL,
   empleado_id INT NOT NULL);
   
-  ALTER TABLE factura ADD FOREIGN KEY (usuario_id) REFERENCES usuarios(id_usuarios);
+  ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
   ALTER TABLE factura ADD FOREIGN KEY (empleado_id) REFERENCES empleado(idempleado);
 
 -- -----------------------------------------------------
@@ -496,3 +497,71 @@ BEGIN
 END ##
 DELIMITER ;
 call sp_InsertarFactura('15-03-2022',16500,7,2);
+
+/*Procedimiento Mostrar Factura */
+DROP PROCEDURE sp_MostrarFactura;
+DELIMITER ##
+CREATE PROCEDURE sp_MostrarFactura()
+BEGIN
+ SELECT * FROM Factura;
+END ##
+DELIMITER ;
+call sp_MostrarFactura;
+
+
+DELETE from usuarios where documento = 71740075;
+
+-- ---------------------------------------------------------- --
+-- --------------------- INNER JOIN --------------------- --
+-- ---------------------------------------------------------- --
+
+select * from usuarios;
+select * from factura;
+
+insert into factura(fecha, total, documento_id, empleado_id) values ('2020-03-12',20.000,1015066245,43635764);
+insert into factura(fecha, total, documento_id, empleado_id) values ('2020-03-15',20000,1000088550,43635764);
+
+----------------
+--- Internas ---
+----------------
+
+SELECT P.idproductos,P.nombre, PR.idproveedor FROM productos P INNER JOIN proveedor PR 
+ON P.proveedor_id = PR.idproveedor;
+
+SELECT F.idfactura, F.fecha, F.total, E.idempleado,E.nombre, U.documento, U.nombre FROM factura F INNER JOIN empleado E
+ON F.empleado_id = E.idempleado INNER JOIN usuarios U ON F.documento_id = U.documento;
+
+SELECT documento,nombre,apellido,id_rol,descripcion FROM usuarios INNER JOIN roles 
+ON usuarios.rol_id = roles.id_rol;
+
+----------------
+--- Externas ---
+----------------
+
+SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
+ON usuarios.rol_id = roles.id_rol;
+
+SELECT documento,nombre,apellido,descripcion FROM usuarios left JOIN roles 
+ON usuarios.rol_id = roles.id_rol;
+
+SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
+ON usuarios.rol_id = roles.id_rol
+UNION
+SELECT documento,nombre,apellido,descripcion FROM usuarios left JOIN roles 
+ON usuarios.rol_id = roles.id_rol;
+
+
+----------------
+--- Cruzadas ---
+----------------
+
+
+
+
+
+
+
+
+
+
+
