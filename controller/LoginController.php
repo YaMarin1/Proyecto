@@ -28,7 +28,7 @@
         $row = $query->fetch(PDO::FETCH_NUM);
         
         if($row == true){
-            $rol = $row[8];
+            $rol = $row[7];
             
             $_SESSION['rol'] = $rol;
             switch($rol){

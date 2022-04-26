@@ -135,7 +135,6 @@ $usuarios = new Database();
             <?php $listado=$usuarios->read(); ?>
               <?php 
                 while ($row=mysqli_fetch_object($listado)){
-                    $id_usuarios=$row->id_usuarios;
                     $documento=$row->documento;
                     $nombre=$row->nombre. " " .$row->apellido;
                     $telefono=$row->telefono;
@@ -153,9 +152,9 @@ $usuarios = new Database();
               <td><?php echo $password;?></td>
               <td><?php echo $rol_id;?></td>
               <td>
-                <a href="../crud/updateUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="edit" title="Editar"
+                <a href="../crud/updateUser.php?documento=<?php echo $documento;?>" class="edit" title="Editar"
                   data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                <a href="../crud/deleteUser.php?id_usuarios=<?php echo $id_usuarios;?>" class="delete" title="Eliminar"
+                <a href="../crud/deleteUser.php?documento=<?php echo $documento;?>" class="delete" title="Eliminar"
                   data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
               </td>
             </tr>

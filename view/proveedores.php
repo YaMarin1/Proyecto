@@ -135,7 +135,6 @@ $proveedores = new Database();
             <?php $listado=$proveedores->readProveedor(); ?>
               <?php 
                 while ($row=mysqli_fetch_object($listado)){
-                    $id_usuarios=$row->id_usuarios;
                     $documento=$row->documento;
                     $nombre=$row->nombre. " " .$row->apellido;
                     $telefono=$row->telefono;
