@@ -2,6 +2,8 @@
 
 function portada($oferta_id, $oferta){
   $salida= "";
+  $salida = $salida .'<div class="u-expanded-width u-list u-list-1">';
+  $salida = $salida .'<div class="u-repeater u-repeater-1">';
   $salida = $salida .'<div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">';
   $salida = $salida .'<div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">';
   $salida = $salida .'<img class="u-image u-image-default u-image-1" src="'. $oferta["imagen"] .'" alt="'. $oferta["nombre"];
