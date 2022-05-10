@@ -32,6 +32,7 @@
     <meta name="generator" content="Nicepage 4.6.5, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
     <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700">
+    <link rel="stylesheet" href="../css/prodofertas.css" type="text/css">
     
 
 
@@ -87,18 +88,27 @@
     </header>
 
     <section class="u-align-center u-clearfix u-grey-10 u-section-1" id="carousel_c142">
-        <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-sheet u-sheet-1" >
            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-3-base u-text-1">
              <span class="u-text-palette-1-base">
              <font color="#193a77">Ofertas</font>
             </span>
           </h1>
-                <?php foreach ($ofertas as $oferta_id => $oferta) {
+           <div>
+             
+          <div class="u-expanded-width u-list u-list-1">
+            <div class="u-container-style u-list-item u-repeater-item u-white u-list-item-1">
+              <div class="u-container-layout u-similar-container u-valign-top u-container-layout-1">
+          <?php foreach ($ofertas as $oferta_id => $oferta) {
                 echo portada($oferta_id, $oferta);
                 } ?>
-              </div>
-            </div>
-          </div>
+                </div>
+                  
+                
+        </div>
+        </div>
+        </div>
+        </div>
     </section>
  
     
