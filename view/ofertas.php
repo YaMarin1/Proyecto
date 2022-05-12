@@ -75,7 +75,7 @@
                 <div class="u-menu-close"></div>
                   <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                     <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="ofertas.php" style="padding: 10px 11px 10px 20px;">OFERTAS</a>
-                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="Alimentos.html" style="padding: 10px 11px 10px 20px;">ALIMENTOS</a></li>
+                    <li class="u-nav-item"><a class="u-button-style u-nav-link" href="" style="padding: 10px 11px 10px 20px;">ALIMENTOS</a></li>
                     <li class="u-nav-item"><a class="u-button-style u-nav-link" href="" style="padding: 10px 11px 10px 20px;">MEDICINAS</a></li>
                     <li class="u-nav-item"><a class="u-button-style u-nav-link" href="" style="padding: 10px 11px 10px 20px;">ACCESORIOS</a></li>
                     <li class="u-nav-item"><a class="u-button-style u-nav-link" href="" style="padding: 10px 11px 10px 20px;">CARRITO</a></li>
@@ -87,7 +87,7 @@
       </div>
     </header>
 
-    <section class="u-align-center u-clearfix u-grey-10 u-section-1" id="carousel_c142">
+    <section class="u-align-center u-clearfix u-grey-10 u-section-1 u-list-item-2" id="carousel_c142">
         <div class="u-clearfix u-sheet u-sheet-1" >
            <h1 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-3-base u-text-1">
              <span class="u-text-palette-1-base">

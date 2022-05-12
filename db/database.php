@@ -174,7 +174,7 @@
 
 
 		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
-            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','$imagen','$descripcion','$precio','$iva','$existencias','$categoria_id','$proveedor_id')";
+            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','".$image."','$descripcion','$precio','$iva','$existencias','$categoria_id','$proveedor_id')";
             $res = mysqli_query($this->con, $sql);
             	if($res){
               		return true;
@@ -196,7 +196,7 @@
 					return $return ;
 		}
 
-		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
+		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id,$idproductos){
 			$sql = "UPDATE productos SET nombre='$nombre',imagen='$imagen', descripcion='$descripcion', precio='$precio', iva='$iva', existencias='$existencias', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
 			$res = mysqli_query($this->con, $sql);
 				if($res){

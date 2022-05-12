@@ -148,7 +148,7 @@ $productos = new Database();
               ?>
             <tr>
               <td><?php echo $nombre;?></td>
-              <td><?php echo $imagen;?></td>
+              <td><img src="../images/ImagesProductos/<?php echo $imagen;?>" width="70px" height="70px" alt=""></img></td>
               <td><?php echo $descripcion;?></td>
               <td><?php echo $precio;?></td>
               <td><?php echo $iva;?></td>

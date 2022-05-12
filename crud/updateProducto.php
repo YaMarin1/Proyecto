@@ -128,7 +128,7 @@
 					$proveedor_id = $productos->sanitize($_POST['proveedor_id']);
 					$id_cliente=intval($_POST['id_cliente']);
 
-					$res = $clientes->update($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id,$id_cliente);
+					$res = $productos->updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id,$id_cliente);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";

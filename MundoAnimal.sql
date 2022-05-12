@@ -20,6 +20,7 @@ select * from usuarios;
 select * from roles;
 select * from productos;
 select * from categoria;
+select * from proveedor;
 
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 INSERT INTO categoria(nombrec) VALUES ('Alimentos');
@@ -62,7 +63,7 @@ CREATE TABLE productos (
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 
 
-insert into productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1152468987); 
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1152468987); 
 
   select * from productos;
    select * from categoria;
