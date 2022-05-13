@@ -78,7 +78,7 @@ $proveedores = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="empleados.php">
+            <a class="nav-link" href="empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -96,7 +96,7 @@ $proveedores = new Database();
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="proveedores.php">
+            <a class="nav-link  active" href="proveedores.php">
               <span data-feather="briefcase"></span>
               Proveedores
             </a>

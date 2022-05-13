@@ -110,32 +110,15 @@ CREATE TABLE usuarios (
   ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
 
 -- -----------------------------------------------------
--- Table Empleado
--- -----------------------------------------------------
-CREATE TABLE empleado (
-  idempleado INT PRIMARY KEY,
-  nombre VARCHAR(45) NOT NULL,
-  apellido VARCHAR(45) NOT NULL,
-  username VARCHAR(45) NOT NULL,
-  password VARCHAR(10) NOT NULL,
-  salario double NOT NULL,
-  rol_id INT NOT NULL);
-  
-  ALTER TABLE empleado ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
-
-INSERT INTO empleado(idempleado,nombre,apellido,username,password,salario,rol_id) VALUES (43635764,'Cecilia','Piedrahita','Cecilia@gmail.com','43635764',1100.000,3);
--- -----------------------------------------------------
 -- Table Factura
 -- -----------------------------------------------------
 CREATE TABLE factura (
   idfactura INT AUTO_INCREMENT PRIMARY KEY,
   fecha DATE NOT NULL,
   total DOUBLE NOT NULL,
-  documento_id INT NOT NULL,
-  empleado_id INT NOT NULL);
+  documento_id INT NOT NULL);
   
   ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
-  ALTER TABLE factura ADD FOREIGN KEY (empleado_id) REFERENCES empleado(idempleado);
 
 select * from categoria;
 -- -----------------------------------------------------
@@ -153,7 +136,7 @@ CREATE TABLE detalle_factura(
   factura_id INT NOT NULL);
   
   ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
-  ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES empleado(idempleado);
+  ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
 
 -- ---------------------------------------------------------- --
 -- --------------------- PROCEDIMIENTOS --------------------- --
