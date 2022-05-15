@@ -94,12 +94,6 @@
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Administrador</h1>
-        <div class="btn-toolbar mb-2 mb-md-0">
-          <div class="btn-group me-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-          </div>
-        </div>
       </div>
 
 	  <div class="container">
@@ -118,7 +112,6 @@
 				$productos= new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
-          $idproductos = $productos->sanitize($_POST['idproductos']);
 					$nombre = $productos->sanitize($_POST['nombre']);
 					$imagen = $productos->sanitize($_POST['imagen']);
 					$descripcion = $productos->sanitize($_POST['descripcion']);
@@ -159,7 +152,7 @@
 				</div>
 				<div class="col-md-6">
 					<label>Imagen:</label><br><br>
-          <img src="../images/ImagesProductos/<?php echo $row['imagen'];?>" width="70px" height="70px" alt=""></img><br>
+          <img src="../images/ImagesProductos/<?php echo $imagen;?>" width="70px" height="70px" alt=""></img><br>
 					<input type="file" name="imagen" id="imagen" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->imagen;?>">
 					
 				</div>
