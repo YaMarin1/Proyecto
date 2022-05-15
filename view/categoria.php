@@ -121,6 +121,7 @@ $categorias = new Database();
         <table class="table table-striped table-sm">
           <thead>
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Nombre</th>
               <th scope="col">Acciones</th>
             </tr>
@@ -134,6 +135,7 @@ $categorias = new Database();
                     
               ?>
             <tr>
+              <td><?php echo $idcategoria;?></td>
               <td><?php echo $nombrec;?></td>
               <td>
                 <a href="../crud/updateCategoria.php?idcategoria=<?php echo $idcategoria;?>" class="edit" title="Editar"

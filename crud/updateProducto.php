@@ -118,6 +118,7 @@
 				$productos= new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
+          $idproductos = $productos->sanitize($_POST['idproductos']);
 					$nombre = $productos->sanitize($_POST['nombre']);
 					$imagen = $productos->sanitize($_POST['imagen']);
 					$descripcion = $productos->sanitize($_POST['descripcion']);
@@ -150,15 +151,16 @@
 					?>
 
 			<div class="row">
-				<form method="post">
+				<form method="post" enctype="multipart/form-data">
 				<div class="col-md-6">
 					<label>Nombre:</label>
 					<input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->nombre;?>">
 					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->$idproductos;?>">
 				</div>
 				<div class="col-md-6">
-					<label>Imagen:</label>
-					<input type="text" name="imagen" id="imagen" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->imagen;?>">
+					<label>Imagen:</label><br><br>
+          <img src="../images/ImagesProductos/<?php echo $row['imagen'];?>" width="70px" height="70px" alt=""></img><br>
+					<input type="file" name="imagen" id="imagen" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->imagen;?>">
 					
 				</div>
 				<div class="col-md-6">

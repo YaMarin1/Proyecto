@@ -121,6 +121,7 @@ $productos = new Database();
         <table class="table table-striped table-sm">
           <thead>
             <tr>
+              <th scope="col">ID</th>
               <th scope="col">Nombre</th>
               <th scope="col">Imagen</th>
               <th scope="col">Descripcion</th>
@@ -147,6 +148,7 @@ $productos = new Database();
                     $proveedor_id=$row->proveedor_id;
               ?>
             <tr>
+              <td><?php echo $idproductos;?></td>
               <td><?php echo $nombre;?></td>
               <td><img src="../images/ImagesProductos/<?php echo $imagen;?>" width="70px" height="70px" alt=""></img></td>
               <td><?php echo $descripcion;?></td>

@@ -1,9 +1,9 @@
 <?php 
-if (isset($_GET['id_usuarios'])){
+if (isset($_GET['documento'])){
 	include('../db/database.php');
 	$cliente = new Database();
-	$id_usuarios=intval($_GET['id_usuarios']);
-	$res = $cliente->delete($id_usuarios);
+	$documento=intval($_GET['documento']);
+	$res = $cliente->delete($documento);
 	if($res){
 		header('location: ../view/user.php');
 	}else{

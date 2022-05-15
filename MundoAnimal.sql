@@ -63,7 +63,7 @@ CREATE TABLE productos (
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 
 
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','asd','asd',11400,1500,5,1,1152468987); 
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 
 
   select * from productos;
    select * from categoria;

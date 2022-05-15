@@ -1,6 +1,6 @@
 <?php
-	if (isset($_GET['id_usuarios'])){
-		$id_usuarios=intval($_GET['id_usuarios']);
+	if (isset($_GET['documento'])){
+		$documento=intval($_GET['documento']);
 	} else {
 		header("location:user.php");
 	}
@@ -145,7 +145,7 @@
 				</div>	
 					<?php
 					}
-					$datos_cliente=$clientes->single_record($id_usuarios);
+					$datos_cliente=$clientes->single_record($documento);
 					
 					?>
 
@@ -154,7 +154,7 @@
 				<div class="col-md-6">
 					<label>Documento:</label>
 					<input type="number" name="documento" id="documento" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->documento;?>">
-					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->id_usuarios;?>">
+					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->documento;?>">
 				</div>
 				<div class="col-md-6">
 					<label>Nombre:</label>

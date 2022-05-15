@@ -1,37 +1,3 @@
-<?php
-				include ("../db/database.php");
-        $productos= new Database();
-
-				if(isset($_POST) && !empty($_POST)){
-					$nombre = $productos->sanitize($_POST['nombre']);
-          $imagen = $_FILES['imagen']['name'];
-          $archivo =$_FILES['imagen']['tmp_name'];
-          $ruta= "../images/ImagesProductos";
-          $ruta= $ruta."/".$imagen;
-          move_uploaded_file($archivo,$ruta);
-					$descripcion = $productos->sanitize($_POST['descripcion']);
-					$precio = $productos->sanitize($_POST['precio']);
-					$iva = $productos->sanitize($_POST['iva']);
-					$existencias = $productos->sanitize($_POST['existencias']);
-          $categoria_id = $productos->sanitize($_POST['categoria_id']);
-					$proveedor_id = $productos->sanitize($_POST['proveedor_id']);
-					$res = $productos->createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id);
-					if($res){
-						$message= "Datos insertados con éxito";
-						$class="alert alert-success";
-					}else{
-						$message="No se pudieron insertar los datos";
-						$class="alert alert-danger";
-					}
-					
-					?>
-				<div class="<?php echo $class?>">
-				  <?php echo $message;?>
-				</div>	
-					<?php
-				}
-	
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -142,6 +108,42 @@
                     </div>
                 </div>
             </div>
+
+
+            <?php
+				include ("../db/database.php");
+        $productos= new Database();
+
+				if(isset($_POST) && !empty($_POST)){
+					$nombre = $productos->sanitize($_POST['nombre']);
+          $imagen = $_FILES['imagen']['name'];
+          $archivo =$_FILES['imagen']['tmp_name'];
+          $ruta= "../images/ImagesProductos";
+          $ruta= $ruta."/".$imagen;
+          move_uploaded_file($archivo,$ruta);
+					$descripcion = $productos->sanitize($_POST['descripcion']);
+					$precio = $productos->sanitize($_POST['precio']);
+					$iva = $productos->sanitize($_POST['iva']);
+					$existencias = $productos->sanitize($_POST['existencias']);
+          $categoria_id = $productos->sanitize($_POST['categoria_id']);
+					$proveedor_id = $productos->sanitize($_POST['proveedor_id']);
+					$res = $productos->createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id);
+					if($res){
+						$message= "Datos insertados con éxito";
+						$class="alert alert-success";
+					}else{
+						$message="No se pudieron insertar los datos";
+						$class="alert alert-danger";
+					}
+					
+					?>
+				<div class="<?php echo $class?>">
+				  <?php echo $message;?>
+				</div>	
+					<?php
+				}
+	
+?>
 
 			<div class="row">
 				<form method="post" enctype="multipart/form-data">

@@ -121,6 +121,7 @@ $rol = new Database();
         <table class="table table-striped table-sm">
           <thead>
             <tr>
+            <th scope="col">ID</th>
               <th scope="col">Descripcion</th>
               <th scope="col">Acciones</th>
             </tr>
@@ -134,6 +135,7 @@ $rol = new Database();
                     
               ?>
             <tr>
+            <td><?php echo $id_rol;?></td>
               <td><?php echo $descripcion;?></td>
               <td>
                 <a href="../crud/updateRol.php?id_rol=<?php echo $id_rol;?>" class="edit" title="Editar"
