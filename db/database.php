@@ -175,9 +175,7 @@
 
 		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
             $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','".$imagen."','$descripcion',$precio,$iva,$existencias,$categoria_id,$proveedor_id)";
-            echo $sql; 
 			$res = mysqli_query($this->con, $sql);
-			echo $res;
 			if($res){
 				return true;
 			} else{
@@ -219,10 +217,50 @@
         }
 
 
-		public function readProveedor(){
-            $sql = "SELECT * FROM usuarios where rol_id=4";
+
+
+
+		public function createProveedor($idproveedor,$nombre,$apellido,$telefono){
+            $sql = "INSERT INTO proveedor (idproveedor,nombre,apellido,telefono) VALUES ($idproveedor,'$nombre','$apellido',$telefono)";
+			$res = mysqli_query($this->con, $sql);
+			if($res){
+				return true;
+			} else{
+				return false;
+         }
+        }
+
+        public function readProveedor(){
+            $sql = "SELECT * FROM proveedor";
             $res = mysqli_query($this->con, $sql);
             	return $res;
+        }
+
+        public function single_recordProveedor($idproveedor){
+			$sql = "SELECT * FROM proveedor where idproveedor='$idproveedor'";
+			$res = mysqli_query($this->con, $sql);
+				$return = mysqli_fetch_object($res );
+					return $return ;
+		}
+
+		public function updateProveedor($nombre,$apellido,$telefono,$idproveedor){
+			$sql = "UPDATE proveedor SET nombre='$nombre', apellido='$apellido', telefono='$telefono' WHERE idproveedor=$idproveedor";
+			$res = mysqli_query($this->con, $sql);
+				if($res){
+					return true;
+				}else{
+					return false;
+			}
+		}
+
+        public function deleteProveedor($idproveedor){
+            $sql = "DELETE FROM proveedor WHERE idproveedor=$idproveedor";
+            $res = mysqli_query($this->con, $sql);
+            	if($res){
+            		return true;
+            	}else{
+            		return false;
+            }
         }
 
 }
