@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="root";
+		private $dbpass="Sena2020*";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -174,12 +174,14 @@
 
 
 		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
-            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','".$imagen."','$descripcion','$precio','$iva','$existencias','$categoria_id','$proveedor_id')";
-            $res = mysqli_query($this->con, $sql);
-            	if($res){
-              		return true;
-            	}else{
-            		return false;
+            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','".$imagen."','$descripcion',$precio,$iva,$existencias,$categoria_id,$proveedor_id)";
+            echo $sql; 
+			$res = mysqli_query($this->con, $sql);
+			echo $res;
+			if($res){
+				return true;
+			} else{
+				return false;
          }
         }
 

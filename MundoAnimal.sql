@@ -44,6 +44,9 @@ CREATE TABLE  proveedor (
   telefono varchar(11));
 
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1152468987','Daniel','Salazar','2996067');
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1000088550','Yamile','Cornas','2996067');
+
+select * from proveedor;
 
 -- -----------------------------------------------------
 -- Table Productos
@@ -58,7 +61,7 @@ CREATE TABLE productos (
   existencias INT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
-  
+  INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba1','Final razonamiento.png','rwe',3,3,3,4,1152468987);
   
 ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 

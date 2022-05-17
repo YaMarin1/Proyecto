@@ -152,7 +152,6 @@
 				</div>
 				<div class="col-md-6">
 					<label>Imagen:</label><br><br>
-          <img src="../images/ImagesProductos/<?php echo $imagen;?>" width="70px" height="70px" alt=""></img><br>
 					<input type="file" name="imagen" id="imagen" class='form-control' maxlength="100" required  value="<?php echo $datos_cliente->imagen;?>">
 					
 				</div>
