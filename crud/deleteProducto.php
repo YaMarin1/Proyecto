@@ -10,4 +10,3 @@ if (isset($_GET['idproductos'])){
 		echo "Error al eliminar el registro";
 	}
 }
-?>

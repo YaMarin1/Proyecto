@@ -10,4 +10,3 @@ if (isset($_GET['idproveedor'])){
 		echo "Error al eliminar el registro";
 	}
 }
-?>

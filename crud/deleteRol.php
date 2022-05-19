@@ -10,4 +10,3 @@ if (isset($_GET['id_rol'])){
 		echo "Error al eliminar el registro";
 	}
 }
-?>

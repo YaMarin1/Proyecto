@@ -10,4 +10,3 @@ if (isset($_GET['idcategoria'])){
 		echo "Error al eliminar el registro";
 	}
 }
-?>

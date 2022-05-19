@@ -1,13 +1,12 @@
-<?php 
-if (isset($_GET['documento'])){
+<?php
+if (isset($_GET['documento'])) {
 	include('../db/database.php');
 	$cliente = new Database();
-	$documento=intval($_GET['documento']);
+	$documento = intval($_GET['documento']);
 	$res = $cliente->delete($documento);
-	if($res){
+	if ($res) {
 		header('location: ../view/user.php');
-	}else{
+	} else {
 		echo "Error al eliminar el registro";
 	}
 }
-?>
