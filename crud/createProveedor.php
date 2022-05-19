@@ -60,7 +60,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/empleado.php">
+            <a class="nav-link" href="../view/empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>

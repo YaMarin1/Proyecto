@@ -1,32 +1,5 @@
 <?php
 				include ("../db/database.php");
-				$clientes= new Database();
-				if(isset($_POST) && !empty($_POST)){
-					$documento = $clientes->sanitize($_POST['documento']);
-					$nombre = $clientes->sanitize($_POST['nombre']);
-					$apellido = $clientes->sanitize($_POST['apellido']);
-					$telefono = $clientes->sanitize($_POST['telefono']);
-					$direccion = $clientes->sanitize($_POST['direccion']);
-					$username = $clientes->sanitize($_POST['username']);
-					$password = $clientes->sanitize($_POST['password']);
-					$rol_id = $clientes->sanitize($_POST['rol_id']);
-					
-					$res = $clientes->create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id);
-					if($res){
-						$message= "Datos insertados con éxito";
-						$class="alert alert-success";
-					}else{
-						$message="No se pudieron insertar los datos";
-						$class="alert alert-danger";
-					}
-					
-					?>
-				<div class="<?php echo $class?>">
-				  <?php echo $message;?>
-				</div>	
-					<?php
-				}
-	
 ?>
 <!doctype html>
 <html lang="en">
@@ -90,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/empleado.php">
+            <a class="nav-link" href="../view/empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -139,6 +112,38 @@
                 </div>
             </div>
 
+
+            <?php
+				$clientes= new Database();
+				if(isset($_POST) && !empty($_POST)){
+					$documento = $clientes->sanitize($_POST['documento']);
+					$nombre = $clientes->sanitize($_POST['nombre']);
+					$apellido = $clientes->sanitize($_POST['apellido']);
+					$telefono = $clientes->sanitize($_POST['telefono']);
+					$direccion = $clientes->sanitize($_POST['direccion']);
+					$username = $clientes->sanitize($_POST['username']);
+					$password = $clientes->sanitize($_POST['password']);
+					$rol_id = $clientes->sanitize($_POST['rol_id']);
+					
+					$res = $clientes->create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id);
+					if($res){
+						$message= "Datos insertados con éxito";
+						$class="alert alert-success";
+					}else{
+						$message="No se pudieron insertar los datos";
+						$class="alert alert-danger";
+					}
+					
+					?>
+				<div class="<?php echo $class?>">
+				  <?php echo $message;?>
+				</div>	
+					<?php
+				}
+	
+?>
+
+
 			<div class="row">
 				<form method="post">
 				<div class="col-md-6">
@@ -171,7 +176,12 @@
 				</div>
 				<div class="col-md-6">
 					<label>Rol:</label>
-					<input type="number" name="rol_id" id="rol_id" class='form-control' maxlength="12" required >
+					<!--<input type="number" name="rol_id" id="rol_id" class='form-control' maxlength="12" required >-->
+          <select class="form-select" name="rol_id" id="rol_id">
+            <option value="1">Administrador</option>
+            <option value="2">Cliente</option>
+            <option value="3">Empleado</option>
+          </select>
 				</div>
 				
 				<div class="col-md-12 pull-right">

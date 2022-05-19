@@ -65,7 +65,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/empleado.php">
+            <a class="nav-link" href="../view/empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -178,7 +178,12 @@
 				</div>
 				<div class="col-md-6">
 					<label>Categoria:</label>
-					<input type="number" name="categoria_id" id="categoria_id" class='form-control' maxlength="50" required >
+					<!--<input type="number" name="categoria_id" id="categoria_id" class='form-control' maxlength="50" required >-->
+          <select class="form-select" name="categoria_id" id="categoria_id" aria-label="Ingrese una categoria">
+            <option value="1">Accesorios</option>
+            <option value="2">Alimentos</option>
+            <option value="3">Medicamentos</option>
+          </select>
 				</div>
                 <div class="col-md-6">
 					<label>Proveedor:</label>

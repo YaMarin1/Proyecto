@@ -126,9 +126,9 @@
 					$username = $clientes->sanitize($_POST['username']);
 					$password = $clientes->sanitize($_POST['password']);
 					$rol_id = $clientes->sanitize($_POST['rol_id']);
-					$id_cliente=intval($_POST['id_cliente']);
+					$id=intval($_POST['id']);
 
-					$res = $clientes->update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_cliente);
+					$res = $clientes->update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -154,7 +154,7 @@
 				<div class="col-md-6">
 					<label>Documento:</label>
 					<input type="number" name="documento" id="documento" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->documento;?>">
-					<input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->documento;?>">
+					<input type="hidden" name="id" id="id" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->documento;?>">
 				</div>
 				<div class="col-md-6">
 					<label>Nombre:</label>

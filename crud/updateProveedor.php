@@ -115,16 +115,16 @@
             <?php
 				
 				include ("../db/database.php");
-				$proveedor= new Database();
+				$proveedores= new Database();
 				
 				if(isset($_POST) && !empty($_POST)){
-					$idproveedor = $proveedor->sanitize($_POST['idproveedor']);
-					$nombre = $proveedor->sanitize($_POST['nombre']);
-					$apellido = $proveedor->sanitize($_POST['apellido']);
-					$telefono = $proveedor->sanitize($_POST['telefono']);
-					$id_cliente8=intval($_POST['id_cliente8']);
+					$idproveedor = $proveedores->sanitize($_POST['idproveedor']);
+					$nombre = $proveedores->sanitize($_POST['nombre']);
+					$apellido = $proveedores->sanitize($_POST['apellido']);
+					$telefono = $proveedores->sanitize($_POST['telefono']);
+					$id=intval($_POST['id']);
 
-					$res = $proveedor->updateProveedor($idproveedor,$nombre,$apellido,$telefono,$id_cliente8);
+					$res = $proveedores->updateProveedor($idproveedor,$nombre,$apellido,$telefono, $id);
 					if($res){
 						$message= "Datos actualizados con éxito";
 						$class="alert alert-success";
@@ -141,7 +141,7 @@
 				</div>	
 					<?php
 					}
-					$datos_cliente=$proveedor->single_recordProveedor($idproveedor);
+					$datos_cliente=$proveedores->single_recordProveedor($idproveedor);
 					
 					?>
 
@@ -150,7 +150,7 @@
 				<div class="col-md-6">
 					<label>Documento:</label>
 					<input type="number" name="idproveedor" id="idproveedor" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->idproveedor;?>">
-					<input type="hidden" name="id_cliente8" id="id_cliente8" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->idproveedor;?>">
+					<input type="hidden" name="id" id="id" class='form-control' maxlength="100"   value="<?php echo $datos_cliente->idproveedor;?>">
 				</div>
 				<div class="col-md-6">
 					<label>Nombre:</label>

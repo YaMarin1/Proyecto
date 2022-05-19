@@ -1,26 +1,3 @@
-<?php
-				include ("../db/database.php");
-				$rol = new Database();
-				if(isset($_POST) && !empty($_POST)){
-					$descripcion = $rol->sanitize($_POST['descripcion']);
-					
-					$res = $rol->createRol($descripcion);
-					if($res){
-						$message= "Datos insertados con éxito";
-						$class="alert alert-success";
-					}else{
-						$message="No se pudieron insertar los datos";
-						$class="alert alert-danger";
-					}
-					
-					?>
-				<div class="<?php echo $class?>">
-				  <?php echo $message;?>
-				</div>	
-					<?php
-				}
-	
-?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -83,7 +60,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="../view/empleado.php">
+            <a class="nav-link" href="../view/empleados.php">
               <span data-feather="users"></span>
               Empleados
             </a>
@@ -131,6 +108,31 @@
                     </div>
                 </div>
             </div>
+
+
+            <?php
+				include ("../db/database.php");
+				$rol = new Database();
+				if(isset($_POST) && !empty($_POST)){
+					$descripcion = $rol->sanitize($_POST['descripcion']);
+					
+					$res = $rol->createRol($descripcion);
+					if($res){
+						$message= "Datos insertados con éxito";
+						$class="alert alert-success";
+					}else{
+						$message="No se pudieron insertar los datos";
+						$class="alert alert-danger";
+					}
+					
+					?>
+				<div class="<?php echo $class?>">
+				  <?php echo $message;?>
+				</div>	
+					<?php
+				}
+	
+?>
 
 			<div class="row">
 				<form method="post">

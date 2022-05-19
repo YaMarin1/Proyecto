@@ -49,8 +49,8 @@
 					return $return ;
 		}
 
-		public function update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id_usuarios){
-			$sql = "UPDATE usuarios SET documento='$documento',nombre='$nombre', apellido='$apellido', telefono='$telefono', direccion='$direccion', username='$username', password='$password', rol_id='$rol_id' WHERE id_usuarios=$id_usuarios";
+		public function update($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id,$id){
+			$sql = "UPDATE usuarios SET documento='$documento',nombre='$nombre', apellido='$apellido', telefono='$telefono', direccion='$direccion', username='$username', password='$password', rol_id='$rol_id' WHERE documento=$id";
 			$res = mysqli_query($this->con, $sql);
 				if($res){
 					return true;
@@ -199,8 +199,8 @@
 		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id,$idproductos){
 			$sql = "UPDATE productos SET nombre='$nombre',imagen='$imagen', descripcion='$descripcion', precio='$precio', iva='$iva', existencias='$existencias', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
 			$res = mysqli_query($this->con, $sql);
-				if($res){
-					return true;
+			if($res){
+					return false;
 				}else{
 					return false;
 			}
@@ -243,13 +243,14 @@
 					return $return ;
 		}
 
-		public function updateProveedor($nombre,$apellido,$telefono,$idproveedor){
-			$sql = "UPDATE proveedor SET nombre='$nombre', apellido='$apellido', telefono='$telefono' WHERE idproveedor=$idproveedor";
+		public function updateProveedor($idproveedor, $nombre,$apellido,$telefono,$id){
+			$id = (int)$id;
+			$sql = "UPDATE proveedor SET idproveedor='$idproveedor', nombre='$nombre', apellido='$apellido', telefono='$telefono' WHERE idproveedor=$id";
 			$res = mysqli_query($this->con, $sql);
-				if($res){
-					return true;
-				}else{
-					return false;
+			if($res){
+				return true;
+			}else{
+				return false;
 			}
 		}
 

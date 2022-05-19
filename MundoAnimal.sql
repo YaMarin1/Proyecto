@@ -1,31 +1,11 @@
+-- -----------------------------------------------------
+-- Crea la base de datos
+-- -----------------------------------------------------
 CREATE DATABASE MUNDOANIMAL;
 USE MUNDOANIMAL;
 
+
 DROP DATABASE MUNDOANIMAL;
-
-INSERT INTO roles(descripcion) VALUES ("Administrador");
-INSERT INTO roles(descripcion) VALUES ("Cliente");
-INSERT INTO roles(descripcion) VALUES ("Empleado");
-INSERT INTO roles(descripcion) VALUES ("Proveedor");
-
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000085835,'Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1152468384,'Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',4);
-
-select * from usuarios;
-select * from roles;
-select * from productos;
-select * from categoria;
-select * from proveedor;
-
-INSERT INTO categoria(nombrec) VALUES ('Accesorios');
-INSERT INTO categoria(nombrec) VALUES ('Alimentos');
-INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
-
 
 -- -----------------------------------------------------
 -- Table Categoria
@@ -43,11 +23,6 @@ CREATE TABLE  proveedor (
   apellido VARCHAR(45) NOT NULL,
   telefono varchar(11));
 
-INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1152468987','Daniel','Salazar','2996067');
-INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1000088550','Yamile','Cornas','2996067');
-
-select * from proveedor;
-
 -- -----------------------------------------------------
 -- Table Productos
 -- -----------------------------------------------------
@@ -61,19 +36,6 @@ CREATE TABLE productos (
   existencias INT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id INT NOT NULL);
-  INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba1','Final razonamiento.png','rwe',3,3,3,4,1152468987);
-  
-ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
-ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria); 
-
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 
-
-  select * from productos;
-   select * from categoria;
-    select * from proveedor;
-  select * from usuarios where rol_id=3;
-
-
 
 -- -----------------------------------------------------
 -- Table KardexProducto
@@ -87,8 +49,6 @@ CREATE TABLE kardexproducto (
   cantidadSalidak INT NOT NULL,
   costoSalidak DOUBLE NOT NULL,
   productos_id INT NOT NULL);
-
-ALTER TABLE kardexproducto ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 
 -- -----------------------------------------------------
 -- Table Roles
@@ -110,8 +70,7 @@ CREATE TABLE usuarios (
   password VARCHAR(10) NOT NULL,
   rol_id INT NOT NULL);
   
-  ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
-
+  select * from usuarios;
 -- -----------------------------------------------------
 -- Table Factura
 -- -----------------------------------------------------
@@ -120,10 +79,7 @@ CREATE TABLE factura (
   fecha DATE NOT NULL,
   total DOUBLE NOT NULL,
   documento_id INT NOT NULL);
-  
-  ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
 
-select * from categoria;
 -- -----------------------------------------------------
 -- Table Detalle_factura
 -- -----------------------------------------------------
@@ -137,9 +93,48 @@ CREATE TABLE detalle_factura(
   subtotal DOUBLE NOT NULL,
   productos_id INT NOT NULL,
   factura_id INT NOT NULL);
+
+-- -----------------------------------------------------
+-- FOREIGN KEYs
+-- -----------------------------------------------------
   
-  ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
-  ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
+ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idproveedor);
+ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria);
+ALTER TABLE kardexproducto ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
+ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
+ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
+ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
+ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
+  
+  
+  
+INSERT INTO categoria(nombrec) VALUES ('Accesorios');
+INSERT INTO categoria(nombrec) VALUES ('Alimentos');
+INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
+
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1152468987','Daniel','Salazar','2996067');
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1000088550','Yamile','Cornas','2996067');
+
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba1','Final razonamiento.png','rwe',3,3,3,1,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 
+
+-- -----------------------------------------------------
+-- Insert Kardex
+-- -----------------------------------------------------
+  
+INSERT INTO roles(descripcion) VALUES ("Administrador");
+INSERT INTO roles(descripcion) VALUES ("Cliente");
+INSERT INTO roles(descripcion) VALUES ("Empleado");
+
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000085835,'Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1152468384,'Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',2);
+
+
 
 -- ---------------------------------------------------------- --
 -- --------------------- PROCEDIMIENTOS --------------------- --
