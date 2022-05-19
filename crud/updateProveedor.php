@@ -166,7 +166,7 @@ if (isset($_GET['idproveedor'])) {
                 </div>
                 <div class="col-md-6">
                   <label>Teléfono:</label>
-                  <input type="text" name="telefono" id="telefono" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->telefono; ?>">
+                  <input type="number" name="telefono" id="telefono" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->telefono; ?>">
                 </div>
 
                 <div>

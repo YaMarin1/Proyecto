@@ -18,7 +18,7 @@ CREATE TABLE categoria (
 -- Table Proveedor
 -- -----------------------------------------------------
 CREATE TABLE  proveedor (
-  idproveedor INT PRIMARY KEY,
+  idproveedor BIGINT PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
   telefono varchar(11));
@@ -35,7 +35,7 @@ CREATE TABLE productos (
   iva DOUBLE NOT NULL,
   existencias INT NOT NULL,
   categoria_id INT NOT NULL,
-  proveedor_id INT NOT NULL);
+  proveedor_id BIGINT NOT NULL);
 
 -- -----------------------------------------------------
 -- Table KardexProducto
@@ -61,7 +61,7 @@ CREATE TABLE roles (
 -- Table Usuario
 -- -----------------------------------------------------
 CREATE TABLE usuarios (
-  documento int PRIMARY KEY NOT NULL,
+  documento INT PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
   telefono VARCHAR(45) NOT NULL,
@@ -70,7 +70,6 @@ CREATE TABLE usuarios (
   password VARCHAR(10) NOT NULL,
   rol_id INT NOT NULL);
   
-  select * from usuarios;
 -- -----------------------------------------------------
 -- Table Factura
 -- -----------------------------------------------------
@@ -106,14 +105,16 @@ ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento
 ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
   
-  
+-- -----------------------------------------------------
+-- INSERT DE PRUEBAS
+-- ----------------------------------------------------- 
   
 INSERT INTO categoria(nombrec) VALUES ('Accesorios');
 INSERT INTO categoria(nombrec) VALUES ('Alimentos');
 INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 
-INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1152468987','Daniel','Salazar','2996067');
-INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES ('1000088550','Yamile','Cornas','2996067');
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
+INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
 INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba1','Final razonamiento.png','rwe',3,3,3,1,1152468987);
 INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 

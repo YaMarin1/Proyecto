@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="Sena2020*";
+		private $dbpass="root";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -244,8 +244,7 @@
 		}
 
 		public function updateProveedor($idproveedor, $nombre,$apellido,$telefono,$id){
-			$id = (int)$id;
-			$sql = "UPDATE proveedor SET idproveedor='$idproveedor', nombre='$nombre', apellido='$apellido', telefono='$telefono' WHERE idproveedor=$id";
+			$sql = "UPDATE proveedor SET idproveedor=$idproveedor, nombre='$nombre', apellido='$apellido', telefono=$telefono WHERE idproveedor=$id";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
 				return true;
@@ -265,3 +264,4 @@
         }
 
 }
+?>
