@@ -12,8 +12,7 @@ if($cart->total_items() <= 0){
 }
 
 // set customer ID in session
-$_SESSION['sessCustomerID'] = 1000088550;
-
+$_SESSION['sessCustomerID'] =  $_SESSION['documento'];
 // get customer details by session customer ID
 $query = $db->query("SELECT * FROM usuarios WHERE documento = ".$_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();

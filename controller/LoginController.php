@@ -29,8 +29,10 @@
         
         if($row == true){
             $rol = $row[7];
+            $documento = $row[0];
             
             $_SESSION['rol'] = $rol;
+            $_SESSION['documento'] = $documento;
             switch($rol){
                 case 1:
                     header('location: ../view/admin.php');

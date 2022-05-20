@@ -31,6 +31,7 @@ if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
     }elseif($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['idproductos'])){
         $deleteItem = $cart->remove($_REQUEST['idproductos']);
         header("Location: VerCarta.php");
+        
     }elseif($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])){
         // insert order details into database
         $insertOrder = $db->query("INSERT INTO orden (documento_id, total_price, created) VALUES ('".$_SESSION['sessCustomerID']."', '".$cart->total()."', '".date("Y-m-d H:i:s")."')");
