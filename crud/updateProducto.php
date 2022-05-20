@@ -117,7 +117,11 @@ if (isset($_GET['idproductos'])) {
 
             if (isset($_POST) && !empty($_POST)) {
               $nombre = $productos->sanitize($_POST['nombre']);
-              $imagen = $productos->sanitize($_POST['imagen']);
+              $imagen = $_FILES['imagen']['name']; //Obtiene el nombre
+              $archivo = $_FILES['imagen']['tmp_name']; //Obtiene el archivo
+              $ruta = "../images/ImagesProductos";
+              $ruta = $ruta . "/" . $imagen;
+              move_uploaded_file($archivo, $ruta);
               $descripcion = $productos->sanitize($_POST['descripcion']);
               $precio = $productos->sanitize($_POST['precio']);
               $iva = $productos->sanitize($_POST['iva']);
@@ -154,9 +158,12 @@ if (isset($_GET['idproductos'])) {
                   <input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100" value="<?php echo $datos_cliente->$idproductos; ?>">
                 </div>
                 <div class="col-md-6">
+                <label>Imagen:</label><br>
+                <img src="../images/ImagesProductos/<?php echo $imagen; ?>" width="100px" height="100px" alt="">
+                </div>
+                <div class="col-md-6">
                   <label>Imagen:</label><br><br>
                   <input type="file" name="imagen" id="imagen" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->imagen; ?>">
-
                 </div>
                 <div class="col-md-6">
                   <label>Descripcion:</label>
