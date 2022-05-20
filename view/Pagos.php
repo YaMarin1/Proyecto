@@ -12,16 +12,16 @@ if($cart->total_items() <= 0){
 }
 
 // set customer ID in session
-$_SESSION['sessCustomerID'] = 1;
+$_SESSION['sessCustomerID'] = 1000088550;
 
 // get customer details by session customer ID
-$query = $db->query("SELECT * FROM clientes WHERE id = ".$_SESSION['sessCustomerID']);
+$query = $db->query("SELECT * FROM usuarios WHERE documento = ".$_SESSION['sessCustomerID']);
 $custRow = $query->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>FACTURA</title>
+    <title>Facturacion</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -65,8 +65,8 @@ $custRow = $query->fetch_assoc();
             foreach($cartItems as $item){
         ?>
         <tr>
-            <td><?php echo $item["name"]; ?></td>
-            <td><?php echo '$'.$item["price"].' USD'; ?></td>
+            <td><?php echo $item["nombre"]; ?></td>
+            <td><?php echo '$'.$item["precio"].' USD'; ?></td>
             <td><?php echo $item["qty"]; ?></td>
             <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
         </tr>
@@ -85,17 +85,17 @@ $custRow = $query->fetch_assoc();
     </table>
     <div class="shipAddr">
         <h4>Detalles de envío</h4>
-        <p><?php echo $custRow['name']; ?></p>
-        <p><?php echo $custRow['email']; ?></p>
-        <p><?php echo $custRow['phone']; ?></p>
-        <p><?php echo $custRow['address']; ?></p>
+        <p><?php echo $custRow['nombre']; ?></p>
+        <p><?php echo $custRow['username']; ?></p>
+        <p><?php echo $custRow['telefono']; ?></p>
+        <p><?php echo $custRow['direccion']; ?></p>
     </div>
     <div class="footBtn">
-        <a href="index.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
+        <a href="ofertas.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
         <a href="AccionCarta.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
     </div>
         </div>
- <div class="panel-footer">BaulPHP</div>
+ <div class="panel-footer">Mundo Animal - Pagos</div>
  </div><!--Panek cierra-->
 </div>
 </body>

@@ -113,7 +113,7 @@ if (!isset($_SESSION['rol'])) {
                               <p class="lead"><?php echo '$ ' . $row["precio"]; ?></p>
                             </div>
                             <div class="col-md-6">
-                              <a class="btn btn-success" href="AccionCarta.php?action=addToCart&id=<?php echo $row["id"]; ?>">Agregar a la Carta</a>
+                              <a class="btn btn-success" href="AccionCarta.php?action=addToCart&idproductos=<?php echo $row["idproductos"]; ?>">Agregar a la Carta</a>
                             </div>
                           </div>
                         </div>

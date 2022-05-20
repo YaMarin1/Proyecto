@@ -78,6 +78,15 @@ CREATE TABLE factura (
   fecha DATE NOT NULL,
   total DOUBLE NOT NULL,
   documento_id INT NOT NULL);
+  
+  
+CREATE TABLE orden (
+  id_orden INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  documento_id INT NOT NULL,
+  total_price DOUBLE NOT NULL,
+  created datetime NOT NULL);
+  
+ALTER TABLE orden ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
 
 -- -----------------------------------------------------
 -- Table Detalle_factura
@@ -93,6 +102,14 @@ CREATE TABLE detalle_factura(
   productos_id INT NOT NULL,
   factura_id INT NOT NULL);
 
+CREATE TABLE orden_articulos (
+  id_ordenarticulos INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  order_id INT NOT NULL,
+  productos_id INT NOT NULL,
+  quantity INT NOT NULL);
+  
+ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
+ALTER TABLE orden_articulos ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 -- -----------------------------------------------------
 -- FOREIGN KEYs
 -- -----------------------------------------------------
@@ -151,6 +168,8 @@ CREATE TABLE clientes (
   
 INSERT INTO clientes (id, name, email, phone, address, created, modified) VALUES (1, 'Usuario Demo', 'demo-demo@gmail.com', '900099900', 'Quito, EC, Ecuador', '2018-02-17 08:21:25', '2018-02-17 08:21:25');
 INSERT INTO clientes (id, name, email, phone, address, created, modified) VALUES (2, 'Yeison', 'demo-demo@gmail.com', '123456', 'Colombia', '2018-02-17 08:21:25', '2018-02-17 08:21:25');
+select * from clientes;
+
 CREATE TABLE mis_productos (
   id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name varchar(200) NOT NULL,
@@ -166,22 +185,18 @@ INSERT INTO mis_productos (id, name, description, price, created, modified) VALU
 (4, 'Producto 4', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 25.00, '2016-08-17 08:21:25', '2016-08-17 08:21:25'),
 (5, 'Producto 5', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.', 48.00, '2016-08-17 08:21:25', '2016-08-17 08:21:25');
 
-CREATE TABLE IF NOT EXISTS orden (
-  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  customer_id int(11) NOT NULL,
-  total_price float(10,2) NOT NULL,
-  created datetime NOT NULL,
-  modified datetime NOT NULL);
+
 
 CREATE TABLE IF NOT EXISTS orden_articulos (
-  id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  id_ordenarticulos int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
   order_id int(11) NOT NULL,
   product_id int(11) NOT NULL,
   quantity int(5) NOT NULL);
   
   
-ALTER TABLE orden ADD FOREIGN KEY (customer_id) REFERENCES clientes(id);
-ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id);
+ALTER TABLE orden ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
+
+ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
 
 
 -- ---------------------------------------------------------- --

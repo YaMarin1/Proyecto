@@ -6,7 +6,7 @@ $cart = new Cart;
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>View Cart - PHP Shopping Cart Tutorial</title>
+    <title>Listado de Productos</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -17,7 +17,7 @@ $cart = new Cart;
     </style>
     <script>
     function updateCartItem(obj,id){
-        $.get("cartAction.php", {action:"updateCartItem", id:id, qty:obj.value}, function(data){
+        $.get("cartAction.php", {action:"updateCartItem", idproductos:idproductos, qty:obj.value}, function(data){
             if(data == 'ok'){
                 location.reload();
             }else{
@@ -62,12 +62,12 @@ $cart = new Cart;
             foreach($cartItems as $item){
         ?>
         <tr>
-            <td><?php echo $item["name"]; ?></td>
-            <td><?php echo '$'.$item["price"].' USD'; ?></td>
+            <td><?php echo $item["nombre"]; ?></td>
+            <td><?php echo '$'.$item["precio"].' USD'; ?></td>
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
             <td>
-                <a href="AccionCarta.php?action=removeCartItem&id=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
         <?php } }else{ ?>
@@ -87,7 +87,7 @@ $cart = new Cart;
     </table>
     
     </div>
- <div class="panel-footer">Mundo Animal</div>
+ <div class="panel-footer">Mundo Animal - Carrito</div>
  </div><!--Panek cierra-->
  
 </div>

@@ -1,13 +1,13 @@
 <?php
-if(!isset($_REQUEST['id'])){
-    header("Location: index.php");
+if(!isset($_REQUEST['id_orden'])){
+    header("Location: ofertas.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>Orden Completado - PHP Carrito de Compras</title>
+    <title>Compra Completada</title>
     <meta charset="utf-8">
     <style>
     .container{padding: 20px;}
@@ -21,16 +21,16 @@ if(!isset($_REQUEST['id'])){
 <div class="panel-heading"> 
 
 <ul class="nav nav-pills">
-  <li role="presentation"><a href="index.php">Inicio</a></li>
+  <li role="presentation"><a href="ofertas.php">Inicio</a></li>
 </ul>
 </div>
 
 <div class="panel-body">
 
     <h1>Estado de su Orden</h1>
-    <p>Su pedido ha sido enviado exitosamente. La ID del pedido es #<?php echo $_GET['id']; ?></p>
+    <p>Su pedido ha sido enviado exitosamente. La ID del pedido es #<?php echo $_GET['id_orden']; ?></p>
            </div>
- <div class="panel-footer">BaulPHP</div>
+ <div class="panel-footer">Mundo Animal</div>
  </div><!--Panek cierra-->
 </div>
 </body>
