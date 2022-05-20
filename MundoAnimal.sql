@@ -86,7 +86,7 @@ CREATE TABLE orden (
   total_price DOUBLE NOT NULL,
   created datetime NOT NULL);
   
-ALTER TABLE orden ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
+
 
 -- -----------------------------------------------------
 -- Table Detalle_factura
@@ -108,8 +108,8 @@ CREATE TABLE orden_articulos (
   productos_id INT NOT NULL,
   quantity INT NOT NULL);
   
-ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
-ALTER TABLE orden_articulos ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
+  select * from orden_articulos;
+  
 -- -----------------------------------------------------
 -- FOREIGN KEYs
 -- -----------------------------------------------------
@@ -118,6 +118,16 @@ ALTER TABLE productos ADD FOREIGN KEY (proveedor_id) REFERENCES proveedor(idprov
 ALTER TABLE productos ADD FOREIGN KEY (categoria_id) REFERENCES categoria(idcategoria);
 ALTER TABLE kardexproducto ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
+ALTER TABLE orden ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
+ALTER TABLE orden_articulos ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
+ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
+
+
+
+
+
+
+
 ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
 ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
