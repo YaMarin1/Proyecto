@@ -120,8 +120,8 @@ class Cart {
 				// find updatable keys
 				$keys = array_intersect(array_keys($this->cart_contents[$item['rowid']]), array_keys($item));
 				// prep the price
-				if(isset($item['price'])){
-					$item['price'] = (float) $item['precio'];
+				if(isset($item['precio'])){
+					$item['precio'] = (float) $item['precio'];
 				}
 				// product id & name shouldn't be changed
 				foreach(array_diff($keys, array('idproductos', 'nombre')) as $key){

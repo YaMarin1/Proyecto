@@ -66,9 +66,9 @@ $custRow = $query->fetch_assoc();
         ?>
         <tr>
             <td><?php echo $item["nombre"]; ?></td>
-            <td><?php echo '$'.$item["precio"].' USD'; ?></td>
+            <td><?php echo '$'.$item["precio"].' COP'; ?></td>
             <td><?php echo $item["qty"]; ?></td>
-            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+            <td><?php echo '$'.$item["subtotal"].' COP'; ?></td>
         </tr>
         <?php } }else{ ?>
         <tr><td colspan="4"><p>No hay articulos en tu carta......</p></td>

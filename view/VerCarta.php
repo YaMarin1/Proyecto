@@ -63,9 +63,9 @@ $cart = new Cart;
         ?>
         <tr>
             <td><?php echo $item["nombre"]; ?></td>
-            <td><?php echo '$'.$item["precio"].' USD'; ?></td>
+            <td><?php echo '$'.$item["precio"].' COP'; ?></td>
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
-            <td><?php echo '$'.$item["subtotal"].' USD'; ?></td>
+            <td><?php echo '$'.$item["subtotal"].' COP'; ?></td>
             <td>
                 <a href="AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
@@ -79,7 +79,7 @@ $cart = new Cart;
             <td><a href="ofertas.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a></td>
             <td colspan="2"></td>
             <?php if($cart->total_items() > 0){ ?>
-            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' USD'; ?></strong></td>
+            <td class="text-center"><strong>Total <?php echo '$'.$cart->total().' COP'; ?></strong></td>
             <td><a href="Pagos.php" class="btn btn-success btn-block">Pagos <i class="glyphicon glyphicon-menu-right"></i></a></td>
             <?php } ?>
         </tr>
