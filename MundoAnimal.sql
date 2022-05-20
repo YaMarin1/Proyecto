@@ -86,7 +86,7 @@ CREATE TABLE orden (
   total_price DOUBLE NOT NULL,
   created datetime NOT NULL);
   
-
+ select * from orden;
 
 -- -----------------------------------------------------
 -- Table Detalle_factura
@@ -143,7 +143,7 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba1','Final razonamiento.png','rwe',3,3,3,1,1152468987);
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba','Final razonamiento.png','rwe',3,3,3,1,1152468987);
 INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 
 
 -- -----------------------------------------------------
