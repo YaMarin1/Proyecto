@@ -3,6 +3,7 @@
 include 'La-carta.php';
 $cart = new Cart;
 
+
 // include database configuration file
 include 'Configuracion.php';
 if(isset($_REQUEST['action']) && !empty($_REQUEST['action'])){
