@@ -63,7 +63,7 @@ if (!isset($_SESSION['rol'])) {
 
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="ofertas.php" style="padding: 10px 11px 10px 20px;">PRODUCTOS</a></li>
             <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="VerCarta.php" style="padding: 10px 11px 10px 20px;">CARRITO</a></li>
-
+            <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pagos.php" style="padding: 10px 11px 10px 20px;">PAGOS</a></li>
           </ul>
         </div>
         <div class="u-custom-menu u-nav-container-collapse">
@@ -73,6 +73,7 @@ if (!isset($_SESSION['rol'])) {
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="ofertas.php" style="padding: 10px 11px 10px 20px;">PRODUCTOS</a>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="VerCarta.php" style="padding: 10px 11px 10px 20px;">CARRITO</a></li>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pagos.php" style="padding: 10px 11px 10px 20px;">PAGOS</a></li>  
               </ul>
             </div>
           </div>
@@ -94,7 +95,6 @@ if (!isset($_SESSION['rol'])) {
           <div class="panel panel-default">
 
             <div class="panel-body">
-              <a href="VerCarta.php" class="cart-link" title="Ver Carta"><i class="glyphicon glyphicon-shopping-cart"></i></a>
               <div id="products" class="row list-group">
                 <?php
                 //get rows query

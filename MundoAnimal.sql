@@ -71,14 +71,8 @@ CREATE TABLE usuarios (
   rol_id INT NOT NULL);
   
 -- -----------------------------------------------------
--- Table Factura
+-- Table Orden
 -- -----------------------------------------------------
-CREATE TABLE factura (
-  idfactura INT AUTO_INCREMENT PRIMARY KEY,
-  fecha DATE NOT NULL,
-  total DOUBLE NOT NULL,
-  documento_id INT NOT NULL);
-  
   
 CREATE TABLE orden (
   id_orden INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -89,18 +83,8 @@ CREATE TABLE orden (
  select * from orden;
 
 -- -----------------------------------------------------
--- Table Detalle_factura
+-- Table Orden_articulos
 -- -----------------------------------------------------
-CREATE TABLE detalle_factura(
-  iddetalle_factura INT AUTO_INCREMENT PRIMARY KEY,
-  descripcion VARCHAR(45) NOT NULL,
-  precio DOUBLE NOT NULL,
-  iva DOUBLE NOT NULL,
-  cantidad INT NOT NULL,
-  devolucion VARCHAR(45) NOT NULL,
-  subtotal DOUBLE NOT NULL,
-  productos_id INT NOT NULL,
-  factura_id INT NOT NULL);
 
 CREATE TABLE orden_articulos (
   id_ordenarticulos INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -143,8 +127,8 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba','Final razonamiento.png','rwe',3,3,3,1,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Salchichon','galleta.png','asd',11400,1500,5,1,1152468987); 
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba','galleta.png','Prueba',18000,1500,3,1,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Prueba 2','galleta.png','Prueba',11400,1500,5,1,1152468987); 
 
 -- -----------------------------------------------------
 -- Insert Kardex
@@ -614,3 +598,16 @@ ON usuarios.rol_id = roles.id_rol;
 SELECT *
 FROM productos
 CROSS JOIN categoria;
+
+
+
+CREATE TABLE detalle_factura(
+  iddetalle_factura INT AUTO_INCREMENT PRIMARY KEY,
+  descripcion VARCHAR(45) NOT NULL,
+  precio DOUBLE NOT NULL,
+  iva DOUBLE NOT NULL,
+  cantidad INT NOT NULL,
+  devolucion VARCHAR(45) NOT NULL,
+  subtotal DOUBLE NOT NULL,
+  productos_id INT NOT NULL,
+  factura_id INT NOT NULL);
