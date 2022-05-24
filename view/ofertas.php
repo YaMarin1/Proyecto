@@ -18,7 +18,7 @@ if (!isset($_SESSION['rol'])) {
 ?>
 
 <!DOCTYPE html>
-<html style="font-size: 16px;">
+<html style="font-size: 18px;">
 
 <head>
   <meta charset="utf-8">

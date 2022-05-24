@@ -14,7 +14,7 @@ class Database
         $this->host = 'localhost';
         $this->db = 'mundoanimal';
         $this->user = 'root';
-        $this->password = 'Sena2020*';
+        $this->password = 'root';
         $this->charset = 'utf8mb4';
     }
 

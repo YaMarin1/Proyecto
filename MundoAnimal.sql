@@ -79,8 +79,6 @@ CREATE TABLE orden (
   documento_id INT NOT NULL,
   total_price DOUBLE NOT NULL,
   created datetime NOT NULL);
-  
- select * from orden;
 
 -- -----------------------------------------------------
 -- Table Orden_articulos
@@ -91,8 +89,6 @@ CREATE TABLE orden_articulos (
   order_id INT NOT NULL,
   productos_id INT NOT NULL,
   quantity INT NOT NULL);
-  
-  select * from orden_articulos;
   
 -- -----------------------------------------------------
 -- FOREIGN KEYs
@@ -107,14 +103,6 @@ ALTER TABLE orden_articulos ADD FOREIGN KEY (productos_id) REFERENCES productos(
 ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
 
 
-
-
-
-
-
-ALTER TABLE factura ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
-ALTER TABLE detalle_factura ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
-ALTER TABLE detalle_factura ADD FOREIGN KEY (factura_id) REFERENCES factura(idfactura);
   
 -- -----------------------------------------------------
 -- INSERT DE PRUEBAS
