@@ -565,8 +565,12 @@ insert into factura(fecha, total, documento_id, empleado_id) values ('2020-03-15
 --- Internas ---
 ----------------
 
-SELECT P.idproductos,P.nombre, PR.idproveedor FROM productos P INNER JOIN proveedor PR 
-ON P.proveedor_id = PR.idproveedor;
+SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor FROM productos P INNER JOIN proveedor PR 
+ON P.proveedor_id = PR.idproveedor
+UNION
+SELECT id_orden,documento_id,total_price,created,quantity FROM orden left JOIN orden_articulos
+ON orden.documento_id = orden_articulos.order_id;
+
 
 SELECT F.idfactura, F.fecha, F.total, E.idempleado,E.nombre, U.documento, U.nombre FROM factura F INNER JOIN empleado E
 ON F.empleado_id = E.idempleado INNER JOIN usuarios U ON F.documento_id = U.documento;
@@ -581,7 +585,7 @@ ON usuarios.rol_id = roles.id_rol;
 SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
 ON usuarios.rol_id = roles.id_rol;
 
-SELECT documento,nombre,apellido,descripcion FROM usuarios left JOIN roles 
+SELECT documento,nombre,apellido,telefono,direccion,username,password,descripcion FROM usuarios left JOIN roles 
 ON usuarios.rol_id = roles.id_rol;
 
 SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
@@ -595,9 +599,10 @@ ON usuarios.rol_id = roles.id_rol;
 --- Cruzadas ---
 ----------------
 
-SELECT *
-FROM productos
-CROSS JOIN categoria;
+SELECT documento
+FROM usuarios
+INNER JOIN roles
+ON usuarios.rol_id=roles.rol_id;
 
 
 
