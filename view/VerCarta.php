@@ -54,10 +54,24 @@ $cart = new Cart;
       </nav>
     </div>
   </header>
+<style>
+    .container{
+        padding: auto}
+    .table{
+        width:auto;
+        float: left;}
+    .shipAddr{
+        width: auto;
+        float: left;
+        margin-left: 30px;}
+    .footBtn{
+        width: 95%;
+        float: left;}
+    .orderBtn {
+        float: right;}
 
-    <style>
-    .container{padding: 20px;}
-    input[type="number"]{width: 20%;}
+        input[type="number"]{
+      width: 75%;}
     </style>
     <script>
     function updateCartItem(obj,id){
@@ -73,19 +87,11 @@ $cart = new Cart;
 
 </head>
 <body>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    
 <div class="container">
-<div class="panel panel-default">
 <div class="panel-body">
-
-
+  <br>
+  <br>
+  <br>
     <h1>Carrito</h1>
     <table class="table">
     <thead>
@@ -131,15 +137,6 @@ $cart = new Cart;
     
     </div>
  </div><!--Panek cierra-->
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-</div>
-<br>
-<br>
 </body>
 <footer class="u-clearfix u-footer u-grey-80" id="sec-e03f"><div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-left u-social-icons u-spacing-10 u-social-icons-1">

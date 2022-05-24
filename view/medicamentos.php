@@ -72,9 +72,7 @@ if (!isset($_SESSION['rol'])) {
             <div class="u-inner-container-layout u-sidenav-overflow">
               <div class="u-menu-close"></div>
               <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="ofertas.php" style="padding: 10px 11px 10px 20px;">ACCESORIOS</a>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="alimentos.php" style="padding: 10px 11px 10px 20px;">ALIMENTOS</a>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="medicamentos.php" style="padding: 10px 11px 10px 20px;">MEDICAMENTOS</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="ofertas.php" style="padding: 10px 11px 10px 20px;">PRODUCTOS</a>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="VerCarta.php" style="padding: 10px 11px 10px 20px;">CARRITO</a></li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pagos.php" style="padding: 10px 11px 10px 20px;">PAGOS</a></li>
               </ul>
@@ -90,7 +88,7 @@ if (!isset($_SESSION['rol'])) {
     <div class="u-clearfix u-sheet u-sheet-1">
       <h1 class="u-custom-font u-font-oswald u-text u-text-default u-text-palette-3-base u-text-1">
         <span class="u-text-palette-1-base">
-          <font color="#193a77">Accesorios</font>
+          <font color="#193a77">Medicamentos</font>
         </span>
       </h1>
       <div class="u-expanded-width u-list u-list-1">
@@ -101,7 +99,7 @@ if (!isset($_SESSION['rol'])) {
               <div id="products" class="row list-group">
                 <?php
                 //get rows query
-                $query = $db->query("SELECT * FROM productos where categoria_id=1");
+                $query = $db->query("SELECT * FROM productos where categoria_id=3");
                 if ($query->num_rows > 0) {
                   while ($row = $query->fetch_assoc()) {
                 ?>

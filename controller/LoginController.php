@@ -33,6 +33,7 @@
             
             $_SESSION['rol'] = $rol;
             $_SESSION['documento'] = $documento;
+
             switch($rol){
                 case 1:
                     header('location: ../view/admin.php');
@@ -47,7 +48,7 @@
         }else{
             // No existe el usuario
             echo '<div class="alert alert-danger" role="alert">
-                Nombre de usuario o contraseña incorrecto
+                Correo de usuario o contraseña incorrecto
             </div>';
             
         }
