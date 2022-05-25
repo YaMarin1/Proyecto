@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="root";
+		private $dbpass="";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -20,6 +20,10 @@
 				die("Conexión a la base de datos falló " . mysqli_connect_error() . mysqli_connect_errno());
 			}
 		}
+
+		public function close(){
+			$this->con = null;
+	  }
 
         public function sanitize($var){
             $return = mysqli_real_escape_string($this->con, $var);
