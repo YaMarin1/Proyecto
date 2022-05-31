@@ -107,16 +107,10 @@ if (!isset($_SESSION['rol'])) {
                       <div class="thumbnail">
                         <div class="caption">
                           <h4 class="list-group-item-heading"><?php echo $row["nombre"]; ?></h4>
-                          <img class="img-responsive" src="../images/ImagesProductos/<?php echo $row["imagen"]; ?>" alt=""></img>
+                          <center><img class="img-responsive" src="../images/ImagesProductos/<?php echo $row["imagen"]; ?>" alt="" width="200px"></img></center>
                           <p class="list-group-item-text"><?php echo $row["descripcion"]; ?></p>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <p class="lead"><?php echo '$ ' . $row["precio"]; ?></p>
-                            </div>
-                            <div class="col-md-6">
-                              <a class="btn btn-success" href="AccionCarta.php?action=addToCart&idproductos=<?php echo $row["idproductos"]; ?>">Agregar a la Carta</a>
-                            </div>
-                          </div>
+                          <p class="lead"><?php echo '$ ' . $row["precio"]; ?></p>
+                          <a class="btn btn-success" href="AccionCarta.php?action=addToCart&idproductos=<?php echo $row["idproductos"]; ?>">Agregar a la Carta</a>
                         </div>
                       </div>
                     </div>

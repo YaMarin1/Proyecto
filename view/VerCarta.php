@@ -120,7 +120,7 @@ $cart = new Cart;
             </td>
         </tr>
         <?php } }else{ ?>
-        <tr><td colspan="5"><p>Tu carta esta vacia.....</p></td>
+        <tr><td colspan="5"><p>Tu carrito esta vacio.....</p></td>
         <?php } ?>
     </tbody>
     <tfoot>
