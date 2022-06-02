@@ -8,6 +8,7 @@ class Database
     private $user;
     private $password;
     private $charset;
+    
 
     public function __construct()
     {
