@@ -66,7 +66,7 @@ if(!isset($_REQUEST['id_orden'])){
 <div class="panel-body">
 
     <h1>Estado de su Orden</h1>
-    <p>Su pedido ha sido enviado exitosamente. La ID del pedido es #<?php echo $_GET['id_orden']; ?></p>
+    <p>Su pedido ha sido registrado exitosamente. La ID del pedido es #<?php echo $_GET['id_orden']; ?></p>
            </div>
  </div>
  <!--Panek cierra-->

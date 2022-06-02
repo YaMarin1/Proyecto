@@ -40,7 +40,7 @@
                 break;
 
                 case 2:
-                header('location: ../view/ofertas.php');
+                    header('location: ../view/ofertas.php');
                 break;
 
                 default:

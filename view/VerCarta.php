@@ -1,6 +1,6 @@
 <?php
 // initializ shopping cart class
-include 'La-carta.php';
+include '../model/La-carta.php';
 $cart = new Cart;
 ?>
 <!DOCTYPE html>

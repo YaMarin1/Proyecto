@@ -1,9 +1,9 @@
 <?php
 // include database configuration file
-include 'Configuracion.php';
+include '../db/Configuracion.php';
 
 // initializ shopping cart class
-include 'La-carta.php';
+include '../model/La-carta.php';
 $cart = new Cart;
 
 // redirect to home if cart is empty
@@ -154,7 +154,7 @@ $custRow = $query->fetch_assoc();
         </div>
         <div class="footBtn">
           <a href="ofertas.php" class="btn btn-warning"><i class="glyphicon glyphicon-menu-left"></i> Continue Comprando</a>
-          <a href="AccionCarta.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
+          <a href="../controller/AccionCarta.php?action=placeOrder" class="btn btn-success orderBtn">Realizar pedido <i class="glyphicon glyphicon-menu-right"></i></a>
         </div>
       </div>
 

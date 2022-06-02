@@ -1,11 +1,11 @@
 <?php
 // Iniciamos la clase de la carta
-include 'La-carta.php';
+include '../model/La-carta.php';
 $cart = new Cart;
 
 
 // include database configuration file
-include 'Configuracion.php';
+include '../db/Configuracion.php';
 if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
     if ($_REQUEST['action'] == 'addToCart' && !empty($_REQUEST['idproductos'])) {
         $productID = $_REQUEST['idproductos'];
@@ -20,7 +20,7 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
         );
 
         $insertItem = $cart->insert($itemData);
-        $redirectLoc = $insertItem ? 'VerCarta.php' : 'ofertas.php';
+        $redirectLoc = $insertItem ? '../view/VerCarta.php' : '../view/ofertas.php';
         header("Location: " . $redirectLoc);
     } elseif ($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['idproductos'])) {
         $itemData = array(
@@ -32,7 +32,7 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
         die;
     } elseif ($_REQUEST['action'] == 'removeCartItem' && !empty($_REQUEST['idproductos'])) {
         $deleteItem = $cart->remove($_REQUEST['idproductos']);
-        header("Location: VerCarta.php");
+        header("Location: ../view/VerCarta.php");
     } elseif ($_REQUEST['action'] == 'placeOrder' && $cart->total_items() > 0 && !empty($_SESSION['sessCustomerID'])) {
         // insert order details into database
         $insertOrder = $db->query("INSERT INTO orden (documento_id, total_price, created) VALUES ('" . $_SESSION['sessCustomerID'] . "', '" . $cart->total() . "', '" . date("Y-m-d H:i:s") . "')");
@@ -50,16 +50,16 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
 
             if ($insertOrderItems) {
                 $cart->destroy();
-                header("Location: OrdenExito.php?id_orden=$orderID");
+                header("Location: ../view/OrdenExito.php?id_orden=$orderID");
             } else {
-                header("Location: Pagos.php");
+                header("Location: ../view/Pagos.php");
             }
         } else {
-            header("Location: Pagos.php");
+            header("Location: ../view/Pagos.php");
         }
     } else {
-        header("Location: ofertas.php");
+        header("Location: ../view/ofertas.php");
     }
 } else {
-    header("Location: ofertas.php");
+    header("Location: ../view/ofertas.php");
 }
