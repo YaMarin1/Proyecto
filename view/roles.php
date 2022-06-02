@@ -141,7 +141,7 @@ $rol = new Database();
                   <td><?php echo $descripcion; ?></td>
                   <td>
                     <a href="../crud/updateRol.php?id_rol=<?php echo $id_rol; ?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="../crud/deleteRol.php?id_rol=<?php echo $id_rol; ?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="../crud/deleteRol.php?id_rol=<?php echo $id_rol; ?>" class="delete" title="Eliminar" data-toggle="tooltip" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="material-icons">&#xE872;</i></a>
                   </td>
                 </tr>
               <?php

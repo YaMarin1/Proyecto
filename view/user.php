@@ -155,7 +155,7 @@ $usuarios = new Database();
                   <td><?php echo $rol_id; ?></td>
                   <td>
                     <a href="../crud/updateUser.php?documento=<?php echo $documento; ?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="../crud/deleteUser.php?documento=<?php echo $documento; ?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="../crud/deleteUser.php?documento=<?php echo $documento; ?>" class="delete" title="Eliminar" data-toggle="tooltip" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="material-icons">&#xE872;</i></a>
                   </td>
                 </tr>
               <?php

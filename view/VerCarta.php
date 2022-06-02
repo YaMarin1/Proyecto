@@ -79,7 +79,7 @@ $cart = new Cart;
             if(data == 'ok'){
                 location.reload();
             }else{
-                alert('Cart update failed, please try again.');
+                alert('Error.');
             }
         });
     }
@@ -116,7 +116,7 @@ $cart = new Cart;
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].' COP'; ?></td>
             <td>
-                <a href="AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Confirma eliminar?')"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
         <?php } }else{ ?>

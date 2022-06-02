@@ -158,7 +158,7 @@ $productos = new Database();
                   <td><?php echo $proveedor_id; ?></td>
                   <td>
                     <a href="../crud/updateProducto.php?idproductos=<?php echo $idproductos; ?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="../crud/deleteProducto.php?idproductos=<?php echo $idproductos; ?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="../crud/deleteProducto.php?idproductos=<?php echo $idproductos; ?>" class="delete" title="Eliminar" data-toggle="tooltip" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="material-icons">&#xE872;</i></a>
                   </td>
                 </tr>
               <?php

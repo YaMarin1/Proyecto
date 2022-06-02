@@ -141,7 +141,7 @@ $categorias = new Database();
                   <td><?php echo $nombrec; ?></td>
                   <td>
                     <a href="../crud/updateCategoria.php?idcategoria=<?php echo $idcategoria; ?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                    <a href="../crud/deleteCategoria.php?idcategoria=<?php echo $idcategoria; ?>" class="delete" title="Eliminar" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    <a href="../crud/deleteCategoria.php?idcategoria=<?php echo $idcategoria; ?>" class="delete" title="Eliminar" data-toggle="tooltip" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="glyphicon glyphicon-trash"></i><i class="material-icons">&#xE872;</i></a>
                   </td>
                 </tr>
               <?php
