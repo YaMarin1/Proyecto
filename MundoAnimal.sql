@@ -111,8 +111,9 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Prueba','galleta.png','Prueba',18000,1500,1,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba 2','galleta.png','Prueba',11400,1500,1,1152468987); 
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorio','collar.jpg','Prueba',18000,1500,1,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimento','galleta.png','Prueba',11400,1500,2,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamento','DRONTAL.png','Prueba',15000,1500,3,1000088550);
 
 -- -----------------------------------------------------
 -- Insert Kardex

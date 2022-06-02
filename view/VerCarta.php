@@ -75,7 +75,7 @@ $cart = new Cart;
     </style>
     <script>
     function updateCartItem(obj,idproductos){
-        $.get("AccionCarta.php", {action:"updateCartItem", idproductos:idproductos, qty:obj.value}, function(data){
+        $.get("../controller/AccionCarta.php", {action:"updateCartItem", idproductos:idproductos, qty:obj.value}, function(data){
             if(data == 'ok'){
                 location.reload();
             }else{
@@ -116,7 +116,7 @@ $cart = new Cart;
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].' COP'; ?></td>
             <td>
-                <a href="AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="glyphicon glyphicon-trash"></i></a>
+                <a href="../controller/AccionCarta.php?action=removeCartItem&idproductos=<?php echo $item["rowid"]; ?>" class="btn btn-danger" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="glyphicon glyphicon-trash"></i></a>
             </td>
         </tr>
         <?php } }else{ ?>
