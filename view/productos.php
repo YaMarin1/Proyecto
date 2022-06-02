@@ -129,7 +129,6 @@ $productos = new Database();
                 <th scope="col">Descripcion</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Iva</th>
-                <th scope="col">Existencias</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Proveedor</th>
                 <th scope="col">Acciones</th>
@@ -145,7 +144,6 @@ $productos = new Database();
                 $descripcion = $row->descripcion;
                 $precio = $row->precio;
                 $iva = $row->iva;
-                $existencias = $row->existencias;
                 $categoria_id = $row->categoria_id;
                 $proveedor_id = $row->proveedor_id;
               ?>
@@ -156,7 +154,6 @@ $productos = new Database();
                   <td><?php echo $descripcion; ?></td>
                   <td><?php echo $precio; ?></td>
                   <td><?php echo $iva; ?></td>
-                  <td><?php echo $existencias; ?></td>
                   <td><?php echo $categoria_id; ?></td>
                   <td><?php echo $proveedor_id; ?></td>
                   <td>

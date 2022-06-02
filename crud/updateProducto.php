@@ -125,7 +125,6 @@ if (isset($_GET['idproductos'])) {
               $descripcion = $productos->sanitize($_POST['descripcion']);
               $precio = $productos->sanitize($_POST['precio']);
               $iva = $productos->sanitize($_POST['iva']);
-              $existencias = $productos->sanitize($_POST['existencias']);
               $categoria_id = $productos->sanitize($_POST['categoria_id']);
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
               $id_cliente = intval($_POST['id_cliente']);
@@ -176,10 +175,6 @@ if (isset($_GET['idproductos'])) {
                 <div class="col-md-6">
                   <label>Iva:</label>
                   <input type="number" name="iva" id="iva" class='form-control' maxlength="15" required value="<?php echo $datos_cliente->iva; ?>">
-                </div>
-                <div class="col-md-6">
-                  <label>Existencias:</label>
-                  <input type="number" name="existencias" id="existencias" class='form-control' maxlength="64" required value="<?php echo $datos_cliente->existencias; ?>">
                 </div>
                 <div class="col-md-6">
                   <label>Categoria:</label>

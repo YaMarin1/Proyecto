@@ -133,7 +133,6 @@ $productos = new Database();
               $descripcion = $productos->sanitize($_POST['descripcion']);
               $precio = $productos->sanitize($_POST['precio']);
               $iva = $productos->sanitize($_POST['iva']);
-              $existencias = $productos->sanitize($_POST['existencias']);
               $categoria_id = $productos->sanitize($_POST['categoria_id']);
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
               $res = $productos->createProductos($nombre, $imagen, $descripcion, $precio, $iva, $existencias, $categoria_id, $proveedor_id);
@@ -176,10 +175,6 @@ $productos = new Database();
                 <div class="col-md-6">
                   <label>Iva:</label>
                   <input type="number" name="iva" id="iva" class='form-control' maxlength="64" required>
-                </div>
-                <div class="col-md-6">
-                  <label>Existencias:</label>
-                  <input type="number" name="existencias" id="existencias" class='form-control' maxlength="100" required>
                 </div>
                 <div class="col-md-6">
                   <label>Categoria:</label>

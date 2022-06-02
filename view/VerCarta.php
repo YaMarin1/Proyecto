@@ -74,8 +74,8 @@ $cart = new Cart;
       width: 75%;}
     </style>
     <script>
-    function updateCartItem(obj,id){
-        $.get("cartAction.php", {action:"updateCartItem", idproductos:idproductos, qty:obj.value}, function(data){
+    function updateCartItem(obj,idproductos){
+        $.get("AccionCarta.php", {action:"updateCartItem", idproductos:idproductos, qty:obj.value}, function(data){
             if(data == 'ok'){
                 location.reload();
             }else{

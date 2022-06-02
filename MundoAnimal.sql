@@ -33,7 +33,6 @@ CREATE TABLE productos (
   descripcion VARCHAR(45) NOT NULL,
   precio DOUBLE NOT NULL,
   iva DOUBLE NOT NULL,
-  existencias INT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id BIGINT NOT NULL);
 
@@ -43,7 +42,6 @@ CREATE TABLE productos (
 CREATE TABLE kardexproducto (
   idkardexproducto INT AUTO_INCREMENT PRIMARY KEY,
   fechaK DATE NOT NULL,
-  detalleK VARCHAR(45) NOT NULL,
   cantidadEntradak INT NOT NULL,
   costoEntradak DOUBLE NOT NULL,
   cantidadSalidak INT NOT NULL,
@@ -101,8 +99,6 @@ ALTER TABLE usuarios ADD FOREIGN KEY (rol_id) REFERENCES roles(id_rol);
 ALTER TABLE orden ADD FOREIGN KEY (documento_id) REFERENCES usuarios(documento);
 ALTER TABLE orden_articulos ADD FOREIGN KEY (productos_id) REFERENCES productos(idproductos);
 ALTER TABLE orden_articulos ADD FOREIGN KEY (order_id) REFERENCES orden(id_orden);
-
-
   
 -- -----------------------------------------------------
 -- INSERT DE PRUEBAS
@@ -115,8 +111,8 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('Prueba','galleta.png','Prueba',18000,1500,3,1,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) values ('Prueba 2','galleta.png','Prueba',11400,1500,5,1,1152468987); 
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Prueba','galleta.png','Prueba',18000,1500,1,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba 2','galleta.png','Prueba',11400,1500,1,1152468987); 
 
 -- -----------------------------------------------------
 -- Insert Kardex
