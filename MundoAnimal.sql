@@ -21,7 +21,7 @@ CREATE TABLE  proveedor (
   idproveedor BIGINT PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
-  telefono varchar(45));
+  telefono VARCHAR(45));
 
 -- -----------------------------------------------------
 -- Table Productos
@@ -29,10 +29,10 @@ CREATE TABLE  proveedor (
 CREATE TABLE productos (
   idproductos INT AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(45) NOT NULL,
-  imagen VARCHAR(255),
+  imagen VARCHAR(255) NOT NULL,
   descripcion VARCHAR(45) NOT NULL,
-  precio DECIMAL NOT NULL,
-  iva DECIMAL NOT NULL,
+  precio FLOAT NOT NULL,
+  iva FLOAT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id BIGINT NOT NULL);
   
@@ -45,9 +45,9 @@ CREATE TABLE kardexproducto (
   idkardexproducto INT AUTO_INCREMENT PRIMARY KEY,
   fechaK DATETIME NOT NULL,
   cantidadEntradak INT NOT NULL,
-  costoEntradak DECIMAL NOT NULL,
+  costoEntradak FLOAT NOT NULL,
   cantidadSalidak INT NOT NULL,
-  costoSalidak DECIMAL NOT NULL,
+  costoSalidak FLOAT NOT NULL,
   productos_id INT NOT NULL);
 
 -- -----------------------------------------------------
@@ -77,8 +77,8 @@ CREATE TABLE usuarios (
 CREATE TABLE orden (
   id_orden INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   documento_id INT NOT NULL,
-  total_price DECIMAL NOT NULL,
-  created datetime NOT NULL);
+  total_price FLOAT NOT NULL,
+  created DATETIME NOT NULL);
 
 -- -----------------------------------------------------
 -- Table Orden_articulos
@@ -148,7 +148,7 @@ BEGIN
  (nombrec) VALUES(g_nombrec);
 END ##
 DELIMITER ;
-call sp_InsertarCategoria('Alimentos');
+call sp_InsertarCategoria('Prueba');
 
 /*Procedimiento Mostrar Categoria */
 DROP PROCEDURE sp_MostrarCategoria;
@@ -170,7 +170,7 @@ BEGIN
 UPDATE Categoria SET nombrec = up_nombrec WHERE idCategoria = up_idCategoria;
 END ##
 DELIMITER ;
-call sp_ActualizarCategoria(1,'Alimentos');
+call sp_ActualizarCategoria(4,'Prueba Actualizada');
 
 /* Procedimiento Eliminar Categoria */
 DROP PROCEDURE sp_EliminarCategoria;
@@ -181,7 +181,7 @@ BEGIN
  delete from Categoria where idCategoria = del_idCategoria;
 END ##
 DELIMITER ;
-call sp_EliminarCategoria (2);
+call sp_EliminarCategoria (4);
 
 -- ---------------------------------------------------------- --
 
@@ -189,16 +189,16 @@ call sp_EliminarCategoria (2);
 DROP PROCEDURE sp_InsertarProveedor;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarProveedor
-(g_idproveedor int,
+(g_idproveedor bigint,
 g_nombre varchar (45),
 g_apellido varchar (45),
-g_telefono varchar(11))
+g_telefono varchar(45))
 BEGIN
  INSERT INTO Proveedor
- (idproveedor,nombre,apellido,telefono) VALUES(g_idproveedor,g_nombre,g_apellido,g_telefono);
+(idproveedor,nombre,apellido,telefono) VALUES(g_idproveedor,g_nombre,g_apellido,g_telefono);
 END ##
 DELIMITER ;
-call sp_InsertarProveedor(1000088550,'Juan Camilo','Rodiguez',2338369);
+call sp_InsertarProveedor(32481891,'Juan Camilo','Rodiguez','2338369');
 
 /*Procedimiento Mostrar Proveedor */
 DROP PROCEDURE sp_MostrarProveedor;
@@ -214,14 +214,15 @@ call sp_MostrarProveedor;
 DROP PROCEDURE sp_ActualizarProveedor;
 DELIMITER ##
 CREATE PROCEDURE sp_ActualizarProveedor
-(up_idProveedor int,
-up_documento varchar (45),
-up_nombre varchar (45))
+(up_idProveedor bigint,
+up_nombre varchar (45),
+up_apellido varchar (45),
+up_telefono varchar (45))
 BEGIN
-UPDATE Proveedor SET documento = up_documento,nombre = up_nombre WHERE idProveedor = up_idProveedor;
+UPDATE Proveedor SET idProveedor = up_idProveedor,nombre = up_nombre,apellido = up_apellido,telefono = up_telefono WHERE idProveedor = up_idProveedor;
 END ##
 DELIMITER ;
-call sp_ActualizarProveedor(1,'1000088550','Yeison Rodriguez');
+call sp_ActualizarProveedor(1000088550,'Yeison','Rodriguez','3178571103');
 
 /* Procedimiento Eliminar Proveedor */
 DROP PROCEDURE sp_EliminarProveedor;
@@ -232,7 +233,7 @@ BEGIN
  delete from Proveedor where idProveedor = del_idProveedor;
 END ##
 DELIMITER ;
-call sp_EliminarProveedor (1);
+call sp_EliminarProveedor (32481891);
 
 -- ---------------------------------------------------------- --
 
@@ -287,20 +288,20 @@ call sp_EliminarRoles (4);
 DROP PROCEDURE sp_InsertarUsuario;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarUsuario
-(g_documento varchar (45),
+(g_documento int,
 g_nombre varchar (45),
 g_apellido varchar(45),
 g_telefono varchar(45),
 g_direccion varchar(45),
 g_username varchar(45),
-g_password varchar(10),
+g_password varchar(45),
 g_rol_id int)
 BEGIN
  INSERT INTO Usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id)
  VALUES(g_documento,g_nombre,g_apellido,g_telefono,g_direccion,g_username,g_password,g_rol_id);
 END ##
 DELIMITER ;
-call sp_InsertarUsuario('115248644', 'Julian', 'Valencia', '3159871536','CL 76 CR 76A SUR','Julian@MundoAnimal','115248644',1);
+call sp_InsertarUsuario(10001, 'Julian', 'Valencia', '3159871536','CL 76 CR 76A SUR','Julian@MundoAnimal','115248644',1);
 
 /*Procedimiento Mostrar Usuario */
 DROP PROCEDURE sp_MostrarUsuario;
@@ -316,89 +317,32 @@ call sp_MostrarUsuario;
 DROP PROCEDURE sp_ActualizarUsuario;
 DELIMITER ##
 CREATE PROCEDURE sp_ActualizarUsuario
-(up_id_usuarios int,
-up_documento varchar (45),
+(up_documento int,
 up_nombre varchar (45),
 up_apellido varchar (45),
 up_telefono varchar (45),
 up_direccion varchar (45),
 up_username varchar (45),
-up_password varchar (10),
+up_password varchar (45),
 up_rol_id int)
 BEGIN
 UPDATE Usuarios
 SET documento=up_documento,nombre=up_nombre,apellido=up_apellido,telefono=up_telefono,direccion=up_direccion,username=up_username,password=up_password,rol_id = up_rol_id
-WHERE id_usuarios = up_id_usuarios;
+WHERE documento=up_documento;
 END ##
 DELIMITER ;
-call sp_ActualizarUsuario(7,'11111','Juliana','Zapata','2338369','CL 80 CR 43-05','Juliana@Admin.com','11111',2);
+call sp_ActualizarUsuario(10001,'Miguel','Zapata','2338369','CL 80 CR 43-05','Miguel@Admin.com','10001',2);
 
 /* Procedimiento Eliminar Usuario */
 DROP PROCEDURE sp_EliminarUsuario;
 DELIMITER ##
 CREATE PROCEDURE sp_EliminarUsuario
-(del_id_usuarios int)
+(del_documento int)
 BEGIN
- delete from Usuarios where id_usuarios = del_id_usuarios;
+ delete from Usuarios where documento = del_documento;
 END ##
 DELIMITER ;
-call sp_EliminarUsuario(7);
-
--- ---------------------------------------------------------- --
-
-/*Procedimiento Insertar Empleado */
-DROP PROCEDURE sp_InsertarEmpleado;
-DELIMITER ##
-CREATE PROCEDURE sp_InsertarEmpleado
-(g_nombre varchar (45),
-g_username varchar(45),
-g_password varchar(10),
-g_rol_id int)
-BEGIN
- INSERT INTO Empleado(nombre,username,password,rol_id)
- VALUES(g_nombre,g_username,g_password,g_rol_id);
-END ##
-DELIMITER ;
-call sp_InsertarEmpleado('Julian','Julian@MundoAnimal.com','115248644',1);
-
-/*Procedimiento Mostrar Empleado */
-DROP PROCEDURE sp_MostrarEmpleado;
-DELIMITER ##
-CREATE PROCEDURE sp_MostrarEmpleado()
-BEGIN
- SELECT * FROM Empleado;
-END ##
-DELIMITER ;
-call sp_MostrarEmpleado;
-
-/* Procedimiento Actualizar Empleado */
-DROP PROCEDURE sp_ActualizarEmpleado;
-DELIMITER ##
-CREATE PROCEDURE sp_ActualizarEmpleado
-(up_idEmpleado int,
-up_nombre varchar (45),
-up_username varchar (45),
-up_password varchar (10),
-up_rol_id int)
-BEGIN
-UPDATE Empleado
-SET nombre=up_nombre,username=up_username,password=up_password,rol_id = up_rol_id
-WHERE idEmpleado = up_idEmpleado;
-
-END ##
-DELIMITER ;
-call sp_ActualizarEmpleado(1,'Julian','Julian@ShopMundoAnimal.com','1000024854',3);
-
-/* Procedimiento Eliminar Empleado */
-DROP PROCEDURE sp_EliminarEmpleado;
-DELIMITER ##
-CREATE PROCEDURE sp_EliminarEmpleado
-(del_idEmpleado int)
-BEGIN
- delete from Empleado where idEmpleado = del_idEmpleado;
-END ##
-DELIMITER ;
-call sp_EliminarEmpleado(1);
+call sp_EliminarUsuario(10001);
 
 -- ---------------------------------------------------------- --
 
@@ -406,22 +350,20 @@ call sp_EliminarEmpleado(1);
 DROP PROCEDURE sp_InsertarProducto;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarProducto
-(g_descripcion varchar (45),
-g_nombre VARCHAR(45),
-g_precio double,
-g_iva double,
-g_existencias int,
-g_categoria_id int,
-g_proveedor_id int)
+(g_nombre VARCHAR(45),
+g_imagen VARCHAR(255),
+g_descripcion VARCHAR (45),
+g_precio FLOAT,
+g_iva FLOAT,
+g_categoria_id INT,
+g_proveedor_id BIGINT)
 BEGIN
- INSERT INTO Productos(nombre,descripcion,precio,iva,existencias,categoria_id,proveedor_id)
- VALUES(g_nombre,g_descripcion,g_precio,g_iva,g_existencias,g_categoria_id,g_proveedor_id);
+ INSERT INTO Productos(nombre,descripcion,precio,iva,categoria_id,proveedor_id)
+ VALUES(g_nombre,g_descripcion,g_precio,g_iva,g_categoria_id,g_proveedor_id);
 END ##
 DELIMITER ;
-call sp_InsertarProducto('Rondel: Antiparasitante interno','Suspensión oral con jeringa dosificadora',11400,1500,3,3,1);
-select * from categoria;
-select * from productos;
-select * from proveedor;
+call sp_InsertarProducto('Rondel','DRONTAL.png','Antiparasitante interno',11400,2166,2,1000088550);
+
 /*Procedimiento Mostrar Producto */
 DROP PROCEDURE sp_MostrarProducto;
 DELIMITER ##
@@ -436,20 +378,21 @@ call sp_MostrarProducto;
 DROP PROCEDURE sp_ActualizarProducto;
 DELIMITER ##
 CREATE PROCEDURE sp_ActualizarProducto
-(up_idProductos int,
+(up_idproductos int,
+up_nombre varchar (45),
+up_imagen varchar (255),
 up_descripcion varchar (45),
-up_precio double,
-up_iva double,
-up_existencias int,
+up_precio float,
+up_iva float,
 up_categoria_id int,
-up_proveedor_id int)
+up_proveedor_id bigint)
 BEGIN
 UPDATE Productos
-SET descripcion=up_descripcion,precio=up_precio,iva=up_iva,existencias=up_existencias,categoria_id=up_categoria_id,proveedor_id=up_proveedor_id
+SET idproductos=up_idproductos,nombre=up_nombre,imagen=up_imagen,descripcion=up_descripcion,precio=up_precio,iva=up_iva,categoria_id=up_categoria_id,proveedor_id=up_proveedor_id
 WHERE idProductos = up_idProductos;
 END ##
 DELIMITER ;
-call sp_ActualizarProducto(1,'Medicina nutritiva con aloe vera',15000,1500,3,3,1);
+call sp_ActualizarProducto(6,'Prueba Actualizar','DRONTAL.png','Prueba actualizar',11400,2166,3,1000088550);
 
 /* Procedimiento Eliminar Producto */
 DROP PROCEDURE sp_EliminarProducto;
@@ -460,64 +403,30 @@ BEGIN
  delete from Productos where idProductos = del_idProductos;
 END ##
 DELIMITER ;
-call sp_EliminarProducto(2);
+call sp_EliminarProducto(5);
 
 -- ---------------------------------------------------------- --
 
-/*Procedimiento Insertar Factura */
-DROP PROCEDURE sp_InsertarFactura;
-DELIMITER ##
-CREATE PROCEDURE sp_InsertarFactura
-(g_fecha date,
-g_total double,
-g_usuario_id int,
-g_empleado_id int)
-BEGIN
- INSERT INTO Factura(fecha,total,usuario_id,empleado_id)
- VALUES(g_fecha,g_total,g_usuario_id,g_empleado_id);
-END ##
-DELIMITER ;
-call sp_InsertarFactura('15-03-2022',16500,7,2);
-
-/*Procedimiento Mostrar Factura */
-DROP PROCEDURE sp_MostrarFactura;
-DELIMITER ##
-CREATE PROCEDURE sp_MostrarFactura()
-BEGIN
- SELECT * FROM Factura;
-END ##
-DELIMITER ;
-call sp_MostrarFactura;
-
-
-DELETE from usuarios where documento = 71740075;
+select * from orden;
+select * from ORDEN_ARTICULOS;
+select * from KARDEXPRODUCTO;
 
 -- ---------------------------------------------------------- --
 -- --------------------- INNER JOIN --------------------- --
 -- ---------------------------------------------------------- --
 
-select * from usuarios;
-select * from factura;
+SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor, PR.nombre, PR.apellido FROM productos P INNER JOIN proveedor PR 
+ON P.proveedor_id = PR.idproveedor;
 
-insert into factura(fecha, total, documento_id, empleado_id) values ('2020-03-12',20.000,1015066245,43635764);
-insert into factura(fecha, total, documento_id, empleado_id) values ('2020-03-15',20000,1000088550,43635764);
-
-----------------
---- Internas ---
-----------------
+-- ---------------------------------------------------------- --
+-- --------------------- Internas --------------------- --
+-- ---------------------------------------------------------- --
 
 SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor FROM productos P INNER JOIN proveedor PR 
 ON P.proveedor_id = PR.idproveedor
 UNION
-SELECT id_orden,documento_id,total_price,created,quantity FROM orden left JOIN orden_articulos
+SELECT id_orden,documento_id,total_price,created,quantity FROM orden INNER JOIN orden_articulos
 ON orden.documento_id = orden_articulos.order_id;
-
-
-SELECT F.idfactura, F.fecha, F.total, E.idempleado,E.nombre, U.documento, U.nombre FROM factura F INNER JOIN empleado E
-ON F.empleado_id = E.idempleado INNER JOIN usuarios U ON F.documento_id = U.documento;
-
-SELECT documento,nombre,apellido,id_rol,descripcion FROM usuarios INNER JOIN roles 
-ON usuarios.rol_id = roles.id_rol;
 
 ----------------
 --- Externas ---
@@ -526,34 +435,11 @@ ON usuarios.rol_id = roles.id_rol;
 SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
 ON usuarios.rol_id = roles.id_rol;
 
-SELECT documento,nombre,apellido,telefono,direccion,username,password,descripcion FROM usuarios left JOIN roles 
-ON usuarios.rol_id = roles.id_rol;
-
-SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
-ON usuarios.rol_id = roles.id_rol
-UNION
-SELECT documento,nombre,apellido,descripcion FROM usuarios left JOIN roles 
-ON usuarios.rol_id = roles.id_rol;
-
-
 ----------------
 --- Cruzadas ---
 ----------------
 
-SELECT documento
+SELECT documento,nombre ,apellido ,descripcion
 FROM usuarios
 INNER JOIN roles
-ON usuarios.rol_id=roles.rol_id;
-
-
-
-CREATE TABLE detalle_factura(
-  iddetalle_factura INT AUTO_INCREMENT PRIMARY KEY,
-  descripcion VARCHAR(45) NOT NULL,
-  precio DOUBLE NOT NULL,
-  iva DOUBLE NOT NULL,
-  cantidad INT NOT NULL,
-  devolucion VARCHAR(45) NOT NULL,
-  subtotal DOUBLE NOT NULL,
-  productos_id INT NOT NULL,
-  factura_id INT NOT NULL);
+ON usuarios.rol_id=roles.id_rol;
