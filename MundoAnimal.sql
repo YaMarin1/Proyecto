@@ -21,7 +21,7 @@ CREATE TABLE  proveedor (
   idproveedor BIGINT PRIMARY KEY NOT NULL,
   nombre VARCHAR(45) NOT NULL,
   apellido VARCHAR(45) NOT NULL,
-  telefono varchar(11));
+  telefono varchar(45));
 
 -- -----------------------------------------------------
 -- Table Productos
@@ -31,21 +31,23 @@ CREATE TABLE productos (
   nombre VARCHAR(45) NOT NULL,
   imagen VARCHAR(255),
   descripcion VARCHAR(45) NOT NULL,
-  precio DOUBLE NOT NULL,
-  iva DOUBLE NOT NULL,
+  precio DECIMAL NOT NULL,
+  iva DECIMAL NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id BIGINT NOT NULL);
+  
+  select * from orden;
 
 -- -----------------------------------------------------
 -- Table KardexProducto
 -- -----------------------------------------------------
 CREATE TABLE kardexproducto (
   idkardexproducto INT AUTO_INCREMENT PRIMARY KEY,
-  fechaK DATE NOT NULL,
+  fechaK DATETIME NOT NULL,
   cantidadEntradak INT NOT NULL,
-  costoEntradak DOUBLE NOT NULL,
+  costoEntradak DECIMAL NOT NULL,
   cantidadSalidak INT NOT NULL,
-  costoSalidak DOUBLE NOT NULL,
+  costoSalidak DECIMAL NOT NULL,
   productos_id INT NOT NULL);
 
 -- -----------------------------------------------------
@@ -65,7 +67,7 @@ CREATE TABLE usuarios (
   telefono VARCHAR(45) NOT NULL,
   direccion VARCHAR(45) NOT NULL,
   username VARCHAR(45) NOT NULL,
-  password VARCHAR(10) NOT NULL,
+  password VARCHAR(45) NOT NULL,
   rol_id INT NOT NULL);
   
 -- -----------------------------------------------------
@@ -75,7 +77,7 @@ CREATE TABLE usuarios (
 CREATE TABLE orden (
   id_orden INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   documento_id INT NOT NULL,
-  total_price DOUBLE NOT NULL,
+  total_price DECIMAL NOT NULL,
   created datetime NOT NULL);
 
 -- -----------------------------------------------------
@@ -111,9 +113,9 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorio','collar.jpg','Prueba',18000,1500,1,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimento','galleta.png','Prueba',11400,1500,2,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamento','DRONTAL.png','Prueba',15000,1500,3,1000088550);
+INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba2',11400,1500,2,1152468987);
+INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
 
 -- -----------------------------------------------------
 -- Insert Kardex

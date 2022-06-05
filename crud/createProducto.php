@@ -132,10 +132,11 @@ $productos = new Database();
               move_uploaded_file($archivo, $ruta);
               $descripcion = $productos->sanitize($_POST['descripcion']);
               $precio = $productos->sanitize($_POST['precio']);
-              $iva = $productos->sanitize($_POST['iva']);
+              $iva = ($_POST['precio']) * 0.19;
+              //$iva = $productos->sanitize($_POST['iva']);
               $categoria_id = $productos->sanitize($_POST['categoria_id']);
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
-              $res = $productos->createProductos($nombre, $imagen, $descripcion, $precio, $iva, $existencias, $categoria_id, $proveedor_id);
+              $res = $productos->createProductos($nombre, $imagen, $descripcion, $precio, $iva, $categoria_id, $proveedor_id);
               if ($res) {
                 $message = "Datos insertados con éxito";
                 $class = "alert alert-success";
@@ -172,10 +173,7 @@ $productos = new Database();
                   <label>Precio:</label>
                   <input type="number" name="precio" id="precio" class='form-control' required>
                 </div>
-                <div class="col-md-6">
-                  <label>Iva:</label>
-                  <input type="number" name="iva" id="iva" class='form-control' maxlength="64" required>
-                </div>
+                
                 <div class="col-md-6">
                   <label>Categoria:</label>
                   <!--<input type="number" name="categoria_id" id="categoria_id" class='form-control' maxlength="50" required >-->

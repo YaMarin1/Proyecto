@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="Sena2020*";
+		private $dbpass="root";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -177,8 +177,8 @@
 
 
 
-		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id){
-            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,existencias,categoria_id,proveedor_id) VALUES ('$nombre','".$imagen."','$descripcion',$precio,$iva,$existencias,$categoria_id,$proveedor_id)";
+		public function createProductos($nombre,$imagen,$descripcion,$precio,$iva,$categoria_id,$proveedor_id){
+            $sql = "INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('$nombre','".$imagen."','$descripcion',$precio,$iva,$categoria_id,$proveedor_id)";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
 				return true;
@@ -200,8 +200,8 @@
 					return $return ;
 		}
 
-		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$existencias,$categoria_id,$proveedor_id,$idproductos){
-			$sql = "UPDATE productos SET nombre='$nombre',imagen='.$imagen.', descripcion='$descripcion', precio='$precio', iva='$iva', existencias='$existencias', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
+		public function updateProductos($nombre,$imagen,$descripcion,$precio,$iva,$categoria_id,$proveedor_id,$idproductos){
+			$sql = "UPDATE productos SET nombre='$nombre',imagen='.$imagen.', descripcion='$descripcion', precio='$precio', iva='$iva', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
 					return false;
