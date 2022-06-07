@@ -2,7 +2,8 @@
 // Iniciamos la clase de la carta
 include '../model/La-carta.php';
 $cart = new Cart;
-
+date_default_timezone_set("America/Bogota");
+$fecha = new DateTime('now', new DateTimeZone('America/Bogota'));
 
 // include database configuration file
 include '../db/Configuracion.php';
@@ -14,7 +15,7 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
         $row = $query->fetch_assoc();
         $itemData = array(
             'idproductos' => $row['idproductos'],
-            'nombre' => $row['nombre'],
+            'nombrep' => $row['nombrep'],
             'precio' => $row['precio'],
             'qty' => 1
         );

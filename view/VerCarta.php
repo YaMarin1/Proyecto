@@ -111,7 +111,7 @@ $cart = new Cart;
             foreach($cartItems as $item){
         ?>
         <tr>
-            <td><?php echo $item["nombre"]; ?></td>
+            <td><?php echo $item["nombrep"]; ?></td>
             <td><?php echo '$'.$item["precio"].' COP'; ?></td>
             <td><input type="number" class="form-control text-center" value="<?php echo $item["qty"]; ?>" onchange="updateCartItem(this, '<?php echo $item["rowid"]; ?>')"></td>
             <td><?php echo '$'.$item["subtotal"].' COP'; ?></td>

@@ -116,7 +116,7 @@ if (isset($_GET['idproductos'])) {
             $productos = new Database();
 
             if (isset($_POST) && !empty($_POST)) {
-              $nombre = $productos->sanitize($_POST['nombre']);
+              $nombrep = $productos->sanitize($_POST['nombrep']);
               $imagen = $_FILES['imagen']['name']; //Obtiene el nombre
               $archivo = $_FILES['imagen']['tmp_name']; //Obtiene el archivo
               $ruta = "../images/ImagesProductos";
@@ -129,7 +129,7 @@ if (isset($_GET['idproductos'])) {
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
               $id_cliente = intval($_POST['id_cliente']);
 
-              $res = $productos->updateProductos($nombre, $imagen, $descripcion, $precio, $iva, $existencias, $categoria_id, $proveedor_id, $id_cliente);
+              $res = $productos->updateProductos($nombrep, $imagen, $descripcion, $precio, $iva, $categoria_id, $proveedor_id, $id_cliente);
               if ($res) {
                 $message = "Datos actualizados con éxito";
                 $class = "alert alert-success";
@@ -153,7 +153,7 @@ if (isset($_GET['idproductos'])) {
               <form method="post" enctype="multipart/form-data">
                 <div class="col-md-6">
                   <label>Nombre:</label>
-                  <input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->nombre; ?>">
+                  <input type="text" name="nombrep" id="nombrep" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->nombrep; ?>">
                   <input type="hidden" name="id_cliente" id="id_cliente" class='form-control' maxlength="100" value="<?php echo $datos_cliente->$idproductos; ?>">
                 </div>
                 <div class="col-md-6">

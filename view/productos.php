@@ -139,7 +139,7 @@ $productos = new Database();
               <?php
               while ($row = mysqli_fetch_object($listado)) {
                 $idproductos = $row->idproductos;
-                $nombre = $row->nombre;
+                $nombrep = $row->nombrep;
                 $imagen = $row->imagen;
                 $descripcion = $row->descripcion;
                 $precio = $row->precio;
@@ -149,7 +149,7 @@ $productos = new Database();
               ?>
                 <tr>
                   <td><?php echo $idproductos; ?></td>
-                  <td><?php echo $nombre; ?></td>
+                  <td><?php echo $nombrep; ?></td>
                   <td><img src="../images/ImagesProductos/<?php echo $imagen; ?>" width="70px" height="70px" alt=""></img></td>
                   <td><?php echo $descripcion; ?></td>
                   <td><?php echo $precio; ?></td>

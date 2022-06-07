@@ -124,7 +124,7 @@ $productos = new Database();
 
 
             if (isset($_POST) && !empty($_POST)) {
-              $nombre = $productos->sanitize($_POST['nombre']);
+              $nombrep = $productos->sanitize($_POST['nombrep']);
               $imagen = $_FILES['imagen']['name']; //Obtiene el nombre
               $archivo = $_FILES['imagen']['tmp_name']; //Obtiene el archivo
               $ruta = "../images/ImagesProductos";
@@ -136,7 +136,7 @@ $productos = new Database();
               //$iva = $productos->sanitize($_POST['iva']);
               $categoria_id = $productos->sanitize($_POST['categoria_id']);
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
-              $res = $productos->createProductos($nombre, $imagen, $descripcion, $precio, $iva, $categoria_id, $proveedor_id);
+              $res = $productos->createProductos($nombrep, $imagen, $descripcion, $precio, $iva, $categoria_id, $proveedor_id);
               if ($res) {
                 $message = "Datos insertados con éxito";
                 $class = "alert alert-success";
@@ -159,7 +159,7 @@ $productos = new Database();
 
                 <div class="col-md-6">
                   <label>Nombre:</label>
-                  <input type="text" name="nombre" id="nombre" class='form-control' maxlength="100" required>
+                  <input type="text" name="nombrep" id="nombre" class='form-control' maxlength="100" required>
                 </div>
                 <div class="col-md-6">
                   <label>Imagen:</label>

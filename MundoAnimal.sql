@@ -28,7 +28,7 @@ CREATE TABLE  proveedor (
 -- -----------------------------------------------------
 CREATE TABLE productos (
   idproductos INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(45) NOT NULL,
+  nombrep VARCHAR(45) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
   descripcion VARCHAR(45) NOT NULL,
   precio FLOAT NOT NULL,
@@ -111,14 +111,14 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba2',11400,1500,2,1152468987);
-INSERT INTO productos(nombre,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
+INSERT INTO productos (nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','DRONTAL.png','Prueba3',15000,1500,1,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba2',11400,1500,2,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','DRONTAL.png','Prueba3',15000,1500,2,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
 
--- -----------------------------------------------------
--- Insert Kardex
--- -----------------------------------------------------
-  
+
 INSERT INTO roles(descripcion) VALUES ("Administrador");
 INSERT INTO roles(descripcion) VALUES ("Cliente");
 INSERT INTO roles(descripcion) VALUES ("Empleado");
@@ -131,6 +131,10 @@ INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,passw
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1152468384,'Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',2);
 
+INSERT INTO kardexproducto(fechaK,cantidadEntradak,costoEntradak,cantidadSalidak,costoSalidak,productos_id) VALUES ('2022-06-07 11:29:51',15,100000,5,50000,1);
+INSERT INTO kardexproducto(fechaK,cantidadEntradak,costoEntradak,cantidadSalidak,costoSalidak,productos_id) VALUES ('2022-06-07 11:29:51',15,100000,5,50000,2);
+INSERT INTO kardexproducto(fechaK,cantidadEntradak,costoEntradak,cantidadSalidak,costoSalidak,productos_id) VALUES ('2022-06-07 11:29:51',15,100000,5,50000,3);
+INSERT INTO kardexproducto(fechaK,cantidadEntradak,costoEntradak,cantidadSalidak,costoSalidak,productos_id) VALUES ('2022-06-07 11:29:51',15,100000,5,50000,4);
 
 -- ---------------------------------------------------------- --
 -- --------------------- PROCEDIMIENTOS --------------------- --
@@ -348,7 +352,7 @@ call sp_EliminarUsuario(10001);
 DROP PROCEDURE sp_InsertarProducto;
 DELIMITER ##
 CREATE PROCEDURE sp_InsertarProducto
-(g_nombre VARCHAR(45),
+(g_nombrep VARCHAR(45),
 g_imagen VARCHAR(255),
 g_descripcion VARCHAR (45),
 g_precio FLOAT,
@@ -356,8 +360,8 @@ g_iva FLOAT,
 g_categoria_id INT,
 g_proveedor_id BIGINT)
 BEGIN
- INSERT INTO Productos(nombre,descripcion,precio,iva,categoria_id,proveedor_id)
- VALUES(g_nombre,g_descripcion,g_precio,g_iva,g_categoria_id,g_proveedor_id);
+ INSERT INTO Productos(nombrep,descripcion,precio,iva,categoria_id,proveedor_id)
+ VALUES(g_nombrep,g_descripcion,g_precio,g_iva,g_categoria_id,g_proveedor_id);
 END ##
 DELIMITER ;
 call sp_InsertarProducto('Rondel','DRONTAL.png','Antiparasitante interno',11400,2166,2,1000088550);
@@ -377,7 +381,7 @@ DROP PROCEDURE sp_ActualizarProducto;
 DELIMITER ##
 CREATE PROCEDURE sp_ActualizarProducto
 (up_idproductos int,
-up_nombre varchar (45),
+up_nombrep varchar (45),
 up_imagen varchar (255),
 up_descripcion varchar (45),
 up_precio float,
@@ -386,7 +390,7 @@ up_categoria_id int,
 up_proveedor_id bigint)
 BEGIN
 UPDATE Productos
-SET idproductos=up_idproductos,nombre=up_nombre,imagen=up_imagen,descripcion=up_descripcion,precio=up_precio,iva=up_iva,categoria_id=up_categoria_id,proveedor_id=up_proveedor_id
+SET idproductos=up_idproductos,nombrep=up_nombrep,imagen=up_imagen,descripcion=up_descripcion,precio=up_precio,iva=up_iva,categoria_id=up_categoria_id,proveedor_id=up_proveedor_id
 WHERE idProductos = up_idProductos;
 END ##
 DELIMITER ;
@@ -425,14 +429,14 @@ SELECT * FROM view_USUARIO_ROL;
 
 
 -- ---------------------------------------------------------- --
--- --------------------- PRUEBAS --------------------- --
+-- --------------------- PRUEBAS VIEW --------------------- --
 -- ---------------------------------------------------------- --
 
 DROP VIEW view_DETALLE_DE_COMPRA;
 
 CREATE VIEW view_DETALLE_DE_COMPRA
 AS
-SELECT ID_ORDENARTICULOS,QUANTITY,IDPRODUCTOS,NOMBRE,DESCRIPCION,CATEGORIA_ID,TOTAL_PRICE,CREATED,DOCUMENTO,APELLIDO
+SELECT ID_ORDEN,ID_ORDENARTICULOS,DOCUMENTO,NOMBRE,APELLIDO,TELEFONO,NOMBREP AS NOMBRE_PRODUCTO,PRECIO,QUANTITY AS CANTIDAD,TOTAL_PRICE AS PRECIO_TOTAL,CREATED AS FECHA_COMPRA
 FROM ORDEN_ARTICULOS AS O
 INNER JOIN PRODUCTOS AS P ON O.ID_ORDENARTICULOS=P.IDPRODUCTOS
 INNER JOIN ORDEN AS A ON O.PRODUCTOS_ID=A.ID_ORDEN
@@ -440,18 +444,8 @@ INNER JOIN USUARIOS AS U ON A.DOCUMENTO_ID=U.DOCUMENTO;
 
 SELECT * FROM view_DETALLE_DE_COMPRA;
 
--- ---------------------------------------------------------- --
--- --------------------- PRUEBA FUNCIONAL --------------------- --
--- ---------------------------------------------------------- --
-
-CREATE VIEW view_DETALLE_DE_COMPRA
-AS
-SELECT ID_ORDENARTICULOS,QUANTITY,IDPRODUCTOS,NOMBRE,DESCRIPCION,CATEGORIA_ID,TOTAL_PRICE,CREATED
-FROM ORDEN_ARTICULOS AS O
-INNER JOIN PRODUCTOS AS P ON O.ID_ORDENARTICULOS=P.IDPRODUCTOS
-INNER JOIN ORDEN AS A ON O.PRODUCTOS_ID=A.ID_ORDEN;
-
-SELECT * FROM view_DETALLE_DE_COMPRA;
+SELECT * FROM ORDEN;
+SELECT * FROM ORDEN_ARTICULOS;
 
 -- ---------------------------------------------------------- --
 -- --------------------- INNER JOIN --------------------- --

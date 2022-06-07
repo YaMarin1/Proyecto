@@ -108,7 +108,7 @@ if (!isset($_SESSION['rol'])) {
                     <div class="item col-lg-4">
                       <div class="thumbnail">
                         <div class="caption">
-                          <h4 class="list-group-item-heading"><?php echo $row["nombre"]; ?></h4>
+                          <h4 class="list-group-item-heading"><?php echo $row["nombrep"]; ?></h4>
                           <center><img class="img-responsive" src="../images/ImagesProductos/<?php echo $row["imagen"]; ?>" alt="" width="200px"></img></center>
                           <p class="list-group-item-text"><?php echo $row["descripcion"]; ?></p>
                           <p class="lead"><?php echo '$ ' . $row["precio"]; ?></p>
