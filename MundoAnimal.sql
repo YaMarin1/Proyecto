@@ -83,7 +83,6 @@ CREATE TABLE orden (
 -- -----------------------------------------------------
 
 CREATE TABLE orden_articulos (
-  id_ordenarticulos INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   order_id INT NOT NULL,
   productos_id INT NOT NULL,
   quantity INT NOT NULL);
@@ -111,12 +110,12 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos (nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','DRONTAL.png','Prueba3',15000,1500,1,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba2',11400,1500,2,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','DRONTAL.png','Prueba3',15000,1500,2,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba3',15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','collar.jpg','Prueba2',15000,1500,1,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba3',11400,1500,2,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','galleta.png','Prueba4',15000,1500,2,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba5',15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba',15000,1500,3,1000088550);
 
 
 INSERT INTO roles(descripcion) VALUES ("Administrador");
@@ -436,11 +435,11 @@ DROP VIEW view_DETALLE_DE_COMPRA;
 
 CREATE VIEW view_DETALLE_DE_COMPRA
 AS
-SELECT ID_ORDEN,ID_ORDENARTICULOS,DOCUMENTO,NOMBRE,APELLIDO,TELEFONO,NOMBREP AS NOMBRE_PRODUCTO,PRECIO,QUANTITY AS CANTIDAD,TOTAL_PRICE AS PRECIO_TOTAL,CREATED AS FECHA_COMPRA
-FROM ORDEN_ARTICULOS AS O
-INNER JOIN PRODUCTOS AS P ON O.ID_ORDENARTICULOS=P.IDPRODUCTOS
-INNER JOIN ORDEN AS A ON O.PRODUCTOS_ID=A.ID_ORDEN
-INNER JOIN USUARIOS AS U ON A.DOCUMENTO_ID=U.DOCUMENTO;
+SELECT ID_ORDEN,DOCUMENTO,NOMBRE,APELLIDO,TELEFONO,NOMBREP AS NOMBRE_PRODUCTO,PRECIO,QUANTITY AS CANTIDAD,TOTAL_PRICE AS PRECIO_TOTAL,CREATED AS FECHA_COMPRA
+FROM ORDEN_ARTICULOS
+INNER JOIN PRODUCTOS ON ORDEN_ARTICULOS.PRODUCTOS_ID=PRODUCTOS.IDPRODUCTOS
+INNER JOIN ORDEN ON ORDEN_ARTICULOS.ORDER_ID=ORDEN.ID_ORDEN
+INNER JOIN USUARIOS ON ORDEN.DOCUMENTO_ID=USUARIOS.DOCUMENTO;
 
 SELECT * FROM view_DETALLE_DE_COMPRA;
 

@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="Sena2020*";
+		private $dbpass="root";
 		private $dbname="mundoanimal";
 
 		function __construct(){
