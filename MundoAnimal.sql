@@ -35,8 +35,6 @@ CREATE TABLE productos (
   iva FLOAT NOT NULL,
   categoria_id INT NOT NULL,
   proveedor_id BIGINT NOT NULL);
-  
-  select * from orden;
 
 -- -----------------------------------------------------
 -- Table KardexProducto
@@ -405,15 +403,66 @@ END ##
 DELIMITER ;
 call sp_EliminarProducto(5);
 
+
+-- ---------------------------------------------------------- --
+-- --------------------- VIEWS --------------------- --
+-- ---------------------------------------------------------- --
+DROP VIEW view_USUARIO_ROL;
+
+ALTER VIEW view_USUARIO_ROL as
+SELECT DOCUMENTO,NOMBRE, DESCRIPCION
+FROM USUARIOS
+WHERE ROL_ID = 2;
+
+
+CREATE VIEW view_USUARIO_ROL
+AS
+SELECT DOCUMENTO,NOMBRE
+FROM USUARIOS
+WHERE ROL_ID = 2;
+
+SELECT * FROM view_USUARIO_ROL;
+
+
+-- ---------------------------------------------------------- --
+-- --------------------- PRUEBAS --------------------- --
 -- ---------------------------------------------------------- --
 
-select * from orden;
-select * from ORDEN_ARTICULOS;
-select * from KARDEXPRODUCTO;
+DROP VIEW view_DETALLE_DE_COMPRA;
+
+CREATE VIEW view_DETALLE_DE_COMPRA
+AS
+SELECT ID_ORDENARTICULOS,QUANTITY,IDPRODUCTOS,NOMBRE,DESCRIPCION,CATEGORIA_ID,TOTAL_PRICE,CREATED,DOCUMENTO,APELLIDO
+FROM ORDEN_ARTICULOS AS O
+INNER JOIN PRODUCTOS AS P ON O.ID_ORDENARTICULOS=P.IDPRODUCTOS
+INNER JOIN ORDEN AS A ON O.PRODUCTOS_ID=A.ID_ORDEN
+INNER JOIN USUARIOS AS U ON A.DOCUMENTO_ID=U.DOCUMENTO;
+
+SELECT * FROM view_DETALLE_DE_COMPRA;
+
+-- ---------------------------------------------------------- --
+-- --------------------- PRUEBA FUNCIONAL --------------------- --
+-- ---------------------------------------------------------- --
+
+CREATE VIEW view_DETALLE_DE_COMPRA
+AS
+SELECT ID_ORDENARTICULOS,QUANTITY,IDPRODUCTOS,NOMBRE,DESCRIPCION,CATEGORIA_ID,TOTAL_PRICE,CREATED
+FROM ORDEN_ARTICULOS AS O
+INNER JOIN PRODUCTOS AS P ON O.ID_ORDENARTICULOS=P.IDPRODUCTOS
+INNER JOIN ORDEN AS A ON O.PRODUCTOS_ID=A.ID_ORDEN;
+
+SELECT * FROM view_DETALLE_DE_COMPRA;
 
 -- ---------------------------------------------------------- --
 -- --------------------- INNER JOIN --------------------- --
 -- ---------------------------------------------------------- --
+SELECT DOCUMENTO FROM USUARIOS
+UNION
+SELECT ID_ORDEN FROM ORDEN;
+
+SELECT ID_ORDENARTICULOS FROM ORDEN_ARTICULOS
+UNION
+SELECT ID_ORDEN FROM ORDEN;
 
 SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor, PR.nombre, PR.apellido FROM productos P INNER JOIN proveedor PR 
 ON P.proveedor_id = PR.idproveedor;
