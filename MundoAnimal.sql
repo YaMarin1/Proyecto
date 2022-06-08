@@ -4,7 +4,6 @@
 CREATE DATABASE MUNDOANIMAL;
 USE MUNDOANIMAL;
 
-
 DROP DATABASE MUNDOANIMAL;
 
 -- -----------------------------------------------------
@@ -443,7 +442,7 @@ INNER JOIN USUARIOS ON ORDEN.DOCUMENTO_ID=USUARIOS.DOCUMENTO;
 
 SELECT * FROM view_DETALLE_DE_COMPRA;
 
-SELECT * FROM ORDEN;
+SELECT * FROM usuarios;
 SELECT * FROM ORDEN_ARTICULOS;
 
 -- ---------------------------------------------------------- --
