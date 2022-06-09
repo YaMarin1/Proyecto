@@ -44,7 +44,7 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
             // get cart items
             $cartItems = $cart->contents();
             foreach ($cartItems as $item) {
-                $sql .= "INSERT INTO orden_articulos (order_id, productos_id, quantity) VALUES ('" . $orderID . "', '" . $item['idproductos'] . "', '" . $item['qty'] . "');";
+                $sql .= "INSERT INTO orden_articulos (order_id, productos_id, quantity, subtotal) VALUES ('" . $orderID . "', '" . $item['idproductos'] . "', '" . $item['qty'] . "','" . $item['subtotal'] . "');";
             }
             // insert order items into database
             $insertOrderItems = $db->multi_query($sql);
