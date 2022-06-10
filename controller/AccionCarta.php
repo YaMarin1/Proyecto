@@ -21,8 +21,14 @@ if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
         );
 
         $insertItem = $cart->insert($itemData);
-        $redirectLoc = $insertItem ? '../view/VerCarta.php' : '../view/ofertas.php';
-        header("Location: " . $redirectLoc);
+        echo $insertItem ? 
+            "<script> alert('El producto ha sido enviado al carrito correctamente'); </script>" :
+            "<script> alert('Ha habido un error al insertar'); </script>";
+
+        // $redirectLoc = $insertItem ? '../view/VerCarta.php' : '../view/ofertas.php';
+        // header("Location: ../view/ofertas.php");
+        echo "<script> window.location.href = '../view/ofertas.php' </script>";
+        
     } elseif ($_REQUEST['action'] == 'updateCartItem' && !empty($_REQUEST['idproductos'])) {
         $itemData = array(
             'rowid' => $_REQUEST['idproductos'],
