@@ -87,7 +87,6 @@ CREATE TABLE orden_articulos (
   quantity INT NOT NULL,
   subtotal FLOAT NOT NULL);
   
-  select * from orden_articulos;
 -- -----------------------------------------------------
 -- FOREIGN KEYs
 -- -----------------------------------------------------
@@ -119,16 +118,16 @@ INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveed
 INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba',15000,1500,3,1000088550);
 
 
-INSERT INTO roles(descripcion) VALUES ("Administrador");
-INSERT INTO roles(descripcion) VALUES ("Cliente");
-INSERT INTO roles(descripcion) VALUES ("Empleado");
+INSERT INTO roles(descripcion) VALUES ('Administrador');
+INSERT INTO roles(descripcion) VALUES ('Cliente');
+INSERT INTO roles(descripcion) VALUES ('Empleado');
 
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison Andres','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000085835,'Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Maria Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia Janet','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000085835,'Kevin Mateo','Marin', '3182921347', 'Cl 87 # 31-58', 'Mateo@gmail.com','1000085835',3);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (71740075,'Efren Albeiro',	'Marin','3128353889','CL N87 - CR 83-54','Efren@gmail.com','71740075',2);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1152468384,'Sebastian',	'Piedrahita','3042342494','CL N87 - CR 83-54','Sebastian@gmail.com','1152468384',2);
 
 INSERT INTO kardexproducto(fechaK,cantidadEntradak,costoEntradak,cantidadSalidak,costoSalidak,productos_id) VALUES ('2022-06-07 11:29:51',15,100000,5,50000,1);

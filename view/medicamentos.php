@@ -23,7 +23,7 @@ if (!isset($_SESSION['rol'])) {
 <head>
   <meta charset="utf-8">
 
-  <title>Productos</title>
+  <title>Medicamentos</title>
   <link rel="stylesheet" href="../css/nicepage2.css" media="screen">
   <link rel="stylesheet" href="../css/productos.css" media="screen">
   <script class="u-script" type="text/javascript" src="../js/jquery2.js" defer=""></script>
