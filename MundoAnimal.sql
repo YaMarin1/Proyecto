@@ -406,36 +406,15 @@ END ##
 DELIMITER ;
 call sp_EliminarProducto(5);
 
-
 -- ---------------------------------------------------------- --
 -- --------------------- VIEWS --------------------- --
--- ---------------------------------------------------------- --
-DROP VIEW view_USUARIO_ROL;
-
-ALTER VIEW view_USUARIO_ROL as
-SELECT DOCUMENTO,NOMBRE, DESCRIPCION
-FROM USUARIOS
-WHERE ROL_ID = 2;
-
-
-CREATE VIEW view_USUARIO_ROL
-AS
-SELECT DOCUMENTO,NOMBRE
-FROM USUARIOS
-WHERE ROL_ID = 2;
-
-SELECT * FROM view_USUARIO_ROL;
-
-
--- ---------------------------------------------------------- --
--- --------------------- PRUEBAS VIEW --------------------- --
 -- ---------------------------------------------------------- --
 
 DROP VIEW view_DETALLE_DE_COMPRA;
 
 CREATE VIEW view_DETALLE_DE_COMPRA
 AS
-SELECT ID_ORDEN,DOCUMENTO,NOMBRE,APELLIDO,TELEFONO,NOMBREP AS NOMBRE_PRODUCTO,PRECIO,QUANTITY AS CANTIDAD,SUBTOTAL,TOTAL_PRICE AS PRECIO_TOTAL,CREATED AS FECHA_COMPRA
+SELECT ID_ORDEN,DOCUMENTO,NOMBRE,APELLIDO,TELEFONO,DIRECCION,NOMBREP AS NOMBRE_PRODUCTO,PRECIO,QUANTITY AS CANTIDAD,SUBTOTAL,TOTAL_PRICE AS PRECIO_TOTAL,CREATED AS FECHA_COMPRA
 FROM ORDEN_ARTICULOS
 INNER JOIN PRODUCTOS ON ORDEN_ARTICULOS.PRODUCTOS_ID=PRODUCTOS.IDPRODUCTOS
 INNER JOIN ORDEN ON ORDEN_ARTICULOS.ORDER_ID=ORDEN.ID_ORDEN
@@ -443,45 +422,14 @@ INNER JOIN USUARIOS ON ORDEN.DOCUMENTO_ID=USUARIOS.DOCUMENTO;
 
 SELECT * FROM view_DETALLE_DE_COMPRA;
 
-SELECT * FROM usuarios;
-SELECT * FROM ORDEN_ARTICULOS;
 
--- ---------------------------------------------------------- --
--- --------------------- INNER JOIN --------------------- --
--- ---------------------------------------------------------- --
-SELECT DOCUMENTO FROM USUARIOS
-UNION
-SELECT ID_ORDEN FROM ORDEN;
-
-SELECT ID_ORDENARTICULOS FROM ORDEN_ARTICULOS
-UNION
-SELECT ID_ORDEN FROM ORDEN;
-
-SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor, PR.nombre, PR.apellido FROM productos P INNER JOIN proveedor PR 
-ON P.proveedor_id = PR.idproveedor;
-
--- ---------------------------------------------------------- --
--- --------------------- Internas --------------------- --
--- ---------------------------------------------------------- --
-
-SELECT P.idproductos,P.nombre,P.precio, PR.idproveedor FROM productos P INNER JOIN proveedor PR 
-ON P.proveedor_id = PR.idproveedor
-UNION
-SELECT id_orden,documento_id,total_price,created,quantity FROM orden INNER JOIN orden_articulos
-ON orden.documento_id = orden_articulos.order_id;
-
-----------------
---- Externas ---
-----------------
-
-SELECT documento,nombre,apellido,descripcion FROM usuarios right JOIN roles 
-ON usuarios.rol_id = roles.id_rol;
-
-----------------
---- Cruzadas ---
-----------------
-
-SELECT documento,nombre ,apellido ,descripcion
+DROP VIEW view_ROL_DE_USUARIO;
+CREATE VIEW view_ROL_DE_USUARIO
+AS
+SELECT documento,nombre,apellido,telefono,direccion,username,password,descripcion
 FROM usuarios
-INNER JOIN roles
-ON usuarios.rol_id=roles.id_rol;
+INNER JOIN roles ON usuarios.rol_id=roles.id_rol;
+
+SELECT * FROM view_ROL_DE_USUARIO;
+
+SELECT * FROM view_ROL_DE_USUARIO WHERE descripcion="empleado";
