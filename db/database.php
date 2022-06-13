@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="Sena2020*";
+		private $dbpass="root";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -38,6 +38,12 @@
             	}else{
             		return false;
          }
+        }
+
+		public function readFactura(){
+            $sql = "SELECT * FROM view_DETALLE_DE_COMPRA";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
         }
 
         public function read(){
