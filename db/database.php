@@ -7,7 +7,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="root";
+		private $dbpass="";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -33,7 +33,8 @@
 		public function readFactura(){
             $sql = "SELECT * FROM view_DETALLE_DE_COMPRA";
             $res = mysqli_query($this->con, $sql);
-            	return $res;
+				
+            return $res;
         }
 
         public function create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id){
@@ -50,7 +51,7 @@
         public function read(){
             $sql = "SELECT * FROM usuarios";
             $res = mysqli_query($this->con, $sql);
-            	return $res;
+            return $res;
         }
 
         public function single_record($documento){

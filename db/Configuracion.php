@@ -2,7 +2,7 @@
 //DB details
 $dbHost = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'root';
+$dbPassword = '';
 $dbName = 'mundoanimal';
 
 //Create connection and select DB

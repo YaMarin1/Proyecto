@@ -12,7 +12,7 @@ if (!isset($_SESSION['rol'])) {
 ?>
 <?php
 include('../db/database.php');
-$usuarios = new Database();
+$factura = new Database();
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,6 +36,8 @@ $usuarios = new Database();
 
 <body>
 
+
+
   <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
     <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Mundo Animal</a>
     <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
@@ -54,15 +56,9 @@ $usuarios = new Database();
         <div class="position-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="admin.php">
+              <a class="nav-link active" aria-current="page" href="admin.php">
                 <span data-feather="home"></span>
                 Panel admin
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="factura.php">
-                <span data-feather="file"></span>
-                Facturas
               </a>
             </li>
             <li class="nav-item">
@@ -108,16 +104,68 @@ $usuarios = new Database();
       <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
           <h1 class="h2">Administrador</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group me-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-            </div>
-          </div>
         </div>
 
 
-
+        <h2>Listado de <b>Facturas</b></h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Documento</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Subtotal</th>
+                <th scope="col">Precio-Total</th>
+                <th scope="col">Fecha-Compra</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php $listado = $factura->readFactura();  
+              ?>
+              <?php
+              while ($row = mysqli_fetch_object($listado)) {
+                $id_orden = $row->ID_ORDEN;
+                $documento = $row->DOCUMENTO;
+                $nombre = $row->NOMBRE;
+                $apellido = $row->APELLIDO;
+                $telefono = $row->TELEFONO;
+                $nombrep = $row->NOMBRE_PRODUCTO;
+                $precio = $row->PRECIO;
+                $quantity = $row->CANTIDAD;
+                $subtotal = $row->SUBTOTAL;
+                $total_price = $row->PRECIO_TOTAL;
+                $created = $row->FECHA_COMPRA;
+              ?>
+                <tr>
+                  <td><?php echo $id_orden ; ?></td>
+                  <td><?php echo $documento; ?></td>
+                  <td><?php echo $nombre; ?></td>
+                  <td><?php echo $apellido; ?></td>
+                  <td><?php echo $telefono; ?></td>
+                  <td><?php echo $nombrep; ?></td>
+                  <td><?php echo $precio; ?></td>
+                  <td><?php echo $quantity; ?></td>
+                  <td><?php echo $subtotal; ?></td>
+                  <td><?php echo $total_price; ?></td>
+                  <td><?php echo $created; ?></td>
+                  <td>
+                    <a href="../crud/updateProducto.php?idproductos=<?php echo $idproductos; ?>" class="edit" title="Editar" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                    <a href="../crud/deleteProducto.php?idproductos=<?php echo $idproductos; ?>" class="delete" title="Eliminar" data-toggle="tooltip" onclick="return confirm('Seguro que quieres eliminarlo?')"><i class="material-icons">&#xE872;</i></a>
+                  </td>
+                </tr>
+              <?php
+              }
+              ?>
+            </tbody>
+          </table>
+        </div>
       </main>
     </div>
   </div>

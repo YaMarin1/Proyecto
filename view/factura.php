@@ -113,7 +113,7 @@ $factura = new Database();
         </div>
 
 
-        <h2>Listado de <b>Productos</b></h2>
+        <h2>Listado de <b>Facturas</b></h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -133,23 +133,24 @@ $factura = new Database();
               </tr>
             </thead>
             <tbody>
-              <?php $listado = $factura->readFactura(); ?>
+              <?php $listado = $factura->readFactura();  
+              ?>
               <?php
               while ($row = mysqli_fetch_object($listado)) {
-                $id_orden = $row->id_orden;
-                $documento = $row->documento;
-                $nombre = $row->nombre;
-                $apellido = $row->apellido;
-                $telefono = $row->telefono;
-                $nombrep = $row->nombrep;
-                $precio = $row->precio;
-                $quantity = $row->quantity;
-                $subtotal = $row->subtotal;
-                $total_price = $row->total_price;
-                $created = $row->created;
+                $id_orden = $row->ID_ORDEN;
+                $documento = $row->DOCUMENTO;
+                $nombre = $row->NOMBRE;
+                $apellido = $row->APELLIDO;
+                $telefono = $row->TELEFONO;
+                $nombrep = $row->NOMBRE_PRODUCTO;
+                $precio = $row->PRECIO;
+                $quantity = $row->CANTIDAD;
+                $subtotal = $row->SUBTOTAL;
+                $total_price = $row->PRECIO_TOTAL;
+                $created = $row->FECHA_COMPRA;
               ?>
                 <tr>
-                  <td><?php echo $id_orden; ?></td>
+                  <td><?php echo $id_orden ; ?></td>
                   <td><?php echo $documento; ?></td>
                   <td><?php echo $nombre; ?></td>
                   <td><?php echo $apellido; ?></td>

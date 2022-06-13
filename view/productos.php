@@ -62,12 +62,6 @@ $productos = new Database();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="factura.php">
-                <span data-feather="file"></span>
-                Facturas
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link  active" href="productos.php">
                 <span data-feather="shopping-cart"></span>
                 Productos
