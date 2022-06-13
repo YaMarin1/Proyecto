@@ -30,6 +30,12 @@
             	return $return;
         }
 
+		public function readFactura(){
+            $sql = "SELECT * FROM view_DETALLE_DE_COMPRA";
+            $res = mysqli_query($this->con, $sql);
+            	return $res;
+        }
+
         public function create($documento,$nombre,$apellido,$telefono,$direccion,$username,$password,$rol_id){
             $sql = "INSERT INTO `usuarios` (documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES ('$documento','$nombre','$apellido','$telefono','$direccion','$username','$password','$rol_id')";
             $res = mysqli_query($this->con, $sql);
@@ -40,11 +46,6 @@
          }
         }
 
-		public function readFactura(){
-            $sql = "SELECT * FROM view_DETALLE_DE_COMPRA";
-            $res = mysqli_query($this->con, $sql);
-            	return $res;
-        }
 
         public function read(){
             $sql = "SELECT * FROM usuarios";
