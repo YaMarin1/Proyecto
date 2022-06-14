@@ -65,7 +65,8 @@ CREATE TABLE usuarios (
   direccion VARCHAR(45) NOT NULL,
   username VARCHAR(45) NOT NULL,
   password VARCHAR(45) NOT NULL,
-  rol_id INT NOT NULL);
+  rol_id INT NOT NULL,
+  tokenUser VARCHAR(100));
   
 -- -----------------------------------------------------
 -- Table Orden
@@ -409,6 +410,7 @@ call sp_EliminarProducto(5);
 -- ---------------------------------------------------------- --
 -- --------------------- VIEWS --------------------- --
 -- ---------------------------------------------------------- --
+select * from usuarios;
 
 DROP VIEW view_DETALLE_DE_COMPRA;
 

@@ -1,5 +1,4 @@
 <?php
-include('../model/funciones.php');
 include('../db/Configuracion.php');
 ?>
 <?php
@@ -110,7 +109,7 @@ if (!isset($_SESSION['rol'])) {
                           <center><img class="img-responsive" src="../images/ImagesProductos/<?php echo $row["imagen"]; ?>" alt="" width="200px"></img></center>
                           <p class="list-group-item-text"><?php echo $row["descripcion"]; ?></p>
                           <p class="lead"><?php echo '$ ' . $row["precio"]; ?></p>
-                          <a class="btn btn-success" href="../controller/AccionCarta.php?action=addToCart&idproductos=<?php echo $row["idproductos"]; ?>">Agregar a la Carta</a>
+                          <a class="btn btn-success" href="../controller/AccionCarta.php?action=addToCart&idproductos=<?php echo $row["idproductos"]; ?>">Agregar al carrito</a>
                         </div>
                       </div>
                     </div>

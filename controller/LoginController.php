@@ -30,9 +30,11 @@
         if($row == true){
             $rol = $row[7];
             $documento = $row[0];
+            $tokenUser = $row[8];
             
             $_SESSION['rol'] = $rol;
             $_SESSION['documento'] = $documento;
+            $_SESSION['tokenUser'] = $tokenUser;
 
             switch($rol){
                 case 1:

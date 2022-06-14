@@ -37,7 +37,7 @@ include '../controller/LoginController.php';
               <a class="nav-link" href="../index.php">INICIO</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="registro.php">REGISTRO</a>
+                <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
             </li>
 
 
@@ -48,23 +48,15 @@ include '../controller/LoginController.php';
     </div>
   </section>
   <section>
+
     <main class="form-signin">
       <form action="#" method="POST">
         <img class="mb-4" src="../images/MundoAnimal.png" alt="" width="100" height="100">
-
         <div class="form-floating">
           <input type="email" name="username" class="form-control" required="required">
           <label for="email">Correo</label>
         </div>
-        <div class="form-floating">
-          <input type="password" name="password" class="form-control" required="required">
-          <label for="password">Clave</label>
-        </div>
-        <input class="w-100 btn btn-lg btn-dark" type="submit" value="Iniciar sesión">
-
-        <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-          <a class="w-100 btn btn-sm btn-dark" href="password.php">Reset Password</a>
-        </div>
+        <input class="w-100 btn btn-lg btn-dark" type="submit" value="Recuperar clave">
       </form>
     </main>
   </section>
