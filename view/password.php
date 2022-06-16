@@ -14,8 +14,6 @@ include '../controller/LoginController.php';
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-  </script>
-
   <!-- Custom styles for this template -->
   <link href="../css/loginregistro.css" rel="stylesheet">
   <link href="../css/footer.css" rel="stylesheet">
@@ -37,7 +35,7 @@ include '../controller/LoginController.php';
               <a class="nav-link" href="../index.php">INICIO</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
+              <a class="nav-link" href="login.php">INICIAR SESIÓN</a>
             </li>
 
 

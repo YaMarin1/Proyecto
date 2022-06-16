@@ -56,7 +56,7 @@ include '../controller/RegistroController.php';
         <img class="mb-4" src="../images/MundoAnimal.png" alt="" width="100" height="100">
 
         <div class="form-floating">
-          <input type="text" name="documento" id="documento" class="form-control" required="">
+          <input type="number" name="documento" id="documento" class="form-control" required="">
           <label for="documento">Documento *</label>
         </div>
 
@@ -71,7 +71,7 @@ include '../controller/RegistroController.php';
         </div>
 
         <div class="form-floating">
-          <input type="text" name="telefono" id="telefono" class="form-control" required="">
+          <input type="number" name="telefono" id="telefono" class="form-control" required="">
           <label for="telefono">Telefono *</label>
         </div>
 
