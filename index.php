@@ -47,35 +47,14 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-align-right u-container-style u-group u-palette-5-light-1 u-group-1">
           <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h1 class="u-text u-text-body-alt-color u-text-1">Dog Sch​ool</h1>
+            <h1 class="u-text u-text-body-alt-color u-text-1">Educa tu mascota</h1>
           </div>
         </div>
         <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1000" data-image-height="1500"></div>
         <h5 class="u-align-justify u-text u-text-body-color u-text-2">¿Estás listo para comenzar a entrenar a tu perro o cachorro? El entrenamiento adecuado y la socialización se encuentran entre las necesidades básicas de su perro. Es importante comenzar a entrenar a su perro lo antes posible.</h5>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-palette-5-light-1 u-section-2" id="carousel_1f8d">
-      <div class="u-clearfix u-sheet u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-valign-middle u-container-layout-1">
-                  <h2 class="u-text u-text-body-alt-color u-text-1">About Us</h2>
-                  <p class="u-text u-text-body-alt-color u-text-2">Cras adipiscing enim eu turpis egestas pretium aenean pharetra magna. Tempus urna et pharetra pharetra massa massa ultricies mi quis. Ut faucibus pulvinar elementum enim neque volutpat. Augue mauris augue neque gravida in. Venenatis cras sed felis eget velit aliquet sagittis. Morbi leo urna molestie at.<br>
-                  </p>
-                </div>
-              </div>
-              <div class="u-align-center u-container-style u-layout-cell u-right-cell u-size-30 u-layout-cell-2">
-                <div class="u-container-layout u-valign-middle-lg u-valign-middle-md u-valign-middle-xl u-valign-top-sm u-valign-top-xs u-container-layout-2">
-                  <div alt="" class="u-image u-image-circle u-image-1"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
     <section class="u-clearfix u-valign-bottom-sm u-valign-bottom-xs u-section-3" id="carousel_7b4b">
       <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
         <div class="u-layout">
@@ -95,16 +74,16 @@
                   <div class="u-layout-row">
                     <div class="u-container-style u-layout-cell u-size-30 u-white u-layout-cell-2">
                       <div class="u-container-layout u-valign-middle u-container-layout-2">
-                        <h1 class="u-align-center u-text u-text-default u-text-1">#02</h1>
-                        <h5 class="u-align-center u-text u-text-2">House-training</h5>
-                        <p class="u-align-justify u-text u-text-grey-50 u-text-3">All dogs can be taught to toilet outdoors, but this is not something most will do automatically – they need us to show them that this is the right thing...</p>
+                        <h1 class="u-align-center u-text u-text-default u-text-1">#01</h1>
+                        <h5 class="u-align-center u-text u-text-2">CASA-ENTRENAMIENTO</h5>
+                        <p class="u-align-justify u-text u-text-grey-50 u-text-3">A todos los perros se les puede enseñar a ir al baño al aire libre, pero esto no es algo que la mayoría haga automáticamente: necesitan que les mostremos que esto es lo correcto...</p>
                       </div>
                     </div>
                     <div class="u-container-style u-layout-cell u-right-cell u-similar-fill u-size-30 u-white u-layout-cell-3">
                       <div class="u-container-layout u-container-layout-3">
-                        <h1 class="u-align-center u-text u-text-default u-text-4">#01</h1>
+                        <h1 class="u-align-center u-text u-text-default u-text-4">#02</h1>
                         <h5 class="u-align-center u-text u-text-5">Dod Training</h5>
-                        <p class="u-align-justify u-text u-text-grey-50 u-text-6">Dogs which are trained with rewards enjoy learning - they are a partner in the training sessions and often 'offer' new behaviours to see if they get...</p>
+                        <p class="u-align-justify u-text u-text-grey-50 u-text-6">Los perros entrenados con recompensas disfrutan aprendiendo: son compañeros en las sesiones de entrenamiento y, a menudo, "ofrecen" nuevos comportamientos para ver si obtienen...</p>
                       </div>
                     </div>
                   </div>
@@ -113,14 +92,14 @@
                   <div class="u-layout-row">
                     <div class="u-container-style u-layout-cell u-similar-fill u-size-30 u-white u-layout-cell-4">
                       <div class="u-container-layout u-valign-bottom u-container-layout-4">
-                        <h1 class="u-align-center u-text u-text-default u-text-7">#04</h1>
+                        <h1 class="u-align-center u-text u-text-default u-text-7">#03</h1>
                         <h5 class="u-align-center u-text u-text-8">dog's behaviour</h5>
                         <p class="u-align-justify u-text u-text-grey-50 u-text-9">Knowing how dogs learn, understanding what motivates them, and being able to recognise straight away when things are going wrong are important...</p>
                       </div>
                     </div>
                     <div class="u-container-style u-layout-cell u-right-cell u-similar-fill u-size-30 u-white u-layout-cell-5">
                       <div class="u-container-layout u-container-layout-5">
-                        <h1 class="u-align-center u-text u-text-default u-text-10">#03</h1>
+                        <h1 class="u-align-center u-text u-text-default u-text-10">#04</h1>
                         <h5 class="u-align-center u-text u-text-11">Training classes</h5>
                         <p class="u-align-justify u-text u-text-grey-50 u-text-12"> Reward based training also helps to build and strengthen the relationship between you and your dog, and makes being with your dog a more...</p>
                       </div>
@@ -133,48 +112,9 @@
         </div>
       </div>
     </section>
-    <section class="u-align-center u-clearfix u-section-4" id="carousel_fbc7">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-align-right u-container-style u-group u-palette-5-light-1 u-group-1">
-          <div class="u-container-layout u-valign-middle u-container-layout-1">
-            <h1 class="u-text u-text-body-alt-color u-text-1">Dog Sch​ool</h1>
-          </div>
-        </div>
-        <div class="u-image u-image-circle u-image-1" alt="" data-image-width="720" data-image-height="1080"></div>
-        <h5 class="u-align-justify u-text u-text-body-color u-text-2"> There are a few characteristics that humans find particularly adorable across species: big, forward-facing eyes, floppy and unstable limbs, and a soft, rounded body shape. We’re also keen to squeal when animals have large heads in comparison to their bodies, and this reaction goes back to evolution.</h5>
-      </div>
-    </section>
     <section class="u-align-center u-clearfix u-image u-section-5" id="carousel_6010">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <h5 class="u-text u-text-1">Vet clinic</h5>
-        <h1 class="u-text u-title u-text-2">True Friend</h1>
-      </div>
-    </section>
-    <section class="u-clearfix u-section-6" id="carousel_7386">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-valign-top-lg u-valign-top-xl u-container-layout-1">
-                  <h2 class="u-text u-text-default-lg u-text-default-xl u-text-1"> Sign up for your first consultation</h2>
-                  <a href="https://wa.me/message/27HWMI3LEBMWD1" class="u-active-none u-btn u-button-style u-hover-none u-none u-text-hover-palette-5-light-1 u-btn-1"><span class="u-icon u-text-palette-5-light-1"><svg class="u-svg-content" viewBox="0 0 405.333 405.333" x="0px" y="0px" style="width: 1em; height: 1em;"><path d="M373.333,266.88c-25.003,0-49.493-3.904-72.704-11.563c-11.328-3.904-24.192-0.896-31.637,6.699l-46.016,34.752    c-52.8-28.181-86.592-61.952-114.389-114.368l33.813-44.928c8.512-8.512,11.563-20.971,7.915-32.64    C142.592,81.472,138.667,56.96,138.667,32c0-17.643-14.357-32-32-32H32C14.357,0,0,14.357,0,32    c0,205.845,167.488,373.333,373.333,373.333c17.643,0,32-14.357,32-32V298.88C405.333,281.237,390.976,266.88,373.333,266.88z"></path></svg><img></span>&nbsp;+57 324 577-3256
-                  </a>
-                </div>
-              </div>
-              <div class="u-align-left u-container-style u-layout-cell u-size-30 u-layout-cell-2">
-                <div class="u-container-layout u-container-layout-2">
-                  <div class="u-image u-image-circle u-image-1" alt="" data-image-width="1620" data-image-height="1080"></div>
-                  <h6 class="u-text u-text-2">ubicación</h6>
-                  <p class="u-text u-text-3">121 Rock Sreet, 21 Avenue,<br>New York, NY 92103-9000
-                  </p>
-                  <div class="u-border-10 u-border-palette-5-light-1 u-line u-line-horizontal u-line-1"></div>
-                  <p class="u-text u-text-4">Sample text. Click to select the text box. Click again or double click to start editing the text.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <h1 class="u-text u-title u-text-2">VERDADERO AMIGO</h1>
       </div>
     </section>
     

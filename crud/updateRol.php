@@ -51,12 +51,6 @@ if (isset($_GET['id_rol'])) {
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../view/factura.php">
-                <span data-feather="file"></span>
-                Facturas
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="../view/productos.php">
                 <span data-feather="shopping-cart"></span>
                 Productos

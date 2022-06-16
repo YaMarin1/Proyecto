@@ -50,19 +50,13 @@ $productos = new Database();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../view/factura.php">
-                <span data-feather="file"></span>
-                Facturas
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="../view/productos.php">
+              <a class="nav-link active" href="../view/productos.php">
                 <span data-feather="shopping-cart"></span>
                 Productos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  active" href="../view/user.php">
+              <a class="nav-link" href="../view/user.php">
                 <span data-feather="users"></span>
                 Usuarios
               </a>

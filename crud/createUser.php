@@ -47,12 +47,6 @@ include("../db/database.php");
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file"></span>
-                Facturas
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="../view/productos.php">
                 <span data-feather="shopping-cart"></span>
                 Productos

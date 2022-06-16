@@ -44,19 +44,13 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">
-                <span data-feather="file"></span>
-                Facturas
-              </a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="../view/productos.php">
                 <span data-feather="shopping-cart"></span>
                 Productos
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link  active" href="../view/user.php">
+              <a class="nav-link" href="../view/user.php">
                 <span data-feather="users"></span>
                 Usuarios
               </a>
@@ -68,7 +62,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../view/categoria.php">
+              <a class="nav-link active" href="../view/categoria.php">
                 <span data-feather="layers"></span>
                 Categorias
               </a>
