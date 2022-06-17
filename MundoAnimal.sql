@@ -30,6 +30,7 @@ CREATE TABLE productos (
   nombrep VARCHAR(45) NOT NULL,
   imagen VARCHAR(255) NOT NULL,
   descripcion VARCHAR(45) NOT NULL,
+  stock int,
   precio FLOAT NOT NULL,
   iva FLOAT NOT NULL,
   categoria_id INT NOT NULL,
@@ -111,12 +112,12 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',18000,1500,1,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','collar.jpg','Prueba2',15000,1500,1,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba3',11400,1500,2,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','galleta.png','Prueba4',15000,1500,2,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba5',15000,1500,3,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba',15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',10,18000,1500,1,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','collar.jpg','Prueba2',10,15000,1500,1,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba3',10,11400,1500,2,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','galleta.png','Prueba4',10,15000,1500,2,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba5',10,15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba',10,15000,1500,3,1000088550);
 
 
 INSERT INTO roles(descripcion) VALUES ('Administrador');

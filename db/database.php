@@ -184,8 +184,8 @@
 
 
 
-		public function createProductos($nombrep,$imagen,$descripcion,$precio,$iva,$categoria_id,$proveedor_id){
-            $sql = "INSERT INTO productos (nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('$nombrep','".$imagen."','$descripcion',$precio,$iva,$categoria_id,$proveedor_id)";
+		public function createProductos($nombrep,$imagen,$descripcion,$stock,$precio,$iva,$categoria_id,$proveedor_id){
+            $sql = "INSERT INTO productos (nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) VALUES ('$nombrep','".$imagen."','$descripcion',$stock,$precio,$iva,$categoria_id,$proveedor_id)";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
 				return true;
@@ -207,11 +207,11 @@
 					return $return ;
 		}
 
-		public function updateProductos($nombrep,$imagen,$descripcion,$precio,$iva,$categoria_id,$proveedor_id,$idproductos){
-			$sql = "UPDATE productos SET nombrep='$nombrep',imagen='.$imagen.', descripcion='$descripcion', precio='$precio', iva='$iva', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
+		public function updateProductos($nombrep,$imagen,$descripcion,$stock,$precio,$iva,$categoria_id,$proveedor_id,$idproductos){
+			$sql = "UPDATE productos SET nombrep='$nombrep',imagen='.$imagen.', descripcion='$descripcion', stock='$stock', precio='$precio', iva='$iva', categoria_id='$categoria_id', proveedor_id='$proveedor_id' WHERE idproductos=$idproductos";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
-					return false;
+					return true;
 				}else{
 					return false;
 			}
@@ -226,6 +226,21 @@
             		return false;
             }
         }
+
+		public function actualizarStock($idproductos,$stockDescontar){
+            $sql = "SELECT stock FROM productos WHERE idproductos = $idproductos";
+			$res = $this->con->ejecutar($sql);
+
+			$stockActual = 0;
+				if ($reg = mysqli_fetch_array($res)) {
+						$stockActual = $reg[0];
+				}
+				$stockActual -= $stockDescontar;
+				$query = "UPDATE productos SET stock = $stockActual WHERE idproductos = $idproductos";
+				$this->con->ejecutar($query);
+
+		}
+
 
 
 

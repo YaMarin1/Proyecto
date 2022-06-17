@@ -117,13 +117,14 @@ if (isset($_GET['idproductos'])) {
               $ruta = $ruta . "/" . $imagen;
               move_uploaded_file($archivo, $ruta);
               $descripcion = $productos->sanitize($_POST['descripcion']);
+              $stock = $productos->sanitize($_POST['stock']);
               $precio = $productos->sanitize($_POST['precio']);
               $iva = $productos->sanitize($_POST['iva']);
               $categoria_id = $productos->sanitize($_POST['categoria_id']);
               $proveedor_id = $productos->sanitize($_POST['proveedor_id']);
               $id_cliente = intval($_POST['id_cliente']);
 
-              $res = $productos->updateProductos($nombrep, $imagen, $descripcion, $precio, $iva, $categoria_id, $proveedor_id, $id_cliente);
+              $res = $productos->updateProductos($nombrep, $imagen, $descripcion, $stock, $precio, $iva, $categoria_id, $proveedor_id, $id_cliente);
               if ($res) {
                 $message = "Datos actualizados con éxito";
                 $class = "alert alert-success";
@@ -161,6 +162,10 @@ if (isset($_GET['idproductos'])) {
                 <div class="col-md-6">
                   <label>Descripcion:</label>
                   <input type="text" name="descripcion" id="descripcion" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->descripcion; ?>">
+                </div>
+                <div class="col-md-6">
+                  <label>Stock:</label>
+                  <input type="number" name="stock" id="stock" class='form-control' maxlength="100" required value="<?php echo $datos_cliente->stock; ?>">
                 </div>
                 <div class="col-md-6">
                   <label>Precio:</label>

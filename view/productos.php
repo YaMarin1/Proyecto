@@ -121,6 +121,7 @@ $productos = new Database();
                 <th scope="col">Nombre</th>
                 <th scope="col">Imagen</th>
                 <th scope="col">Descripcion</th>
+                <th scope="col">Stock</th>
                 <th scope="col">Precio</th>
                 <th scope="col">Iva</th>
                 <th scope="col">Categoria</th>
@@ -136,6 +137,7 @@ $productos = new Database();
                 $nombrep = $row->nombrep;
                 $imagen = $row->imagen;
                 $descripcion = $row->descripcion;
+                $stock = $row->stock;
                 $precio = $row->precio;
                 $iva = $row->iva;
                 $categoria_id = $row->categoria_id;
@@ -146,6 +148,7 @@ $productos = new Database();
                   <td><?php echo $nombrep; ?></td>
                   <td><img src="../images/ImagesProductos/<?php echo $imagen; ?>" width="70px" height="70px" alt=""></img></td>
                   <td><?php echo $descripcion; ?></td>
+                  <td><?php echo $stock; ?></td>
                   <td><?php echo $precio; ?></td>
                   <td><?php echo $iva; ?></td>
                   <td><?php echo $categoria_id; ?></td>
