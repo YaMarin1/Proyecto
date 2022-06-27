@@ -61,7 +61,7 @@ include '../controller/LoginController.php';
           <label for="password">Clave</label>
         </div>
 
-        <p><a href ="password.php">- Olvide mi contraseña -</a></p>
+        <p><a href ="restablecer.php">- Olvide mi contraseña -</a></p>
         <input class="w-100 btn btn-lg btn-dark" type="submit" value="Iniciar sesión">
 
       </form>

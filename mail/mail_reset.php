@@ -2,7 +2,7 @@
 header("Content-Type: text/html;charset=utf-8");
 
 // Varios destinatarios
-$para  = $username . ', '; // atención a la coma
+$para  = $email . ', '; // atención a la coma
 //$para .= 'wez@example.com';
 
 // título
@@ -24,7 +24,7 @@ $mensaje = '
   <h2 style="color: #193a77; margin: 0 0 7px">Restablecer contrasena</h2>
     
 		  <td style="background-color: #ecf0f1; padding: 0;">
-      <a href="https://postimg.cc/QH94C9BQ" target="_blank"><img src="https://i.postimg.cc/QH94C9BQ/Mundo-Animal.png" border="0" alt="Mundo-Animal"/></a></td>
+      <a href="#" target="_blank"><img src="https://i.postimg.cc/QH94C9BQ/Mundo-Animal.png" border="0" alt="Mundo-Animal"/></a></td>
     </center>
 	</tr>
 	
@@ -33,7 +33,7 @@ $mensaje = '
 			<div style="color: #34495e; margin: 4% 10% 2%; text-align: center;font-family: sans-serif">
       <h2 style="color: #193a77; margin: 0 0 7px">Tu codigo es:</h2>
         <h3>'.$codigo.'</h3>
-        <p style="margin: 2px; font-size: 15px"><a href="http://localhost/Proyecto/view/reset.php?username='.$username.'&token='.$token.'">Para restablecer da click aqui</a>
+        <p style="margin: 2px; font-size: 15px"><a href="http://localhost/Proyecto/view/reset.php?email='.$email.'&token='.$token.'">Para restablecer da click aqui</a>
 					</p>
 
 				<p style="margin: 2px; font-size: 15px">

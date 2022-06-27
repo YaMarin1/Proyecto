@@ -1,6 +1,3 @@
-<?php
-include '../controller/LoginController.php';
-?>
 <!doctype html>
 <html lang="es">
 
@@ -48,10 +45,10 @@ include '../controller/LoginController.php';
   <section>
 
     <main class="form-signin">
-      <form action="restablecer.php" method="POST">
+      <form action="../mail/restablecer.php" method="POST">
         <img class="mb-4" src="../images/MundoAnimal.png" alt="" width="100" height="100">
         <div class="form-floating">
-          <input type="number" name="codigo" class="form-control" required="required">
+          <input type="number" name="codigo" id="codigo" class="form-control" required="required">
           <label for="codigo">Codigo</label>
         </div>
         <input class="w-100 btn btn-lg btn-dark" type="submit" value="Restablecer">

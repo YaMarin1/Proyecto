@@ -11,11 +11,12 @@ DROP DATABASE MUNDOANIMAL;
 -- -----------------------------------------------------
 CREATE TABLE passwords (
   idpasswords INT AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(100) NOT NULL,
+  email VARCHAR(100) NOT NULL,
   token VARCHAR(200) NOT NULL,
   codigo INT NOT NULL,
   fecha TIMESTAMP NOT NULL);
 
+select * from passwords;
 -- -----------------------------------------------------
 -- Table Categoria
 -- -----------------------------------------------------
