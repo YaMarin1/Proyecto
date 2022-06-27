@@ -7,6 +7,16 @@ USE MUNDOANIMAL;
 DROP DATABASE MUNDOANIMAL;
 
 -- -----------------------------------------------------
+-- Table Passwords
+-- -----------------------------------------------------
+CREATE TABLE passwords (
+  idpasswords INT AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(100) NOT NULL,
+  token VARCHAR(200) NOT NULL,
+  codigo INT NOT NULL,
+  fecha TIMESTAMP NOT NULL);
+
+-- -----------------------------------------------------
 -- Table Categoria
 -- -----------------------------------------------------
 CREATE TABLE categoria (
@@ -124,7 +134,7 @@ INSERT INTO roles(descripcion) VALUES ('Administrador');
 INSERT INTO roles(descripcion) VALUES ('Cliente');
 INSERT INTO roles(descripcion) VALUES ('Empleado');
 
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison Andres','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison Andres','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison10252.jm@gmail.com','1000088550',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Maria Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia Janet','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);

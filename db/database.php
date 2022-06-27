@@ -1,8 +1,4 @@
 <?php
-	/*-------------------------
-	Autor: Edilfredo Pineda F
-	Mail: edilfredo9@gmail.com
-	---------------------------*/
 	class Database{
 		private $con;
 		private $dbhost="localhost";

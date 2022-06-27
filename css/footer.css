@@ -95,27 +95,7 @@
       white-space: pre-wrap;
       word-wrap: break-word;
       overflow: visible; }
-  /*  .fr-view[dir="rtl"] blockquote {
-      border-left: none;
-      border-right: solid 2px #5E35B1;
-      margin-right: 0;
-      padding-right: 5px;
-      padding-left: 0; }
-      .fr-view[dir="rtl"] blockquote blockquote {
-        border-color: #00BCD4; }
-        .fr-view[dir="rtl"] blockquote blockquote blockquote {
-          border-color: #43A047; }
-    .fr-view blockquote {
-      border-left: solid 2px #5E35B1;
-      margin-left: 0;
-      padding-left: 5px;
-      color: #5E35B1; }
-      .fr-view blockquote blockquote {
-        border-color: #00BCD4;
-        color: #00BCD4; }
-        .fr-view blockquote blockquote blockquote {
-          border-color: #43A047;
-          color: #43A047; } */
+  
     .fr-view span.fr-emoticon {
       font-weight: normal;
       font-family: "Apple Color Emoji","Segoe UI Emoji","NotoColorEmoji","Segoe UI Symbol","Android Emoji","EmojiSymbols";
@@ -547,20 +527,7 @@
   ol {
     padding-left: 20px;
   }
-  /* Fade effect */
-  /* Over effect */
-  /* Slide effect */
-  /* Over and Slide effect */
-  /* Flip Left effect */
-  /* Flip Right effect */
-  /* Flip Top effect */
-  /* Flip Bottom effect */
-  /* Wobble Left effect */
-  /* Wobble Right effect */
-  /* Wobble top effect */
-  /* Wobble bottom effect */
-  /* Zoom and Rotate Effects */
-  /* Utility */
+  
   .u-over-slide {
     position: absolute;
     left: 0;
@@ -36436,7 +36403,7 @@
           .u-image:not(.u-shading) > .u-container-layout > a,
           a
           {
-          color: #478ac9;
+          color: #fff;
           }
           .u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item) > a:hover,
           .u-gradient > .u-container-layout > a:hover,
@@ -36467,7 +36434,7 @@
           .u-btn:focus
           {
           background-color: #387cbd;
-          color: #e6e6e6;
+          color: #fff;
           }
           .u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item) > .u-btn:active,
           .u-gradient > .u-container-layout > .u-btn:active,
@@ -36475,7 +36442,7 @@
           .u-btn:active
           {
           background-color: #387cbd;
-          color: #e6e6e6;
+          color: #fff;
           }
           .u-overlap.u-overlap-transparent:not(.u-overlap-contrast) .u-header :not(.u-nav-item) > blockquote,
           .u-gradient > .u-container-layout > blockquote,

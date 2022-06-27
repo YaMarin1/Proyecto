@@ -10,7 +10,7 @@ include '../controller/LoginController.php';
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Login">
-  <title>Restablecer contraseña</title>
+  <title>Restablecer</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -51,10 +51,10 @@ include '../controller/LoginController.php';
       <form action="restablecer.php" method="POST">
         <img class="mb-4" src="../images/MundoAnimal.png" alt="" width="100" height="100">
         <div class="form-floating">
-          <input type="email" name="username" class="form-control" required="required">
-          <label for="email">Correo</label>
+          <input type="number" name="codigo" class="form-control" required="required">
+          <label for="codigo">Codigo</label>
         </div>
-        <input class="w-100 btn btn-lg btn-dark" type="submit" value="Restablecer contraseña">
+        <input class="w-100 btn btn-lg btn-dark" type="submit" value="Restablecer">
       </form>
     </main>
   </section>
