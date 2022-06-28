@@ -43,7 +43,7 @@ CREATE TABLE productos (
   descripcion VARCHAR(45) NOT NULL,
   stock int,
   precio FLOAT NOT NULL,
-  iva FLOAT NOT NULL,
+  iva FLOAT,
   categoria_id INT NOT NULL,
   proveedor_id BIGINT NOT NULL);
 
@@ -123,19 +123,19 @@ INSERT INTO categoria(nombrec) VALUES ('Medicamentos');
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1152468987,'Daniel','Salazar',2996067);
 INSERT INTO proveedor(idproveedor,nombre,apellido,telefono) VALUES (1000088550,'Yamile','Cornas',2996067);
 
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) VALUES ('Accesorios','collar.jpg','Prueba1',10,18000,1500,1,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Accesorios','collar.jpg','Prueba2',10,15000,1500,1,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Alimentos','galleta.png','Prueba3',10,11400,1500,2,1152468987);
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Alimentos','galleta.png','Prueba4',10,15000,1500,2,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Medicamentos','DRONTAL.png','Prueba5',10,15000,1500,3,1000088550);
-INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Prueba Medicamentos','DRONTAL.png','Prueba',10,15000,1500,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) VALUES ('Collar Premiun | Cachorro','collar.jpg','Asegura tu mascota',10,18000,3420,1,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Pelota Fanty','juguete.jpg','EJercita tu mascota',10,13500,2565,1,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Galleta Choky','galleta.jpg','Especial para tu mascota',10,11400,2166,2,1152468987);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Dogourmet Adulto | 1Kg','galleta.png','Alimenta tu mascota',10,14000,2660,2,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Drontal','DRONTAL.png','Desparacita tu mascota',10,16000,3040,3,1000088550);
+INSERT INTO productos(nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) values ('Aquapet','aqua.jpg','Limpia y desinfecta la boca de tu mascota',10,15000,2850,3,1000088550);
 
 
 INSERT INTO roles(descripcion) VALUES ('Administrador');
 INSERT INTO roles(descripcion) VALUES ('Cliente');
 INSERT INTO roles(descripcion) VALUES ('Empleado');
 
-INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison Andres','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison10252.jm@gmail.com','1000088550',1);
+INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1000088550,'Yeison Andres','Marin', '3178571103', 'Cl 87 # 31-60', 'Yeison@MundoAnimal.com','1000088550',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (1015066245,'Juliana','Marin', '3167399292', 'CR 43 # 80-05', 'Juliana@MundoAnimal.com','1015066245',1);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (32481891,'Maria Lucia','Zapata', '3167974548', 'Cl 87 # 31-58', 'Lucia@gmail.com','32481891',2);
 INSERT INTO usuarios(documento,nombre,apellido,telefono,direccion,username,password,rol_id) VALUES (43635764,'Cecilia Janet','Piedrahita', '3147200163', 'Cl 87 # 31-58', 'Cecilia@gmail.com','43635764',3);

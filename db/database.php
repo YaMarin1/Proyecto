@@ -3,7 +3,7 @@
 		private $con;
 		private $dbhost="localhost";
 		private $dbuser="root";
-		private $dbpass="root";
+		private $dbpass="";
 		private $dbname="mundoanimal";
 
 		function __construct(){
@@ -180,8 +180,8 @@
 
 
 
-		public function createProductos($nombrep,$imagen,$descripcion,$stock,$precio,$iva,$categoria_id,$proveedor_id){
-            $sql = "INSERT INTO productos (nombrep,imagen,descripcion,stock,precio,iva,categoria_id,proveedor_id) VALUES ('$nombrep','".$imagen."','$descripcion',$stock,$precio,$iva,$categoria_id,$proveedor_id)";
+		public function createProductos($nombrep,$imagen,$descripcion,$precio,$iva,$categoria_id,$proveedor_id){
+            $sql = "INSERT INTO productos (nombrep,imagen,descripcion,precio,iva,categoria_id,proveedor_id) VALUES ('$nombrep','".$imagen."','$descripcion',$precio,$iva,$categoria_id,$proveedor_id)";
 			$res = mysqli_query($this->con, $sql);
 			if($res){
 				return true;
